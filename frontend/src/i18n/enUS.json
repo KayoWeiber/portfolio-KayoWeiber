@@ -1,0 +1,11 @@
+{
+  "greeting": "Hello, I'm Kayo!",
+  "about": "Software Developer",
+  "hero": {
+  "greeting": "Hello, I'm Kayo!",
+  "role": "Software Developer",
+  "description": "Passionate about technology, building innovative and responsive solutions for web and mobile.",
+  "cta_contact": "Contact",
+  "cta_cv": "Download CV"
+}
+}
