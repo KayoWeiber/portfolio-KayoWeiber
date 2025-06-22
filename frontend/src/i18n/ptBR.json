@@ -2,10 +2,8 @@
   "greeting": "Olá, eu sou Kayo!",
   "about": "Desenvolvedor de Software",
   "hero": {
-    "greeting": "Olá, eu sou Kayo!",
-    "role": "Desenvolvedor de Software",
-    "description": "Apaixonado por tecnologia, construo soluções inovadoras e responsivas para web e mobile.",
-    "cta_contact": "Contato",
-    "cta_cv": "Download CV"
-  }
+  "name": "Kayo Weiber",
+  "role": "Desenvolvedor de Software",
+  "hello": "HELLO WORLD 👋"
+}
 }

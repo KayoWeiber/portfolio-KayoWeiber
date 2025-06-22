@@ -1,2 +1,22 @@
 @config "../tailwind.config.js";
 @import "tailwindcss";
+
+@keyframes gradientMove {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.bg-animate-gradient {
+  background: linear-gradient(120deg, #181818, #0A2342, #1e293b, #181818); /* Azul mais escuro no lugar do azul claro */
+  background-size: 200% 200%;
+  animation: gradientMove 60s ease-in-out infinite;
+}
+
+@keyframes float-y {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-24px); }
+}
+
+.animate-float-y {
+  animation: float-y 3s ease-in-out infinite;
+}
