@@ -5,5 +5,19 @@
   "name": "Kayo Weiber",
   "role": "Desenvolvedor de Software",
   "hello": "HELLO WORLD 👋"
-}
+},
+"About": {
+    "subtitle": "Sobre Mim",
+    "title": "Desenvolvedor Full Stack",
+    "p1": "Me chamo <1>Kayo Weiber</1>, graduando em Sistemas de Informação pela UEMG e desenvolvedor full-stack apaixonado por criar softwares que fazem a diferença.",
+    "p2": "Tenho cerca de 4 anos de experiência com suporte técnico e manutenção de computadores, e atualmente foco em desenvolvimento de softwares.",
+    "p3": "Estou aprofundando minhas skills com <1>Java</1> e Spring-Boot, visando me tornar um desenvolvedor <2>melhor</2>.",
+    "stats": [
+      { "number": "4+", "label": "Anos de Experiência", "color": "blue" },
+      { "number": "15+", "label": "Tecnologias", "color": "purple" },
+      { "number": "∞", "label": "Aprendizado", "color": "green" }
+    ],
+    "stack": "Stack Tecnológico",
+    "mainLangs": "Principais Linguagens"
+  }
 }

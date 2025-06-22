@@ -35,18 +35,18 @@ const Hero: React.FC = () => {
       className="min-h-[90vh] flex flex-col md:flex-row items-center justify-center gap-12 px-4 pt-28"
     >
       {/* Texto */}
-      <div className="flex flex-col items-start justify-start gap-8 max-w-lg">
-        <span className="uppercase text-blue-400 font-bold tracking-widest text-base mb-2">
+      <div className="flex flex-col items-start justify-start gap-6 max-w-lg">
+        <span className="uppercase text-blue-400 font-bold tracking-widest text-base mb-1">
           {t("hero.hello")}
         </span>
         <h1
-          className="text-5xl md:text-7xl font-extrabold text-white mb-2 text-left"
+          className="text-5xl md:text-7xl font-extrabold text-white mb-1 text-left"
           style={{ fontFamily: "'Montserrat', sans-serif" }}
         >
           Kayo Weiber,
         </h1>
         <h2
-          className="text-3xl md:text-4xl font-semibold text-blue-200 h-12 mb-3 text-left"
+          className="text-3xl md:text-4xl font-semibold text-blue-200 h-12 mb-1 text-left"
           style={{ minHeight: 48 }}
         >
           {displayedRole}

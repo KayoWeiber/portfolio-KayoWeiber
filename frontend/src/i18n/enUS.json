@@ -5,5 +5,19 @@
   "name": "Kayo Weiber",
   "role": "Software Developer",
   "hello": "HELLO WORLD 👋"
-}
+},
+"About": {
+    "subtitle": "About Me",
+    "title": "Full Stack Developer",
+    "p1": "My name is <1>Kayo Weiber</1>, an Information Systems undergraduate at UEMG and a full-stack developer passionate about creating impactful software.",
+    "p2": "I have about 4 years of experience in technical support and computer maintenance, and I am currently focused on software development.",
+    "p3": "I'm deepening my skills with <1>Java</1> and Spring-Boot, aiming to become a <2>better</2> developer.",
+    "stats": [
+      { "number": "4+", "label": "Years of Experience", "color": "blue" },
+      { "number": "15+", "label": "Technologies", "color": "purple" },
+      { "number": "∞", "label": "Continuous Learning", "color": "green" }
+    ],
+    "stack": "Tech Stack",
+    "mainLangs": "Main Languages"
+  }
 }
