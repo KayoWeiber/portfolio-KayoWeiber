@@ -2,16 +2,16 @@
   "greeting": "Olá, eu sou Kayo!",
   "about": "Desenvolvedor de Software",
   "hero": {
-  "name": "Kayo Weiber",
-  "role": "Desenvolvedor de Software",
-  "hello": "HELLO WORLD 👋"
-},
-"About": {
+    "name": "Kayo Weiber",
+    "role": "Desenvolvedor de Software",
+    "hello": "HELLO WORLD 👋"
+  },
+  "About": {
     "subtitle": "Sobre Mim",
     "title": "Desenvolvedor Full Stack",
-    "p1": "Me chamo <1>Kayo Weiber</1>, graduando em Sistemas de Informação pela UEMG e desenvolvedor full-stack apaixonado por criar softwares que fazem a diferença.",
-    "p2": "Tenho cerca de 4 anos de experiência com suporte técnico e manutenção de computadores, e atualmente foco em desenvolvimento de softwares.",
-    "p3": "Estou aprofundando minhas skills com <1>Java</1> e Spring-Boot, visando me tornar um desenvolvedor <2>melhor</2>.",
+    "p1": "Me chamo <0>Kayo Weiber</0>, sou graduando em Sistemas de Informação pela UEMG e atuo como desenvolvedor full-stack, motivado por transformar ideias em soluções que impactam positivamente a vida das pessoas.",
+    "p2": "Com mais de 4 anos de experiência em suporte técnico e manutenção de computadores, hoje foco meu caminho no desenvolvimento de softwares robustos e escaláveis.",
+    "p3": "Atualmente, estou me especializando em <0>Java</0> e Spring Boot, buscando evoluir continuamente como um desenvolvedor <1>mais completo e preparado</1> para os desafios do mercado.",
     "stats": [
       { "number": "4+", "label": "Anos de Experiência", "color": "blue" },
       { "number": "15+", "label": "Tecnologias", "color": "purple" },

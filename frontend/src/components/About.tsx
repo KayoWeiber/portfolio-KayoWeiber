@@ -5,33 +5,36 @@ import {
   FaPython, FaJs, FaJava, FaHtml5, FaCss3Alt, FaReact, FaNodeJs,
 } from "react-icons/fa";
 import {
-  SiTypescript, SiTailwindcss, SiNextdotjs,
+  SiTypescript, SiTailwindcss, 
   SiExpress, SiMongodb, SiPostgresql, SiMysql,
-} from "react-icons/si";
+} from "react-icons/si"; //SiNextdotjs
+//import { SiCsharp } from "react-icons/si";
+import { TbBrandCSharp } from "react-icons/tb";
+import { SiSpringboot } from "react-icons/si";
 
-// Mapeamento de cores permitidas no Tailwind
+// Mapeamento de cores
 const colorMap: Record<string, string> = {
   blue: "blue",
   purple: "purple",
   green: "green",
 };
 
-// Dados das tecnologias
+// Tecnologias
 const technologies = [
-  { name: "Python", icon: FaPython, color: "#3776AB", percentage: "35.35%" },
+  { name: "Python", icon: FaPython, color: "#3776AB", percentage: "15.35%" },
   { name: "JavaScript", icon: FaJs, color: "#F7DF1E", percentage: "17.50%" },
-  { name: "Java", icon: FaJava, color: "#ED8B00", percentage: "9.26%" },
-  { name: "HTML", icon: FaHtml5, color: "#E34F26", percentage: "8.36%" },
-  { name: "CSS", icon: FaCss3Alt, color: "#1572B6", percentage: "7.06%" },
+  { name: "Java", icon: FaJava, color: "#ED8B00", percentage: "79.26%" },
   { name: "TypeScript", icon: SiTypescript, color: "#3178C6", percentage: "85%" },
   { name: "React", icon: FaReact, color: "#61DAFB", percentage: "90%" },
   { name: "Node.js", icon: FaNodeJs, color: "#339933", percentage: "80%" },
-  { name: "Next.js", icon: SiNextdotjs, color: "#000000", percentage: "75%" },
+  { name: "SpringBoot", icon: SiSpringboot, color: "#47A248", percentage: "75%" },
   { name: "Tailwind CSS", icon: SiTailwindcss, color: "#06B6D4", percentage: "85%" },
   { name: "Express.js", icon: SiExpress, color: "#000000", percentage: "70%" },
   { name: "MongoDB", icon: SiMongodb, color: "#47A248", percentage: "65%" },
   { name: "PostgreSQL", icon: SiPostgresql, color: "#336791", percentage: "70%" },
-  { name: "MySQL", icon: SiMysql, color: "#4479A1", percentage: "75%" },
+  { name: "MySQL", icon: SiMysql, color: "#4479A1", percentage: "75%" },  { name: "HTML", icon: FaHtml5, color: "#E34F26", percentage: "8.36%" },
+  { name: "CSS", icon: FaCss3Alt, color: "#1572B6", percentage: "7.06%" },{ name: "C#", icon: TbBrandCSharp, color: "#239120", percentage: "60%" },
+
 ];
 
 // Animações
@@ -99,62 +102,54 @@ const About: React.FC = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.5 }}
+              transition={{ duration: 0.4 }}
               className="space-y-8"
             >
-              <motion.span
-                className="inline-block px-4 py-2 bg-blue-500/20 text-blue-300 rounded-full text-sm font-medium uppercase tracking-wider border border-blue-500/30"
-                whileHover={{ scale: 1.05 }}
-              >
-                {t("About.subtitle", "About Me")}
-              </motion.span>
+              <span className="inline-block px-4 py-2 bg-blue-500/20 text-blue-300 rounded-full text-sm font-medium uppercase tracking-wider border border-blue-500/30">
+                {t("About.subtitle")}
+              </span>
 
-              <motion.h2
-                variants={itemVariants}
-                className="text-4xl md:text-5xl font-bold text-white leading-tight"
-              >
+              <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight">
                 <Trans i18nKey="About.title">
                   Full Stack <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">Developer</span>
                 </Trans>
-              </motion.h2>
+              </h2>
 
-              <motion.div variants={itemVariants} className="space-y-6 text-gray-300">
-                <p className="text-lg">
-                  <Trans i18nKey="About.p1">
-                    My name is <strong className="text-blue-300">Kayo Weiber</strong>, an Information Systems undergraduate at UEMG and a full-stack developer passionate about creating impactful software.
-                  </Trans>
+              <div className="space-y-6 text-gray-300 text-lg">
+                <p>
+                  <Trans i18nKey="About.p1" components={{ 1: <strong className="text-blue-300" /> }} />
                 </p>
-                <p className="text-lg">{t("About.p2")}</p>
-                <p className="text-lg">
-                  <Trans i18nKey="About.p3">
-                    I'm deepening my skills with <strong className="text-blue-300">Java</strong> and Spring-Boot, aiming to become a <strong className="text-purple-300">better</strong> developer.
-                  </Trans>
+                <p>{t("About.p2")}</p>
+                <p>
+                  <Trans
+                    i18nKey="About.p3"
+                    components={{
+                      1: <strong className="text-blue-300" />,
+                      2: <strong className="text-purple-300" />,
+                    }}
+                  />
                 </p>
-              </motion.div>
+              </div>
 
-              <motion.div variants={itemVariants} className="grid grid-cols-2 md:grid-cols-3 gap-6 pt-8">
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-6 pt-8">
                 {(Array.isArray(stats) ? stats : []).map((stat) => {
                   const color = colorMap[stat.color] || "gray";
                   return (
-                    <motion.div
+                    <div
                       key={stat.label}
                       className={`text-center p-4 bg-${color}-500/10 rounded-lg border border-${color}-500/20`}
-                      whileHover={{ scale: 1.08 }}
                     >
                       <div className={`text-2xl font-bold text-${color}-400`}>{stat.number}</div>
                       <div className="text-sm text-gray-400 uppercase tracking-wide">{stat.label}</div>
-                    </motion.div>
+                    </div>
                   );
                 })}
-              </motion.div>
+              </div>
             </motion.div>
           </AnimatePresence>
 
           <motion.div variants={itemVariants} className="space-y-8">
-            <motion.h3
-              variants={itemVariants}
-              className="text-2xl md:text-3xl font-bold text-white text-center"
-            >
+            <motion.h3 className="text-2xl md:text-3xl font-bold text-white text-center">
               {t("About.stack")}
             </motion.h3>
 
