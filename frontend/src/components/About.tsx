@@ -5,12 +5,13 @@ import {
   FaPython, FaJs, FaJava, FaHtml5, FaCss3Alt, FaReact, FaNodeJs,
 } from "react-icons/fa";
 import {
-  SiTypescript, SiTailwindcss, 
+  SiTypescript, SiTailwindcss,
   SiExpress, SiMongodb, SiPostgresql, SiMysql,
-} from "react-icons/si"; //SiNextdotjs
-//import { SiCsharp } from "react-icons/si";
+} from "react-icons/si";
 import { TbBrandCSharp } from "react-icons/tb";
 import { SiSpringboot } from "react-icons/si";
+import { easeInOut } from "framer-motion";
+
 
 // Mapeamento de cores
 const colorMap: Record<string, string> = {
@@ -32,9 +33,10 @@ const technologies = [
   { name: "Express.js", icon: SiExpress, color: "#000000", percentage: "70%" },
   { name: "MongoDB", icon: SiMongodb, color: "#47A248", percentage: "65%" },
   { name: "PostgreSQL", icon: SiPostgresql, color: "#336791", percentage: "70%" },
-  { name: "MySQL", icon: SiMysql, color: "#4479A1", percentage: "75%" },  { name: "HTML", icon: FaHtml5, color: "#E34F26", percentage: "8.36%" },
-  { name: "CSS", icon: FaCss3Alt, color: "#1572B6", percentage: "7.06%" },{ name: "C#", icon: TbBrandCSharp, color: "#239120", percentage: "60%" },
-
+  { name: "MySQL", icon: SiMysql, color: "#4479A1", percentage: "75%" },
+  { name: "HTML", icon: FaHtml5, color: "#E34F26", percentage: "8.36%" },
+  { name: "CSS", icon: FaCss3Alt, color: "#1572B6", percentage: "7.06%" },
+  { name: "C#", icon: TbBrandCSharp, color: "#239120", percentage: "60%" },
 ];
 
 // Animações
@@ -55,7 +57,10 @@ const itemVariants = {
   visible: {
     y: 0,
     opacity: 1,
-    transition: { duration: 0.5, ease: "easeOut" },
+    transition: {
+      duration: 0.5,
+      ease: easeInOut,// corrigido
+    },
   },
 };
 
@@ -64,7 +69,11 @@ const iconVariants = {
   visible: {
     scale: 1,
     rotate: 0,
-    transition: { type: "spring", stiffness: 260, damping: 20 },
+    transition: {
+      type: "spring" as const, // corrigido
+      stiffness: 260,
+      damping: 20,
+    },
   },
 };
 
