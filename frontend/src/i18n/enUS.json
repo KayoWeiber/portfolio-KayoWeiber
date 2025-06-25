@@ -19,5 +19,23 @@
     ],
     "stack": "Tech Stack",
     "mainLangs": "Main Languages"
-  }
+  },"nav": {
+  "services": "Services"
+},
+"services": {
+  "webDev": "Web Development",
+  "webDesc": "Modern and responsive websites focused on performance and UX.",
+  "backendDev": "Backend Development",
+  "backendDesc": "Robust solutions with Node.js, Express, and JWT authentication.",
+  "apiIntegration": "API Integration",
+  "apiDesc": "System connections via RESTful APIs and efficient data handling.",
+  "javaSpring": "Java with Spring Boot",
+  "javaSpringDesc": "Secure and scalable apps built with Spring Boot framework.",
+  "frontend": "Modern Frontend",
+  "frontendDesc": "Rich interfaces using React, TypeScript and Tailwind CSS.",
+  "dbDesign": "Database Design",
+  "dbDesignDesc": "Well-structured relational and NoSQL database projects."
+}
+
+
 }

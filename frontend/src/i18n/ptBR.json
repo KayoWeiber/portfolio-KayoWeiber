@@ -19,5 +19,23 @@
     ],
     "stack": "Stack Tecnológico",
     "mainLangs": "Principais Linguagens"
-  }
+  },"nav": {
+  "services": "Serviços"
+},
+"services": {
+  "webDev": "Desenvolvimento Web",
+  "webDesc": "Criação de sites modernos e responsivos com foco em performance e UX.",
+  "backendDev": "Desenvolvimento Backend",
+  "backendDesc": "Soluções robustas com Node.js, Express e autenticação JWT.",
+  "apiIntegration": "Integração de APIs",
+  "apiDesc": "Conexão de sistemas via APIs RESTful e consumo eficiente de dados.",
+  "javaSpring": "Java com Spring Boot",
+  "javaSpringDesc": "Criação de aplicações seguras e escaláveis com Spring Boot.",
+  "frontend": "Frontend Moderno",
+  "frontendDesc": "Interfaces ricas com React, TypeScript e Tailwind CSS.",
+  "dbDesign": "Modelagem de Banco de Dados",
+  "dbDesignDesc": "Projetos de banco de dados relacionais e NoSQL bem estruturados."
+}
+
+
 }

@@ -1,6 +1,7 @@
 import Header from "./components/Header";
 import Hero from "./features/Hero";
 import About from "./components/About";
+import Services from "./components/Services";
 
 function App() {
   return (
@@ -9,6 +10,8 @@ function App() {
       <main className="pt-20">
         <Hero />
         <About />
+        <Services />
+        
         {/* Outras seções */}
       </main>
     </div>
