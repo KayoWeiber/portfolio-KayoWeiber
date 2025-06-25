@@ -41,6 +41,7 @@ const Header: React.FC = () => {
           />
         </span>
 
+        {/* Desktop nav */}
         <nav className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
             <a
@@ -64,16 +65,16 @@ const Header: React.FC = () => {
           ))}
         </nav>
 
+        {/* Idioma desktop */}
         <div
-          className="ml-4 flex items-center bg-blue-900/50 rounded-full border border-blue-400 px-1 py-0.5 cursor-pointer select-none transition-all shadow-sm hover:shadow-blue-500/20"
+          className="hidden md:flex items-center bg-blue-900/50 rounded-full border border-blue-400 px-1 py-0.5 cursor-pointer select-none transition-all shadow-sm hover:shadow-blue-500/20"
           style={{ height: "32px", minWidth: "100px" }}
           onClick={handleLangSwitch}
           title="Switch Language"
         >
           <span
             className={`px-3 py-1 rounded-full font-bold text-xs transition-all
-              ${!lang ? "bg-blue-400 text-white shadow" : "text-blue-200"}
-            `}
+              ${!lang ? "bg-blue-400 text-white shadow" : "text-blue-200"}`}
             style={{ minWidth: "56px", textAlign: "center" }}
           >
             PT-BR
@@ -81,33 +82,34 @@ const Header: React.FC = () => {
           <span className="text-blue-300 font-bold px-1 text-xs">|</span>
           <span
             className={`px-3 py-1 rounded-full font-bold text-xs transition-all
-              ${lang ? "bg-blue-400 text-white shadow" : "text-blue-200"}
-            `}
+              ${lang ? "bg-blue-400 text-white shadow" : "text-blue-200"}`}
             style={{ minWidth: "36px", textAlign: "center" }}
           >
             EN
           </span>
         </div>
 
+        {/* Botão menu mobile */}
         <button
-          className="md:hidden text-blue-300 hover:text-blue-400 transition text-2xl ml-2 z-50"
+          className="md:hidden text-white hover:text-blue-300 transition text-3xl ml-2 p-2 z-[999]"
           aria-label={mobileMenuOpen ? "Fechar menu" : "Abrir menu"}
           onClick={handleMobileMenuToggle}
         >
           {mobileMenuOpen ? (
-            <svg width="28" height="28" fill="currentColor" viewBox="0 0 20 20">
-              <path fillRule="evenodd" d="M6 6l8 8M6 14L14 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+            <svg width="28" height="28" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
             </svg>
           ) : (
-            <svg width="28" height="28" fill="currentColor" viewBox="0 0 20 20">
-              <path fillRule="evenodd" d="M3 6h14M3 10h14M3 14h14" />
+            <svg width="28" height="28" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
             </svg>
           )}
         </button>
       </div>
 
+      {/* Menu mobile reduzido */}
       {mobileMenuOpen && (
-        <nav className="absolute top-full left-0 w-full bg-gradient-to-b from-[#0a2342] via-[#181818] to-[#2563eb] shadow-lg md:hidden z-40 transition-all">
+        <nav className="absolute top-full left-0 w-full bg-[#0a2342] shadow-lg md:hidden z-40 transition-all">
           <div className="flex flex-col gap-2 px-6 py-4">
             {navLinks.map((link) => (
               <a
@@ -124,6 +126,8 @@ const Header: React.FC = () => {
                 {lang ? link.label : link.pt}
               </a>
             ))}
+
+            {/* Idioma no menu mobile */}
             <div className="mt-4">
               <div
                 className="flex items-center bg-blue-900/50 rounded-full border border-blue-400 px-1 py-0.5 cursor-pointer select-none transition-all shadow-sm hover:shadow-blue-500/20"
@@ -133,8 +137,7 @@ const Header: React.FC = () => {
               >
                 <span
                   className={`px-3 py-1 rounded-full font-bold text-xs transition-all
-                    ${!lang ? "bg-blue-400 text-white shadow" : "text-blue-200"}
-                  `}
+                    ${!lang ? "bg-blue-400 text-white shadow" : "text-blue-200"}`}
                   style={{ minWidth: "56px", textAlign: "center" }}
                 >
                   PT-BR
@@ -142,8 +145,7 @@ const Header: React.FC = () => {
                 <span className="text-blue-300 font-bold px-1 text-xs">|</span>
                 <span
                   className={`px-3 py-1 rounded-full font-bold text-xs transition-all
-                    ${lang ? "bg-blue-400 text-white shadow" : "text-blue-200"}
-                  `}
+                    ${lang ? "bg-blue-400 text-white shadow" : "text-blue-200"}`}
                   style={{ minWidth: "36px", textAlign: "center" }}
                 >
                   EN
