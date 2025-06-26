@@ -20,7 +20,7 @@
     "stack": "Tech Stack",
     "mainLangs": "Main Languages"
   },"nav": {
-  "services": "Services"
+  "services": "Services","portfolio": "Portfólio"
 },
 "services": {
   "webDev": "Web Development",
@@ -35,6 +35,16 @@
   "frontendDesc": "Rich interfaces using React, TypeScript and Tailwind CSS.",
   "dbDesign": "Database Design",
   "dbDesignDesc": "Well-structured relational and NoSQL database projects."
+},
+"portfolio": {
+  "proj1": {
+    "title": "Service Order System",
+    "desc": "Complete application for technical assistance management."
+  },
+  "proj2": {
+    "title": "Personal Portfolio",
+    "desc": "Responsive website with language switching."
+  }
 }
 
 

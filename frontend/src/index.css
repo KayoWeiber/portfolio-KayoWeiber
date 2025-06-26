@@ -20,3 +20,6 @@
 .animate-float-y {
   animation: float-y 3s ease-in-out infinite;
 }
+html {
+  scroll-behavior: smooth;
+}

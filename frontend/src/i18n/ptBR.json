@@ -20,7 +20,7 @@
     "stack": "Stack Tecnológico",
     "mainLangs": "Principais Linguagens"
   },"nav": {
-  "services": "Serviços"
+  "services": "Serviços","portfolio": "Portfólio"
 },
 "services": {
   "webDev": "Desenvolvimento Web",
@@ -35,6 +35,16 @@
   "frontendDesc": "Interfaces ricas com React, TypeScript e Tailwind CSS.",
   "dbDesign": "Modelagem de Banco de Dados",
   "dbDesignDesc": "Projetos de banco de dados relacionais e NoSQL bem estruturados."
+},
+"portfolio": {
+  "proj1": {
+    "title": "Sistema de Ordem de Serviço",
+    "desc": "Aplicação completa para gestão de assistência técnica."
+  },
+  "proj2": {
+    "title": "Portfólio Pessoal",
+    "desc": "Site responsivo com alternância de idiomas."
+  }
 }
 
 

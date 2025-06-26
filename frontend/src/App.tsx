@@ -2,6 +2,7 @@ import Header from "./components/Header";
 import Hero from "./features/Hero";
 import About from "./components/About";
 import Services from "./components/Services";
+import Portfolio from "./components/Portfolio";
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
         <Hero />
         <About />
         <Services />
+        <Portfolio />
         
         {/* Outras seções */}
       </main>
