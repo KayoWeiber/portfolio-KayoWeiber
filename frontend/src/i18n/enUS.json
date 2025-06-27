@@ -14,8 +14,8 @@
     "p3": "I'm currently expanding my skills with <0>Java</0> and Spring Boot, aiming to grow as a <1>more complete and versatile</1> developer.",
     "stats": [
       { "number": "4+", "label": "Years of Experience", "color": "blue" },
-      { "number": "15+", "label": "Technologies", "color": "purple" },
-      { "number": "∞", "label": "Lifelong Learning", "color": "green" }
+      { "number": "15+", "label": "Technologies", "color": "blue" },
+      { "number": "∞", "label": "Lifelong Learning", "color": "blue" }
     ],
     "stack": "Tech Stack",
     "mainLangs": "Main Languages"
@@ -42,8 +42,8 @@
     "desc": "Complete application for technical assistance management."
   },
   "proj2": {
-    "title": "Personal Portfolio",
-    "desc": "Responsive website with language switching."
+    "title": "Website for Volumetry",
+    "desc": "Automates the calculation of the volume of canned beers to optimize operations control."
   }
 }
 

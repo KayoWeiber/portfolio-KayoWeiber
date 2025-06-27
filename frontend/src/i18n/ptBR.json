@@ -14,8 +14,8 @@
     "p3": "Atualmente, estou me especializando em <0>Java</0> e Spring Boot, buscando evoluir continuamente como um desenvolvedor <1>mais completo e preparado</1> para os desafios do mercado.",
     "stats": [
       { "number": "4+", "label": "Anos de Experiência", "color": "blue" },
-      { "number": "15+", "label": "Tecnologias", "color": "purple" },
-      { "number": "∞", "label": "Aprendizado", "color": "green" }
+      { "number": "15+", "label": "Tecnologias", "color": "blue" },
+      { "number": "∞", "label": "Aprendizado", "color": "blue" }
     ],
     "stack": "Stack Tecnológico",
     "mainLangs": "Principais Linguagens"
@@ -42,8 +42,8 @@
     "desc": "Aplicação completa para gestão de assistência técnica."
   },
   "proj2": {
-    "title": "Portfólio Pessoal",
-    "desc": "Site responsivo com alternância de idiomas."
+    "title": "Site para Volumetria",
+    "desc": "Automatiza o cálculo da volumetria de cervejas em latas para otimizar o controle de operações."
   }
 }
 
