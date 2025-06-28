@@ -12,7 +12,7 @@ interface Project {
   link?: string;
 }
 
-// Modal com efeito glassmorphism e animação de entrada/saída
+// Modal com efeito glassmorphism e animação
 const ProjectModal = ({
   project,
   onClose,
@@ -47,7 +47,7 @@ const ProjectModal = ({
             ✖
           </button>
           <h2 className="text-3xl font-extrabold mb-6 tracking-tight">{project.title}</h2>
-          <div className="flex gap-3 overflow-x-auto mb-6">
+          <div className="flex gap-3 overflow-x-auto mb-6 scrollbar-hide">
             {project.images.map((img, idx) => (
               <motion.img
                 key={idx}
@@ -73,7 +73,7 @@ const ProjectModal = ({
               rel="noopener noreferrer"
               className="inline-block px-5 py-2 rounded-lg bg-blue-600 hover:bg-blue-500 transition text-white font-bold shadow-md"
             >
-              🔗 Ver Projeto
+              Ver Projeto
             </a>
           )}
         </motion.div>
@@ -83,36 +83,45 @@ const ProjectModal = ({
   );
 };
 
-// Componente principal do portfólio
 const Portfolio: React.FC = () => {
   const { t, i18n } = useTranslation();
   const [currentImg, setCurrentImg] = useState<number[]>([]);
   const [projects, setProjects] = useState<Project[]>([]);
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [transitioning, setTransitioning] = useState(false);
 
   useEffect(() => {
-    setProjects([
-      {
-        images: ["/portfolio-KayoWeiber/projeto2/projeto2-1.png", "/portfolio-KayoWeiber/projeto2/projeto2-2.png"],
-        title: t("portfolio.proj2.title"),
-        description: t("portfolio.proj2.desc"),
-        link: "https://kayoweiber.github.io/Volumetria/",
-      },
-      {
-        images: ["/assets/projeto1-1.png", "/assets/projeto1-2.png"],
-        title: t("portfolio.proj1.title"),
-        description: t("portfolio.proj1.desc"),
-        link: "https://github.com/KayoWeiber/projeto1",
-      }
-      
-    ]);
-  }, [i18n.language, t]);
+    setTransitioning(true);
+    setTimeout(() => {
+      setProjects([
+        {
+          images: [
+            "/portfolio-KayoWeiber/projeto1/projeto1-1.png",
+            "/portfolio-KayoWeiber/projeto1/projeto1-2.png",
+            "/portfolio-KayoWeiber/projeto1/projeto1-3.png",
+          ],
+          title: t("portfolio.proj1.title"),
+          description: t("portfolio.proj1.desc"),
+          link: "https://github.com/KayoWeiber/projeto1",
+        },
+        {
+          images: [
+            "/portfolio-KayoWeiber/projeto2/projeto2-1.png",
+            "/portfolio-KayoWeiber/projeto2/projeto2-2.png",
+          ],
+          title: t("portfolio.proj2.title"),
+          description: t("portfolio.proj2.desc"),
+          link: "https://kayoweiber.github.io/Volumetria/",
+        },
+      ]);
+      setTransitioning(false);
+    }, 300); // tempo da transição
+  }, [i18n.language]);
 
   useEffect(() => {
     setCurrentImg(projects.map(() => 0));
   }, [projects]);
 
-  // Troca de imagem com animação de fade
   const handleImageSwitch = (
     projIndex: number,
     direction: "prev" | "next"
@@ -142,100 +151,94 @@ const Portfolio: React.FC = () => {
         {t("nav.portfolio")}
       </motion.h2>
 
-      <motion.div
-        className="flex gap-12 overflow-x-auto snap-x pb-8 scroll-smooth"
-        initial="hidden"
-        animate="visible"
-        variants={{
-          hidden: {},
-          visible: {
-            transition: {
-              staggerChildren: 0.15,
-            },
-          },
-        }}
-      >
-        {projects.map((proj, index) => (
+      <AnimatePresence mode="wait">
+        {!transitioning && (
           <motion.div
-            key={index}
-            className="relative group min-w-[340px] md:min-w-[440px] bg-gradient-to-br from-blue-800/40 to-blue-900/60 border border-blue-500/20 rounded-3xl overflow-hidden hover:scale-[1.03] transition-transform duration-500 snap-center shadow-xl"
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: index * 0.2, type: "spring" }}
+            className="flex gap-12 overflow-x-auto snap-x pb-8 scroll-smooth scrollbar-hide"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
           >
-            <div className="relative w-full h-72 overflow-hidden">
-              <AnimatePresence mode="wait">
-                <motion.img
-                  key={currentImg[index]}
-                  src={proj.images[currentImg[index]]}
-                  alt={`project-${index}`}
-                  className="w-full h-full object-cover transition-all duration-300 rounded-t-3xl"
-                  initial={{ opacity: 0, scale: 1.05 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.97 }}
-                  transition={{ duration: 0.4 }}
-                />
-              </AnimatePresence>
-              {proj.images.length > 1 && (
-                <>
-                  <button
-                    onClick={() => handleImageSwitch(index, "prev")}
-                    className="absolute left-3 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-blue-800/70 p-2 rounded-full transition"
-                  >
-                    <FaArrowLeft />
-                  </button>
-                  <button
-                    onClick={() => handleImageSwitch(index, "next")}
-                    className="absolute right-3 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-blue-800/70 p-2 rounded-full transition"
-                  >
-                    <FaArrowRight />
-                  </button>
-                  {/* Indicadores de imagem */}
-                  <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1">
-                    {proj.images.map((_, i) => (
-                      <span
-                        key={i}
-                        className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                          currentImg[index] === i
-                            ? "bg-blue-400 scale-125"
-                            : "bg-blue-900/40"
-                        }`}
-                      />
-                    ))}
-                  </div>
-                </>
-              )}
-            </div>
-            <div className="p-7 flex flex-col gap-3 backdrop-blur-md bg-blue-900/20 group-hover:bg-blue-900/40 transition duration-300 h-48">
-              <h3 className="text-2xl font-bold">{proj.title}</h3>
-              <p
-                className="text-base text-blue-100 overflow-hidden"
-                style={{
-                  display: "-webkit-box",
-                  WebkitLineClamp: 2, // Limita a 2 linhas
-                  WebkitBoxOrient: "vertical",
-                  maxHeight: "3em",    // Ajuste conforme o tamanho da fonte
-                  textOverflow: "ellipsis",
-                }}
+            {projects.map((proj, index) => (
+              <motion.div
+                key={index}
+                className="relative group min-w-[340px] md:min-w-[440px] bg-gradient-to-br from-blue-800/40 to-blue-900/60 border border-blue-500/20 rounded-3xl overflow-hidden hover:scale-[1.03] transition-transform duration-500 snap-center shadow-xl"
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.2, type: "spring" }}
               >
-                {proj.description}
-              </p>
-              <motion.button
-                onClick={() => setSelectedProject(proj)}
-                className="mt-2 text-base text-blue-400 hover:text-blue-200 underline self-start font-semibold"
-                whileTap={{ scale: 0.96 }}
-                whileHover={{ scale: 1.05 }}
-                transition={{ type: "spring", stiffness: 300 }}
-              >
-                🔍 Ver Detalhes
-              </motion.button>
-            </div>
+                <div className="relative w-full h-72 overflow-hidden">
+                  <AnimatePresence mode="wait">
+                    <motion.img
+                      key={currentImg[index]}
+                      src={proj.images[currentImg[index]]}
+                      alt={`project-${index}`}
+                      className="w-full h-full object-cover transition-all duration-300 rounded-t-3xl"
+                      initial={{ opacity: 0, scale: 1.05 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      exit={{ opacity: 0, scale: 0.97 }}
+                      transition={{ duration: 0.4 }}
+                    />
+                  </AnimatePresence>
+                  {proj.images.length > 1 && (
+                    <>
+                      <button
+                        onClick={() => handleImageSwitch(index, "prev")}
+                        className="absolute left-3 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-blue-800/70 p-2 rounded-full transition"
+                      >
+                        <FaArrowLeft />
+                      </button>
+                      <button
+                        onClick={() => handleImageSwitch(index, "next")}
+                        className="absolute right-3 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-blue-800/70 p-2 rounded-full transition"
+                      >
+                        <FaArrowRight />
+                      </button>
+                      <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1">
+                        {proj.images.map((_, i) => (
+                          <span
+                            key={i}
+                            className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                              currentImg[index] === i
+                                ? "bg-blue-400 scale-125"
+                                : "bg-blue-900/40"
+                            }`}
+                          />
+                        ))}
+                      </div>
+                    </>
+                  )}
+                </div>
+                <div className="p-7 flex flex-col gap-3 backdrop-blur-md bg-blue-900/20 group-hover:bg-blue-900/40 transition duration-300 h-48">
+                  <h3 className="text-2xl font-bold">{proj.title}</h3>
+                  <p
+                    className="text-base text-blue-100 overflow-hidden"
+                    style={{
+                      display: "-webkit-box",
+                      WebkitLineClamp: 2,
+                      WebkitBoxOrient: "vertical",
+                      maxHeight: "3em",
+                      textOverflow: "ellipsis",
+                    }}
+                  >
+                    {proj.description}
+                  </p>
+                  <motion.button
+                    onClick={() => setSelectedProject(proj)}
+                    className="mt-2 px-4 py-2 text-sm font-semibold text-white bg-blue-600 rounded-lg hover:bg-blue-500 transition self-start shadow-sm"
+                    whileTap={{ scale: 0.96 }}
+                    whileHover={{ scale: 1.04 }}
+                  >
+                    Ver Detalhes
+                  </motion.button>
+                </div>
+              </motion.div>
+            ))}
           </motion.div>
-        ))}
-      </motion.div>
+        )}
+      </AnimatePresence>
 
-      {/* Modal animado */}
       {selectedProject && (
         <ProjectModal
           project={selectedProject}

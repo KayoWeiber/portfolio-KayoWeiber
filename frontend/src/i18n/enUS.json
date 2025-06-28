@@ -38,8 +38,8 @@
 },
 "portfolio": {
   "proj1": {
-    "title": "Service Order System",
-    "desc": "Complete application for technical assistance management."
+    "title": "Casa Lar Project",
+    "desc": "Management platform for a group home with Registration, Financial, and Pedagogical modules."
   },
   "proj2": {
     "title": "Website for Volumetry",

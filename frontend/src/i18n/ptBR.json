@@ -38,8 +38,8 @@
 },
 "portfolio": {
   "proj1": {
-    "title": "Sistema de Ordem de Serviço",
-    "desc": "Aplicação completa para gestão de assistência técnica."
+    "title": "Projeto Casa Lar",
+    "desc": "Plataforma de gerenciamento para Casa Lar com módulos de Cadastro, Financeiro e Pedagógico."
   },
   "proj2": {
     "title": "Site para Volumetria",
