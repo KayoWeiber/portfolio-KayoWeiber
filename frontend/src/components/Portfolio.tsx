@@ -12,7 +12,7 @@ interface Project {
   link?: string;
 }
 
-// Modal com efeito glassmorphism e animação
+// Modal com navegação entre imagens e zoom externo
 const ProjectModal = ({
   project,
   onClose,
@@ -20,6 +20,15 @@ const ProjectModal = ({
   project: Project;
   onClose: () => void;
 }) => {
+  const [imgIndex, setImgIndex] = useState(0);
+
+  const handleSwitch = (dir: "prev" | "next") => {
+    const total = project.images.length;
+    setImgIndex((prev) =>
+      dir === "next" ? (prev + 1) % total : (prev - 1 + total) % total
+    );
+  };
+
   return createPortal(
     <AnimatePresence>
       <motion.div
@@ -33,7 +42,7 @@ const ProjectModal = ({
         }}
       >
         <motion.div
-          className="relative bg-gradient-to-br from-blue-900/60 to-slate-900/80 rounded-2xl shadow-2xl p-8 max-w-2xl w-full text-white border border-blue-400/30"
+          className="relative bg-gradient-to-br from-blue-900/60 to-slate-900/80 rounded-2xl shadow-2xl p-8 max-w-3xl w-full text-white border border-blue-400/30"
           initial={{ scale: 0.9, opacity: 0, y: 40 }}
           animate={{ scale: 1, opacity: 1, y: 0 }}
           exit={{ scale: 0.9, opacity: 0, y: 40 }}
@@ -46,26 +55,38 @@ const ProjectModal = ({
           >
             ✖
           </button>
-          <h2 className="text-3xl font-extrabold mb-6 tracking-tight">{project.title}</h2>
-          <div className="flex gap-3 overflow-x-auto mb-6 scrollbar-hide">
-            {project.images.map((img, idx) => (
-              <motion.img
-                key={idx}
-                src={img}
-                className="h-40 rounded-xl shadow-lg border-2 border-blue-900/30 hover:scale-105 transition-transform duration-300"
-                whileHover={{ scale: 1.07 }}
-                alt={`Imagem ${idx + 1} do projeto`}
-              />
-            ))}
+
+          <h2 className="text-3xl font-extrabold mb-6 tracking-tight">
+            {project.title}
+          </h2>
+
+          <div className="relative flex justify-center items-center mb-6">
+            <img
+              src={project.images[imgIndex]}
+              onClick={() => window.open(project.images[imgIndex], "_blank")}
+              className="max-h-60 object-contain rounded-xl shadow-lg border-2 border-blue-800/40 cursor-zoom-in transition hover:scale-[1.02]"
+              alt={`Imagem ${imgIndex + 1}`}
+            />
+            {project.images.length > 1 && (
+              <>
+                <button
+                  onClick={() => handleSwitch("prev")}
+                  className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-blue-800/70 p-2 rounded-full"
+                >
+                  <FaArrowLeft />
+                </button>
+                <button
+                  onClick={() => handleSwitch("next")}
+                  className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-blue-800/70 p-2 rounded-full"
+                >
+                  <FaArrowRight />
+                </button>
+              </>
+            )}
           </div>
-          <motion.p
-            className="text-base mb-6 text-blue-100"
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.2 }}
-          >
-            {project.description}
-          </motion.p>
+
+          <p className="text-base text-blue-100 mb-6">{project.description}</p>
+
           {project.link && (
             <a
               href={project.link}
@@ -83,6 +104,7 @@ const ProjectModal = ({
   );
 };
 
+// Componente principal do portfólio
 const Portfolio: React.FC = () => {
   const { t, i18n } = useTranslation();
   const [currentImg, setCurrentImg] = useState<number[]>([]);
@@ -115,8 +137,8 @@ const Portfolio: React.FC = () => {
         },
       ]);
       setTransitioning(false);
-    }, 300); // tempo da transição
-  }, [i18n.language]);
+    }, 300);
+  }, [i18n.language, t]); // ✅ Correção da dependência
 
   useEffect(() => {
     setCurrentImg(projects.map(() => 0));
