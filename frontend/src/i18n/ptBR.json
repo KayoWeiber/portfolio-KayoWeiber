@@ -54,6 +54,8 @@
   "sending": "Enviando...",
   "success": "Mensagem enviada com sucesso!",
   "error": "Erro ao enviar. Tente novamente."
+},"footer": {
+  "rights": "Todos os direitos reservados"
 }
 
 

@@ -124,7 +124,7 @@ const Portfolio: React.FC = () => {
           ],
           title: t("portfolio.proj1.title"),
           description: t("portfolio.proj1.desc"),
-          link: "https://github.com/KayoWeiber/projeto1",
+          link: "https://github.com/KayoWeiber/",
         },
         {
           images: [

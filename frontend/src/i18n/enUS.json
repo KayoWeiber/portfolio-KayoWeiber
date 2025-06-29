@@ -54,7 +54,11 @@
   "sending": "Sending...",
   "success": "Message sent successfully!",
   "error": "Failed to send. Try again."
+},
+"footer": {
+  "rights": "All rights reserved"
 }
+
 
 
 

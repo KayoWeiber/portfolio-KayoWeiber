@@ -38,7 +38,7 @@ const Contact: React.FC = () => {
   return (
     <section
       id="contact"
-      className="py-24 px-6 md:px-16 bg-gradient-to-b from-[#0f172a] to-[#1e293b] text-white"
+      className="py-24 px-6 md:px-16 bg-gradient-to-b from-[#0f172a] to-[#1e293b] text-white scroll-mt-24"
     >
       <motion.h2
         className="text-5xl md:text-6xl font-extrabold mb-12 text-center bg-gradient-to-r from-blue-400 to-blue-700 bg-clip-text text-transparent"
@@ -53,34 +53,35 @@ const Contact: React.FC = () => {
         ref={form}
         onSubmit={sendEmail}
         className="max-w-3xl mx-auto grid grid-cols-1 gap-6 bg-blue-900/20 p-8 rounded-xl shadow-lg backdrop-blur border border-blue-400/20"
-        initial={{ opacity: 0, scale: 0.95 }}
+        initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.4 }}
+        transition={{ duration: 0.5 }}
       >
         <input
-          className="p-4 rounded-md bg-slate-800 placeholder:text-blue-200 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
-          type="text"
           name="user_name"
           placeholder={t("contact.name")}
           required
+          className="p-4 rounded-md bg-slate-800 placeholder:text-blue-200 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
         />
         <input
-          className="p-4 rounded-md bg-slate-800 placeholder:text-blue-200 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
-          type="email"
           name="user_email"
           placeholder={t("contact.email")}
           required
+          type="email"
+          className="p-4 rounded-md bg-slate-800 placeholder:text-blue-200 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
         />
         <textarea
-          className="p-4 h-40 rounded-md bg-slate-800 placeholder:text-blue-200 text-white resize-none focus:outline-none focus:ring-2 focus:ring-blue-500"
           name="message"
           placeholder={t("contact.message")}
           required
+          className="p-4 h-40 rounded-md bg-slate-800 placeholder:text-blue-200 text-white resize-none focus:outline-none focus:ring-2 focus:ring-blue-500"
         />
-        <button
+        <motion.button
           type="submit"
-          className="w-full bg-blue-600 hover:bg-blue-500 text-white font-bold py-3 rounded-md transition"
           disabled={status === "sending"}
+          className="w-full bg-blue-600 hover:bg-blue-500 text-white font-bold py-3 rounded-md transition"
+          whileTap={{ scale: 0.97 }}
+          whileHover={{ scale: 1.02 }}
         >
           {status === "sending"
             ? t("contact.sending")
@@ -89,7 +90,7 @@ const Contact: React.FC = () => {
             : status === "error"
             ? t("contact.error")
             : t("contact.send")}
-        </button>
+        </motion.button>
       </motion.form>
     </section>
   );
