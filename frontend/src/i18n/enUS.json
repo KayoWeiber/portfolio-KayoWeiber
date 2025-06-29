@@ -44,6 +44,10 @@
   "proj2": {
     "title": "Website for Volumetry",
     "desc": "Automates the calculation of the volume of canned beers to optimize operations control."
+  },
+  "proj3": {
+    "title": "Portfolio Website",
+    "desc": "I created this website to present my projects and skills in an interactive and modern way."
   }
 },"contact": {
   "title": "Contact Me",
