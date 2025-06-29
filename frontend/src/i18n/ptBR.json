@@ -14,10 +14,51 @@
     "p3": "Atualmente, estou me especializando em <0>Java</0> e Spring Boot, buscando evoluir continuamente como um desenvolvedor <1>mais completo e preparado</1> para os desafios do mercado.",
     "stats": [
       { "number": "4+", "label": "Anos de Experiência", "color": "blue" },
-      { "number": "15+", "label": "Tecnologias", "color": "purple" },
-      { "number": "∞", "label": "Aprendizado", "color": "green" }
+      { "number": "15+", "label": "Tecnologias", "color": "blue" },
+      { "number": "∞", "label": "Aprendizado", "color": "blue" }
     ],
     "stack": "Stack Tecnológico",
     "mainLangs": "Principais Linguagens"
+  },"nav": {
+  "services": "Serviços","portfolio": "Portfólio"
+},
+"services": {
+  "webDev": "Desenvolvimento Web",
+  "webDesc": "Criação de sites modernos e responsivos com foco em performance e UX.",
+  "backendDev": "Desenvolvimento Backend",
+  "backendDesc": "Soluções robustas com Node.js, Express e autenticação JWT.",
+  "apiIntegration": "Integração de APIs",
+  "apiDesc": "Conexão de sistemas via APIs RESTful e consumo eficiente de dados.",
+  "javaSpring": "Java com Spring Boot",
+  "javaSpringDesc": "Criação de aplicações seguras e escaláveis com Spring Boot.",
+  "frontend": "Frontend Moderno",
+  "frontendDesc": "Interfaces ricas com React, TypeScript e Tailwind CSS.",
+  "dbDesign": "Modelagem de Banco de Dados",
+  "dbDesignDesc": "Projetos de banco de dados relacionais e NoSQL bem estruturados."
+},
+"portfolio": {
+  "proj1": {
+    "title": "Projeto Casa Lar",
+    "desc": "Plataforma de gerenciamento para Casa Lar com módulos de Cadastro, Financeiro e Pedagógico."
+  },
+  "proj2": {
+    "title": "Site para Volumetria",
+    "desc": "Automatiza o cálculo da volumetria de cervejas em latas para otimizar o controle de operações."
   }
+},"contact": {
+  "title": "Entre em Contato",
+  "name": "Seu nome",
+  "email": "Seu e-mail",
+  "message": "Sua mensagem",
+  "send": "Enviar",
+  "sending": "Enviando...",
+  "success": "Mensagem enviada com sucesso!",
+  "error": "Erro ao enviar. Tente novamente."
+},"footer": {
+  "rights": "Todos os direitos reservados"
+}
+
+
+
+
 }

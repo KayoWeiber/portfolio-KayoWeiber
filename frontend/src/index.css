@@ -20,3 +20,13 @@
 .animate-float-y {
   animation: float-y 3s ease-in-out infinite;
 }
+html {
+  scroll-behavior: smooth;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

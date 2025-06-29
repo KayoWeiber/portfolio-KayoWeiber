@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { TypeAnimation } from "react-type-animation";
 import TextTransition, { presets } from "react-text-transition";
@@ -24,6 +24,33 @@ const Header: React.FC = () => {
   };
 
   const handleMobileMenuToggle = () => setMobileMenuOpen((open) => !open);
+
+  // ScrollSpy: detecta qual seção está visível
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const visibleId = entry.target.id;
+            const matchedLink = navLinks.find((link) => link.href === `#${visibleId}`);
+            if (matchedLink) {
+              setActive(matchedLink.label);
+            }
+          }
+        });
+      },
+      {
+        threshold: 0.6,
+      }
+    );
+
+    const sectionElements = navLinks.map((link) => document.querySelector(link.href));
+    sectionElements.forEach((el) => {
+      if (el) observer.observe(el);
+    });
+
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <header className="w-full fixed top-0 left-0 z-30 font-sans bg-gradient-to-r from-[#0a2342cc] via-[#181818cc] to-[#2563ebcc] shadow-lg border-b border-blue-700/30 backdrop-blur-md transition-colors duration-500">
@@ -60,7 +87,7 @@ const Header: React.FC = () => {
               <span className={`
                 absolute left-1/2 -bottom-2 -translate-x-1/2 h-1.5 rounded bg-blue-500/80 transition-all duration-300
                 ${active === link.label ? "w-6 opacity-100" : "w-0 opacity-0 group-hover:w-6 group-hover:opacity-60"}
-              `}/>
+              `} />
             </a>
           ))}
         </nav>

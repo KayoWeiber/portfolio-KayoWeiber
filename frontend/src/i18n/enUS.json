@@ -14,10 +14,52 @@
     "p3": "I'm currently expanding my skills with <0>Java</0> and Spring Boot, aiming to grow as a <1>more complete and versatile</1> developer.",
     "stats": [
       { "number": "4+", "label": "Years of Experience", "color": "blue" },
-      { "number": "15+", "label": "Technologies", "color": "purple" },
-      { "number": "∞", "label": "Lifelong Learning", "color": "green" }
+      { "number": "15+", "label": "Technologies", "color": "blue" },
+      { "number": "∞", "label": "Lifelong Learning", "color": "blue" }
     ],
     "stack": "Tech Stack",
     "mainLangs": "Main Languages"
+  },"nav": {
+  "services": "Services","portfolio": "Portfólio"
+},
+"services": {
+  "webDev": "Web Development",
+  "webDesc": "Modern and responsive websites focused on performance and UX.",
+  "backendDev": "Backend Development",
+  "backendDesc": "Robust solutions with Node.js, Express, and JWT authentication.",
+  "apiIntegration": "API Integration",
+  "apiDesc": "System connections via RESTful APIs and efficient data handling.",
+  "javaSpring": "Java with Spring Boot",
+  "javaSpringDesc": "Secure and scalable apps built with Spring Boot framework.",
+  "frontend": "Modern Frontend",
+  "frontendDesc": "Rich interfaces using React, TypeScript and Tailwind CSS.",
+  "dbDesign": "Database Design",
+  "dbDesignDesc": "Well-structured relational and NoSQL database projects."
+},
+"portfolio": {
+  "proj1": {
+    "title": "Casa Lar Project",
+    "desc": "Management platform for a group home with Registration, Financial, and Pedagogical modules."
+  },
+  "proj2": {
+    "title": "Website for Volumetry",
+    "desc": "Automates the calculation of the volume of canned beers to optimize operations control."
   }
+},"contact": {
+  "title": "Contact Me",
+  "name": "Your name",
+  "email": "Your email",
+  "message": "Your message",
+  "send": "Send",
+  "sending": "Sending...",
+  "success": "Message sent successfully!",
+  "error": "Failed to send. Try again."
+},
+"footer": {
+  "rights": "All rights reserved"
+}
+
+
+
+
 }

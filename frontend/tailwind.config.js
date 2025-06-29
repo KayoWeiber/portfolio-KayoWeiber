@@ -22,4 +22,9 @@ export default {
     },
   },
   plugins: [],
+  // tailwind.config.js
+corePlugins: {
+  scrollBehavior: true,
+}
+
 }
