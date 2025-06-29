@@ -1,35 +1,38 @@
-// src/components/Contact.tsx
 import React, { useRef, useState } from "react";
-import emailjs from "@emailjs/browser";
 import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
 
 const Contact: React.FC = () => {
   const form = useRef<HTMLFormElement>(null);
-  const { t, } = useTranslation();
+  const { t } = useTranslation();
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
 
-  const sendEmail = (e: React.FormEvent) => {
+  const sendEmail = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!form.current) return;
 
+    const formData = new FormData(form.current);
+    const data = Object.fromEntries(formData.entries());
+
     setStatus("sending");
 
-    emailjs
-      .sendForm(
-        import.meta.env.VITE_EMAILJS_SERVICE_ID!,
-        import.meta.env.VITE_EMAILJS_TEMPLATE_ID!,
-        form.current,
-        import.meta.env.VITE_EMAILJS_PUBLIC_KEY!
-      )
-      .then(() => {
-        setStatus("success");
-        form.current?.reset();
-      })
-      .catch((err) => {
-        console.error("Erro ao enviar:", err);
-        setStatus("error");
+    try {
+      const response = await fetch("https://portfolio-contact-backend-no6y.onrender.com/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
       });
+
+      if (!response.ok) throw new Error("Erro ao enviar");
+
+      setStatus("success");
+      form.current.reset();
+    } catch (error) {
+      console.error(error);
+      setStatus("error");
+    }
   };
 
   return (
