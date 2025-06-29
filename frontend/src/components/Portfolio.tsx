@@ -134,6 +134,14 @@ const Portfolio: React.FC = () => {
           title: t("portfolio.proj2.title"),
           description: t("portfolio.proj2.desc"),
           link: "https://kayoweiber.github.io/Volumetria/",
+        },{
+          images: [
+            "/portfolio-KayoWeiber/projeto3/projeto3-1.png",
+            
+          ],
+          title: t("portfolio.proj3.title"),
+          description: t("portfolio.proj3.desc"),
+          link: "https://github.com/KayoWeiber/portfolio-KayoWeiber",
         },
       ]);
       setTransitioning(false);

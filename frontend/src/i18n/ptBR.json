@@ -44,6 +44,10 @@
   "proj2": {
     "title": "Site para Volumetria",
     "desc": "Automatiza o cálculo da volumetria de cervejas em latas para otimizar o controle de operações."
+  },
+  "proj3": {
+    "title": "Site de Portfólio",
+    "desc": "Criei este site para apresentar meus projetos e habilidades de forma interativa e moderna."
   }
 },"contact": {
   "title": "Entre em Contato",
