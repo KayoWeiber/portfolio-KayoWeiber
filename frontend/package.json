@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://KayoWeiber.github.io/portfolio-KayoWeiber",
+  "homepage": "https://www.kayoweiber.com.br",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
