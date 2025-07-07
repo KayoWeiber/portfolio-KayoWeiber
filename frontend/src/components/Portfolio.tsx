@@ -118,9 +118,9 @@ const Portfolio: React.FC = () => {
       setProjects([
         {
           images: [
-            "/portfolio-KayoWeiber/projeto1/projeto1-1.png",
-            "/portfolio-KayoWeiber/projeto1/projeto1-2.png",
-            "/portfolio-KayoWeiber/projeto1/projeto1-3.png",
+            "/projeto1/projeto1-1.png",
+            "/projeto1/projeto1-2.png",
+            "/projeto1/projeto1-3.png",
           ],
           title: t("portfolio.proj1.title"),
           description: t("portfolio.proj1.desc"),
@@ -128,15 +128,15 @@ const Portfolio: React.FC = () => {
         },
         {
           images: [
-            "/portfolio-KayoWeiber/projeto2/projeto2-1.png",
-            "/portfolio-KayoWeiber/projeto2/projeto2-2.png",
+            "/projeto2/projeto2-1.png",
+            "/projeto2/projeto2-2.png",
           ],
           title: t("portfolio.proj2.title"),
           description: t("portfolio.proj2.desc"),
           link: "https://kayoweiber.github.io/Volumetria/",
         },{
           images: [
-            "/portfolio-KayoWeiber/projeto3/projeto3-1.png",
+            "/projeto3/projeto3-1.png",
             
           ],
           title: t("portfolio.proj3.title"),

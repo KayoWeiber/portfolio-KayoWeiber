@@ -79,7 +79,7 @@ const Hero: React.FC = () => {
         <div className="relative">
           <div className="w-56 h-56 md:w-80 md:h-80 rounded-full bg-gradient-to-br from-blue-800 via-blue-600 to-blue-400 animate-float-y shadow-2xl flex items-center justify-center transition-transform duration-700">
             <img
-  src="/portfolio-KayoWeiber/Avatar.jpg"
+  src="/Avatar.jpg"
   alt="Kayo Weiber"
   className="w-44 h-44 md:w-64 md:h-64 rounded-full object-cover border-4 border-[#181818] shadow-lg"
 />
