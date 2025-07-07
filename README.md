@@ -6,7 +6,7 @@ O backend responsável pelo formulário de contato está em um [repositório sep
 
 > **Status:** 🚧 Em constante evolução e melhorias.
 
-🔗 **Acesse a versão online:** [https://kayoweiber.github.io/portfolio-KayoWeiber/](https://kayoweiber.github.io/portfolio-KayoWeiber/)
+🔗 **Acesse a versão online:** [https:www.kayoweiber.com.br/](https:www.kayoweiber.com.br/)
 
 ---
 
