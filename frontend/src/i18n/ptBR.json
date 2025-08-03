@@ -37,19 +37,36 @@
   "dbDesignDesc": "Projetos de banco de dados relacionais e NoSQL bem estruturados."
 },
 "portfolio": {
-  "proj1": {
-    "title": "Projeto Casa Lar",
-    "desc": "Plataforma de gerenciamento para Casa Lar com módulos de Cadastro, Financeiro e Pedagógico."
-  },
-  "proj2": {
-    "title": "Site para Volumetria",
-    "desc": "Automatiza o cálculo da volumetria de cervejas em latas para otimizar o controle de operações."
-  },
-  "proj3": {
-    "title": "Site de Portfólio",
-    "desc": "Criei este site para apresentar meus projetos e habilidades de forma interativa e moderna."
-  }
-},"contact": {
+    "projects": [
+      {
+        "images": [
+          "/projeto1/projeto1-1.png",
+          "/projeto1/projeto1-2.png",
+          "/projeto1/projeto1-3.png"
+        ],
+        "title": "Projeto Casa Lar",
+        "description": "Plataforma de gerenciamento para Casa Lar com módulos de Cadastro, Financeiro e Estoque. Desenvolvida para otimizar processos internos e controle de recursos.",
+        "link": "https://github.com/KayoWeiber/"
+      },
+      {
+        "images": [
+          "/projeto2/projeto2-1.png",
+          "/projeto2/projeto2-2.png"
+        ],
+        "title": "Site para Volumetria",
+        "description": "Automatiza o cálculo da volumetria de cervejas em latas para otimizar o controle de operações e estoque em distribuidoras.",
+        "link": "https://kayoweiber.github.io/Volumetria/"
+      },
+      {
+        "images": [
+          "/projeto3/projeto3-1.png"
+        ],
+        "title": "Site de Portfólio",
+        "description": "Criei este site para apresentar minhas habilidades de forma interativa, com um design moderno e suporte a múltiplos idiomas.",
+        "link": "https://github.com/KayoWeiber/portfolio-KayoWeiber"
+      }
+    ]
+  },"contact": {
   "title": "Entre em Contato",
   "name": "Seu nome",
   "email": "Seu e-mail",

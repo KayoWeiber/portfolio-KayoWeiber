@@ -37,19 +37,36 @@
   "dbDesignDesc": "Well-structured relational and NoSQL database projects."
 },
 "portfolio": {
-  "proj1": {
-    "title": "Casa Lar Project",
-    "desc": "Management platform for a group home with Registration, Financial, and Pedagogical modules."
-  },
-  "proj2": {
-    "title": "Website for Volumetry",
-    "desc": "Automates the calculation of the volume of canned beers to optimize operations control."
-  },
-  "proj3": {
-    "title": "Portfolio Website",
-    "desc": "I created this website to present my projects and skills in an interactive and modern way."
-  }
-},"contact": {
+    "projects": [
+      {
+        "images": [
+          "/projeto1/projeto1-1.png",
+          "/projeto1/projeto1-2.png",
+          "/projeto1/projeto1-3.png"
+        ],
+        "title": "Casa Lar Project",
+        "description": "Management platform for Casa Lar with modules for Registration, Finance, and Inventory. Developed to optimize internal processes and resource control.",
+        "link": "https://github.com/KayoWeiber/"
+      },
+      {
+        "images": [
+          "/projeto2/projeto2-1.png",
+          "/projeto2/projeto2-2.png"
+        ],
+        "title": "Volumetry Website",
+        "description": "Automates the calculation of beer can volumetry to optimize operations and stock control in distribution centers.",
+        "link": "https://kayoweiber.github.io/Volumetria/"
+      },
+      {
+        "images": [
+          "/projeto3/projeto3-1.png"
+        ],
+        "title": "Portfolio Website",
+        "description": "I created this site to present my skills interactively, with a modern design and support for multiple languages.",
+        "link": "https://github.com/KayoWeiber/portfolio-KayoWeiber"
+      }
+    ]
+  },"contact": {
   "title": "Contact Me",
   "name": "Your name",
   "email": "Your email",
