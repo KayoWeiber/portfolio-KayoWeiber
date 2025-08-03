@@ -2,17 +2,20 @@ import React, { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { TypeAnimation } from "react-type-animation";
 import TextTransition, { presets } from "react-text-transition";
+import { Link, useLocation } from "react-router-dom";
 
 const navLinks = [
-  { href: "#home", label: "Home", pt: "Início" },
-  { href: "#about", label: "About Me", pt: "Sobre Mim" },
-  { href: "#services", label: "Services", pt: "Serviços" },
-  { href: "#portfolio", label: "Portfolio", pt: "Portfólio" },
-  { href: "#contact", label: "Contact", pt: "Contato" },
+  { href: "/#home", label: "Home", pt: "Início" },
+  { href: "/#about", label: "About Me", pt: "Sobre Mim" },
+  { href: "/#services", label: "Services", pt: "Serviços" },
+  { href: "/#portfolio", label: "Portfolio", pt: "Portfólio" },
+  { href: "/#contact", label: "Contact", pt: "Contato" },
+  { href: "/cursos", label: "Courses", pt: "Cursos" },
 ];
 
 const Header: React.FC = () => {
   const { i18n } = useTranslation();
+  const location = useLocation();
   const [active, setActive] = useState("Home");
   const [lang, setLang] = useState(i18n.resolvedLanguage === "en-US");
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -25,14 +28,13 @@ const Header: React.FC = () => {
 
   const handleMobileMenuToggle = () => setMobileMenuOpen((open) => !open);
 
-  // ScrollSpy: detecta qual seção está visível
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             const visibleId = entry.target.id;
-            const matchedLink = navLinks.find((link) => link.href === `#${visibleId}`);
+            const matchedLink = navLinks.find((link) => link.href === `/#${visibleId}`);
             if (matchedLink) {
               setActive(matchedLink.label);
             }
@@ -44,13 +46,20 @@ const Header: React.FC = () => {
       }
     );
 
-    const sectionElements = navLinks.map((link) => document.querySelector(link.href));
-    sectionElements.forEach((el) => {
-      if (el) observer.observe(el);
-    });
+    if (location.pathname === "/") {
+      const sectionElements = navLinks
+        .filter((link) => link.href.startsWith("/#"))
+        .map((link) => document.querySelector(link.href.replace("/", "")));
+      sectionElements.forEach((el) => {
+        if (el) observer.observe(el);
+      });
+    }
 
     return () => observer.disconnect();
-  }, []);
+  }, [location.pathname]);
+
+  const isActive = (href: string, label: string) =>
+    location.pathname + location.hash === href || active === label;
 
   return (
     <header className="w-full fixed top-0 left-0 z-30 font-sans bg-gradient-to-r from-[#0a2342cc] via-[#181818cc] to-[#2563ebcc] shadow-lg border-b border-blue-700/30 backdrop-blur-md transition-colors duration-500">
@@ -68,27 +77,35 @@ const Header: React.FC = () => {
           />
         </span>
 
-        {/* Desktop nav */}
         <nav className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
-            <a
+            <Link
               key={link.href}
-              href={link.href}
-              onClick={() => setActive(link.label)}
+              to={link.href}
+              onClick={() => {
+                setActive(link.label);
+                setMobileMenuOpen(false);
+              }}
               className={`relative px-2 py-1 text-base font-medium transition-all duration-200
-                ${active === link.label ? "text-blue-200" : "text-gray-200 hover:text-blue-400"}
+                ${isActive(link.href, link.label)
+                  ? "text-blue-200"
+                  : "text-gray-200 hover:text-blue-400"}
                 group
-               `}
+              `}
               style={{ fontFamily: "'Montserrat', sans-serif" }}
             >
               <TextTransition springConfig={presets.gentle} inline>
                 {lang ? link.label : link.pt}
               </TextTransition>
-              <span className={`
-                absolute left-1/2 -bottom-2 -translate-x-1/2 h-1.5 rounded bg-blue-500/80 transition-all duration-300
-                ${active === link.label ? "w-6 opacity-100" : "w-0 opacity-0 group-hover:w-6 group-hover:opacity-60"}
-              `} />
-            </a>
+              <span
+                className={`
+                  absolute left-1/2 -bottom-2 -translate-x-1/2 h-1.5 rounded bg-blue-500/80 transition-all duration-300
+                  ${isActive(link.href, link.label)
+                    ? "w-6 opacity-100"
+                    : "w-0 opacity-0 group-hover:w-6 group-hover:opacity-60"}
+                `}
+              />
+            </Link>
           ))}
         </nav>
 
@@ -134,24 +151,26 @@ const Header: React.FC = () => {
         </button>
       </div>
 
-      {/* Menu mobile reduzido */}
+      {/* Menu mobile */}
       {mobileMenuOpen && (
         <nav className="absolute top-full left-0 w-full bg-[#0a2342] shadow-lg md:hidden z-40 transition-all">
           <div className="flex flex-col gap-2 px-6 py-4">
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.href}
-                href={link.href}
+                to={link.href}
                 onClick={() => {
                   setActive(link.label);
                   setMobileMenuOpen(false);
                 }}
                 className={`text-lg font-semibold py-2 px-3 rounded transition
-                  ${active === link.label ? "bg-blue-500/20 text-blue-200" : "text-gray-200 hover:bg-blue-500/10 hover:text-blue-400"}`}
+                  ${isActive(link.href, link.label)
+                    ? "bg-blue-500/20 text-blue-200"
+                    : "text-gray-200 hover:bg-blue-500/10 hover:text-blue-400"}`}
                 style={{ fontFamily: "'Montserrat', sans-serif" }}
               >
                 {lang ? link.label : link.pt}
-              </a>
+              </Link>
             ))}
 
             {/* Idioma no menu mobile */}
