@@ -61,7 +61,58 @@
 },
 "footer": {
   "rights": "All rights reserved"
-}
+},"coursesPage": {
+    "title": "Courses and Certifications",
+    "certificateAlt": "Certificate of the {{title}} course",
+    "certificateAriaLabel": "View certificate for {{title}} course",
+    "list": [
+      {
+        "imageSrc": "/certificates/IntroTestes.png",
+        "title": "Introduction to Software Testing",
+        "description": "I acquired knowledge about the fundamentals and importance of software testing to ensure quality, learning about different types of tests, such as unit and integration, and their role in the development cycle."
+      },
+      {
+        "imageSrc": "/certificates/SolidCleanCode.png",
+        "title": "SOLID and Clean Code in Java: Writing High-Quality Code",
+        "description": "I applied the five SOLID principles and Clean Code concepts in the context of the Java language to build robust, flexible, and easily maintainable software, following the best practices of object-oriented programming."
+      },
+      {
+        "imageSrc": "/certificates/Intro-CleanCode.png",
+        "title": "Introduction to Clean Code",
+        "description": "I learned the essential principles for writing readable and easily maintainable code, focusing on techniques such as using meaningful names, creating functions with a single responsibility, and consistent code formatting."
+      },
+      {
+        "imageSrc": "/certificates/MySql.png",
+        "title": "MySQL",
+        "description": "I learned to work with the MySQL relational database management system, focusing on data modeling and executing SQL queries to create, manipulate, and query information in a structured way."
+      },
+      {
+        "imageSrc": "/certificates/JornadaIA.png",
+        "title": "AI Journey: Prompt Engineering",
+        "description": "I trained in prompt engineering to interact effectively with Artificial Intelligence models, learning to structure clear and contextual instructions to generate accurate and optimized results."
+      },
+      {
+        "imageSrc": "/certificates/GitEGitHub.png",
+        "title": "Git and GitHub",
+        "description": "I studied the Git version control system to manage project history and the use of GitHub to host remote repositories, collaborate in teams, and manage branches efficiently."
+      },
+      {
+        "imageSrc": "/certificates/Intro-AnaliseDados.png",
+        "title": "Introduction to Data Analysis - Microsoft Power BI",
+        "description": "I developed skills to transform raw data into insights with Microsoft Power BI, learning to import, process data, and create interactive reports and dashboards for information visualization and analysis."
+      },
+      {
+        "imageSrc": "/certificates/Javascript.png",
+        "title": "JavaScript",
+        "description": "I deepened my knowledge in JavaScript, covering from basic syntax and DOM manipulation to fundamental concepts for creating interactivity on web pages, such as events, functions, and data structures."
+      },
+      {
+        "imageSrc": "/certificates/Hardware.png",
+        "title": "Hardware",
+        "description": "I studied the fundamental components that make up a computer, such as the processor, RAM, and motherboard. I learned about their functions, interconnections, and the basic principles of equipment assembly and maintenance."
+      }
+    ]
+  }
 
 
 

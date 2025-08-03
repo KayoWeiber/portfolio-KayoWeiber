@@ -60,7 +60,58 @@
   "error": "Erro ao enviar. Tente novamente."
 },"footer": {
   "rights": "Todos os direitos reservados"
-}
+},"coursesPage": {
+    "title": "Cursos e Certificações",
+    "certificateAlt": "Certificado do curso {{title}}",
+    "certificateAriaLabel": "Ver certificado do curso {{title}}",
+    "list":[
+  {
+    "imageSrc": "/certificates/IntroTestes.png",
+    "title": "Introdução a Testes de Software",
+    "description": "Adquiri conhecimentos sobre os fundamentos e a importância dos testes de software para garantir a qualidade, aprendendo sobre os diferentes tipos de testes, como unitários e de integração, e o papel deles no ciclo de desenvolvimento."
+  },
+  {
+    "imageSrc": "/certificates/SolidCleanCode.png",
+    "title": "SOLID e Clean Code em Java: Escrevendo Código de Alta Qualidade",
+    "description": "Apliquei os cinco princípios SOLID e conceitos de Clean Code no contexto da linguagem Java para construir um software robusto, flexível e de fácil manutenção, seguindo as melhores práticas da programação orientada a objetos."
+  },
+  {
+    "imageSrc": "/certificates/Intro-CleanCode.png",
+    "title": "Introdução a Clean Code",
+    "description": "Aprendi os princípios essenciais para escrever um código legível e de fácil manutenção, focando em técnicas como o uso de nomes significativos, a criação de funções com responsabilidade única e a formatação consistente do código."
+  },
+  {
+    "imageSrc": "/certificates/MySql.png",
+    "title": "MySQL",
+    "description": "Aprendi a trabalhar com o sistema de gerenciamento de banco de dados relacional MySQL, focando na modelagem de dados e na execução de consultas SQL para criar, manipular e consultar informações de forma estruturada."
+  },
+  {
+    "imageSrc": "/certificates/JornadaIA.png",
+    "title": "Jornada IA: Engenharia de Prompt",
+    "description": "Capacitei-me em engenharia de prompt para interagir de forma eficaz com modelos de Inteligência Artificial, aprendendo a estruturar instruções claras e contextuais para gerar resultados precisos e otimizados."
+  },
+  {
+    "imageSrc": "/certificates/GitEGitHub.png",
+    "title": "Git e GitHub",
+    "description": "Estudei o sistema de controle de versão Git para gerenciar o histórico de projetos e o uso do GitHub para hospedar repositórios remotos, colaborar em equipe e gerenciar branches de forma eficiente."
+  },
+  {
+    "imageSrc": "/certificates/Intro-AnaliseDados.png",
+    "title": "Introdução à Análise de Dados - Microsoft Power BI",
+    "description": "Desenvolvi habilidades para transformar dados brutos em insights com o Microsoft Power BI, aprendendo a importar, tratar dados e a criar relatórios e dashboards interativos para visualização e análise de informações."
+  },
+  {
+    "imageSrc": "/certificates/Javascript.png",
+    "title": "JavaScript",
+    "description": "Aprofundei meus conhecimentos em JavaScript, abordando desde a sintaxe básica e manipulação do DOM até conceitos fundamentais para a criação de interatividade em páginas web, como eventos, funções e estruturas de dados."
+  },
+  {
+    "imageSrc": "/certificates/Hardware.png",
+    "title": "Hardware",
+    "description": "Estudei os componentes fundamentais que formam um computador, como processador, memória RAM e placa-mãe. Aprendi sobre suas funções, interconexões e os princípios básicos de montagem e manutenção de equipamentos."
+  }
+]
+  }
 
 
 
