@@ -67,6 +67,11 @@
     "certificateAriaLabel": "View certificate for {{title}} course",
     "list": [
       {
+        "imageSrc": "/certificates/springboot.png",
+        "title": "Spring Boot 2025: REST APIs from Zero to AWS & GCP with Java and Docker",
+        "description": "I learned to build REST APIs with Spring Boot, using Java and Docker, and deploy them to AWS and GCP, exploring Swagger, Kubernetes, K8s RESTful APIs, JWT, JUnit 5, Mockito, and React JS."
+      },
+      {
         "imageSrc": "/certificates/IntroTestes.png",
         "title": "Introduction to Software Testing",
         "description": "I acquired knowledge about the fundamentals and importance of software testing to ensure quality, learning about different types of tests, such as unit and integration, and their role in the development cycle."
@@ -80,6 +85,10 @@
         "imageSrc": "/certificates/Intro-CleanCode.png",
         "title": "Introduction to Clean Code",
         "description": "I learned the essential principles for writing readable and easily maintainable code, focusing on techniques such as using meaningful names, creating functions with a single responsibility, and consistent code formatting."
+      },{
+          "imageSrc": "/certificates/javascript-typescripr.png",
+          "title": "JavaScript and TypeScript: From Beginner to Advanced (JS/TS)",
+          "description": "I learned JavaScript and TypeScript, from the fundamentals to advanced concepts for front-end and back-end development, covering technologies such as Node, Express, NoSQL, React, Hooks, Redux, and Design Patterns."
       },
       {
         "imageSrc": "/certificates/MySql.png",

@@ -64,7 +64,11 @@
     "title": "Cursos e Certificações",
     "certificateAlt": "Certificado do curso {{title}}",
     "certificateAriaLabel": "Ver certificado do curso {{title}}",
-    "list":[
+    "list":[ {
+            "imageSrc": "/certificates/springboot.png",
+            "title": "Spring Boot 2025 REST API's do 0 à AWS e GCP c Java e Docker",
+            "description": "Aprendi a construir REST APIs com Spring Boot, utilizando Java e Docker, e a realizar deploy na AWS e GCP, explorando Swagger, Kubernetes, K8s API RESTful, JWT, JUnit 5 e Mockito React JS."
+            },
   {
     "imageSrc": "/certificates/IntroTestes.png",
     "title": "Introdução a Testes de Software",
@@ -79,7 +83,9 @@
     "imageSrc": "/certificates/Intro-CleanCode.png",
     "title": "Introdução a Clean Code",
     "description": "Aprendi os princípios essenciais para escrever um código legível e de fácil manutenção, focando em técnicas como o uso de nomes significativos, a criação de funções com responsabilidade única e a formatação consistente do código."
-  },
+  },{"imageSrc": "/certificates/javascript-typescripr.png",
+          "title": "Curso de JavaScript e TypeScript do básico ao avançado JS/TS",
+          "description": "Aprendi JavaScript e TypeScript, desde os fundamentos até conceitos avançados para desenvolvimento front-end e back-end com Node, Express, noSQL, React, hooks, Redux e Design Patterns."},
   {
     "imageSrc": "/certificates/MySql.png",
     "title": "MySQL",
