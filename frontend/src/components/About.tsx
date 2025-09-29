@@ -22,21 +22,27 @@ const colorMap: Record<string, string> = {
 
 // Tecnologias
 const technologies = [
-  { name: "Python", icon: FaPython, color: "#3776AB", percentage: "15.35%" },
-  { name: "JavaScript", icon: FaJs, color: "#F7DF1E", percentage: "17.50%" },
-  { name: "Java", icon: FaJava, color: "#ED8B00", percentage: "79.26%" },
-  { name: "TypeScript", icon: SiTypescript, color: "#3178C6", percentage: "85%" },
+  // Linguagens (as 6 exibidas em "Main Languages" somam 100%)
+  { name: "TypeScript", icon: SiTypescript, color: "#3178C6", percentage: "32%" },
+  { name: "JavaScript", icon: FaJs, color: "#F7DF1E", percentage: "28%" },
+  { name: "Java", icon: FaJava, color: "#ED8B00", percentage: "15%" },
+  { name: "Python", icon: FaPython, color: "#3776AB", percentage: "10%" },
+  { name: "C#", icon: TbBrandCSharp, color: "#239120", percentage: "8%" },
+  { name: "HTML", icon: FaHtml5, color: "#E34F26", percentage: "7%" },
+  // (CSS fica fora do top 6 mostrado)
+  { name: "CSS", icon: FaCss3Alt, color: "#1572B6", percentage: "5%" },
+
+  // Frameworks e libs
   { name: "React", icon: FaReact, color: "#61DAFB", percentage: "90%" },
   { name: "Node.js", icon: FaNodeJs, color: "#339933", percentage: "80%" },
   { name: "SpringBoot", icon: SiSpringboot, color: "#47A248", percentage: "75%" },
-  { name: "Tailwind CSS", icon: SiTailwindcss, color: "#06B6D4", percentage: "85%" },
   { name: "Express.js", icon: SiExpress, color: "#000000", percentage: "70%" },
+  { name: "Tailwind CSS", icon: SiTailwindcss, color: "#06B6D4", percentage: "85%" },
+
+  // Bancos de dados
   { name: "MongoDB", icon: SiMongodb, color: "#47A248", percentage: "65%" },
   { name: "PostgreSQL", icon: SiPostgresql, color: "#336791", percentage: "70%" },
   { name: "MySQL", icon: SiMysql, color: "#4479A1", percentage: "75%" },
-  { name: "HTML", icon: FaHtml5, color: "#E34F26", percentage: "8.36%" },
-  { name: "CSS", icon: FaCss3Alt, color: "#1572B6", percentage: "7.06%" },
-  { name: "C#", icon: TbBrandCSharp, color: "#239120", percentage: "60%" },
 ];
 
 // Animações
