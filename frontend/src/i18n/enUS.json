@@ -83,6 +83,10 @@
     "certificateAlt": "Certificate of the {{title}} course",
     "certificateAriaLabel": "View certificate for {{title}} course",
     "list": [
+      {"imageSrc":"/certificates/awsAcademy.png",
+    "title":"AWS Academy Graduate - Cloud Foundations",
+    "description":"I completed the AWS Academy Cloud Foundations course, gaining essential knowledge of AWS services and solutions, including cloud computing, storage, databases, networking, and security."
+    },
       {
         "imageSrc": "/certificates/springboot.png",
         "title": "Spring Boot 2025: REST APIs from Zero to AWS & GCP with Java and Docker",
