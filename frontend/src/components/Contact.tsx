@@ -86,12 +86,28 @@ const Contact: React.FC = () => {
           {status === "sending"
             ? t("contact.sending")
             : status === "success"
-            ? t("contact.success")
-            : status === "error"
-            ? t("contact.error")
-            : t("contact.send")}
+              ? t("contact.success")
+              : status === "error"
+                ? t("contact.error")
+                : t("contact.send")}
         </motion.button>
       </motion.form>
+      {status === "error" && (
+        <motion.p
+          className="text-red-400 text-center mt-6"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+        >
+          Ocorreu um erro ao enviar a mensagem.
+          Por favor, envie manualmente para:{" "}
+          <a
+            href="mailto:caioveiber598@gmail.com"
+            className="underline text-blue-400"
+          >
+            caioveiber598@gmail.com
+          </a>
+        </motion.p>
+      )}
     </section>
   );
 };
