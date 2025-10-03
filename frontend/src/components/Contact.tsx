@@ -16,6 +16,10 @@ const Contact: React.FC = () => {
 
     setStatus("sending");
 
+    // Criando controller para timeout
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 70000); // 70 segundos
+
     try {
       const response = await fetch("https://portfolio-contact-backend-no6y.onrender.com/api/contact", {
         method: "POST",
@@ -23,17 +27,21 @@ const Contact: React.FC = () => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(data),
+        signal: controller.signal, // conecta com o AbortController
       });
+
+      clearTimeout(timeoutId); // se respondeu a tempo, cancela o timeout
 
       if (!response.ok) throw new Error("Erro ao enviar");
 
       setStatus("success");
       form.current.reset();
     } catch (error) {
-      console.error(error);
+      console.error("Erro ou timeout:", error);
       setStatus("error");
     }
   };
+
 
   return (
     <section
