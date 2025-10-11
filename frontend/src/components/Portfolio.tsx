@@ -59,21 +59,24 @@ const ProjectModal = ({
           <div className="relative flex justify-center items-center mb-6">
             <img
               src={project.images[imgIndex]}
+              loading="lazy"
               onClick={() => window.open(project.images[imgIndex], "_blank")}
               className="max-h-60 object-contain rounded-xl shadow-lg border-2 border-blue-800/40 cursor-zoom-in transition hover:scale-[1.02]"
-              alt={`Imagem ${imgIndex + 1}`}
+              alt={`${project.title} - imagem ${imgIndex + 1}`}
             />
             {project.images.length > 1 && (
               <>
                 <button
                   onClick={() => handleSwitch("prev")}
                   className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-blue-800/70 p-2 rounded-full"
+                  aria-label="Imagem anterior"
                 >
                   <FaArrowLeft />
                 </button>
                 <button
                   onClick={() => handleSwitch("next")}
                   className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-blue-800/70 p-2 rounded-full"
+                  aria-label="Próxima imagem"
                 >
                   <FaArrowRight />
                 </button>
@@ -176,7 +179,8 @@ const Portfolio: React.FC = () => {
                       <motion.img
                         key={currentImg[index]}
                         src={proj.images[currentImg[index]]}
-                        alt={`project-${index}`}
+                        loading="lazy"
+                        alt={`${proj.title} - imagem ${currentImg[index] + 1}`}
                         className="w-full h-full object-cover transition-all duration-300 rounded-t-3xl"
                         initial={{ opacity: 0, scale: 1.05 }}
                         animate={{ opacity: 1, scale: 1 }}
@@ -233,7 +237,7 @@ const Portfolio: React.FC = () => {
                       whileTap={{ scale: 0.96 }}
                       whileHover={{ scale: 1.04 }}
                     >
-                      Ver Detalhes
+                      {i18n.language === 'en-US' ? 'View Details' : 'Ver Detalhes'}
                     </motion.button>
                   </div>
                 </motion.div>
