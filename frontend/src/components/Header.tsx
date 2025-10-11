@@ -63,6 +63,9 @@ const Header: React.FC = () => {
 
   return (
     <header className="w-full fixed top-0 left-0 z-30 font-sans bg-gradient-to-r from-[#0a2342cc] via-[#181818cc] to-[#2563ebcc] shadow-lg border-b border-blue-700/30 backdrop-blur-md transition-colors duration-500">
+      <a href="#content" className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 bg-blue-700 text-white px-3 py-2 rounded shadow">
+        Pular para o conteúdo
+      </a>
       <div className="max-w-7xl mx-auto flex items-center justify-between px-6 md:px-8 py-3 relative">
         <span
           className="text-2xl md:text-3xl font-extrabold tracking-tight select-none text-blue-400 drop-shadow-[0_2px_8px_rgba(37,99,235,0.3)]"
