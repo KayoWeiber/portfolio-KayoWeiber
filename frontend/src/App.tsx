@@ -15,14 +15,12 @@ function App() {
       <ScrollToHashElement /> {/* Adicione o componente aqui */}
       <div className="min-h-screen bg-animate-gradient">
         <Header />
-        <main className="pt-20">
+        <main id="content" role="main" tabIndex={-1} className="pt-20">
           <Routes>
             <Route
               path="/"
               element={
                 <>
-                  {/* Lembre-se que cada um desses componentes precisa ter um `id`
-                      correspondente ao `href` em `navLinks`. Ex: <Hero id="home" /> */}
                   <Hero />
                   <About />
                   <Services />

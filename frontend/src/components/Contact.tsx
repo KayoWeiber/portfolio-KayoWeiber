@@ -65,20 +65,28 @@ const Contact: React.FC = () => {
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.5 }}
       >
+        <label className="sr-only" htmlFor="user_name">{t("contact.name")}</label>
         <input
+          id="user_name"
           name="user_name"
           placeholder={t("contact.name")}
+          autoComplete="name"
           required
           className="p-4 rounded-md bg-slate-800 placeholder:text-blue-200 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
         />
+        <label className="sr-only" htmlFor="user_email">{t("contact.email")}</label>
         <input
+          id="user_email"
           name="user_email"
           placeholder={t("contact.email")}
+          autoComplete="email"
           required
           type="email"
           className="p-4 rounded-md bg-slate-800 placeholder:text-blue-200 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
         />
+        <label className="sr-only" htmlFor="message">{t("contact.message")}</label>
         <textarea
+          id="message"
           name="message"
           placeholder={t("contact.message")}
           required

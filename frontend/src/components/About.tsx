@@ -13,12 +13,7 @@ import { SiSpringboot } from "react-icons/si";
 import { easeInOut } from "framer-motion";
 
 
-// Mapeamento de cores
-const colorMap: Record<string, string> = {
-  blue: "blue",
-  purple: "purple",
-  green: "green",
-};
+// Cores fixas aplicadas diretamente nas classes Tailwind para evitar purge
 
 // Tecnologias
 const technologies = [
@@ -102,7 +97,7 @@ const About: React.FC = () => {
     <section
       id="about"
       ref={ref}
-      className="min-h-screen bg-gradient-to-br from-[#0a2342] via-[#181818] to-[#1e293b] py-20 px-4"
+      className="min-h-screen bg-gradient-to-br from-[#0a2342] via-[#181818] to-[#1e293b] py-20 px-4 scroll-mt-24"
     >
       <div className="max-w-7xl mx-auto">
         <motion.div
@@ -148,13 +143,13 @@ const About: React.FC = () => {
 
               <div className="grid grid-cols-2 md:grid-cols-3 gap-6 pt-8">
                 {(Array.isArray(stats) ? stats : []).map((stat) => {
-                  const color = colorMap[stat.color] || "gray";
+                  // Usa classes fixas azuis para evitar classes dinâmicas que o Tailwind pode purgar
                   return (
                     <div
                       key={stat.label}
-                      className={`text-center p-4 bg-${color}-500/10 rounded-lg border border-${color}-500/20`}
+                      className={"text-center p-4 rounded-lg border bg-blue-500/10 border-blue-500/20"}
                     >
-                      <div className={`text-2xl font-bold text-${color}-400`}>{stat.number}</div>
+                      <div className={"text-2xl font-bold text-blue-400"}>{stat.number}</div>
                       <div className="text-sm text-gray-400 uppercase tracking-wide">{stat.label}</div>
                     </div>
                   );
