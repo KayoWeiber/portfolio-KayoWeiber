@@ -67,8 +67,18 @@ const Header: React.FC = () => {
         Pular para o conteúdo
       </a>
       <div className="max-w-7xl mx-auto flex items-center justify-between px-6 md:px-8 py-3 relative">
-        <span
-          className="text-2xl md:text-3xl font-extrabold tracking-tight select-none text-blue-400 drop-shadow-[0_2px_8px_rgba(37,99,235,0.3)]"
+        <button
+          type="button"
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          onKeyDown={(e) => {
+            if (e.key === "Enter" || e.key === " ") {
+              e.preventDefault();
+              window.scrollTo({ top: 0, behavior: "smooth" });
+            }
+          }}
+          aria-label="Voltar ao topo"
+          title="Voltar ao topo"
+          className=" cursor-pointer text-2xl md:text-3xl font-extrabold tracking-tight select-none text-blue-400 drop-shadow-[0_2px_8px_rgba(37,99,235,0.3)] bg-transparent border-0 p-0"
           style={{ fontFamily: "'Montserrat', sans-serif" }}
         >
           <TypeAnimation
@@ -78,7 +88,7 @@ const Header: React.FC = () => {
             repeat={0}
             style={{ display: "inline-block", fontFamily: "'Montserrat', sans-serif" }}
           />
-        </span>
+        </button>
 
         <nav className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
