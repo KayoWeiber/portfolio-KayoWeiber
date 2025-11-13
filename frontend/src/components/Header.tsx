@@ -66,7 +66,7 @@ const Header: React.FC = () => {
       <a href="#content" className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 bg-blue-700 text-white px-3 py-2 rounded shadow">
         Pular para o conteúdo
       </a>
-      <div className="max-w-7xl mx-auto flex items-center justify-between px-6 md:px-8 py-3 relative">
+      <div className="max-w-7xl mx-auto flex items-center justify-between px-6 md:px-8 py-3 relative cursor-pointer">
         <button
           type="button"
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
