@@ -13,7 +13,7 @@ interface CourseCardProps {
   course: Course;
   index: number;
   langKey: number;
-  onCardClick: (course: Course) => void; // Nova prop para o clique
+  onCardClick: (course: Course) => void; 
 }
 
 const CourseCard: React.FC<CourseCardProps> = ({ course, index, langKey, onCardClick }) => {

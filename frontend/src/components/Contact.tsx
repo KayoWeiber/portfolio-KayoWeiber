@@ -16,7 +16,6 @@ const Contact: React.FC = () => {
 
     setStatus("sending");
 
-    // Criando controller para timeout
     const controller = new AbortController();
     const timeoutId = setTimeout(() => controller.abort(), 70000); // 70 segundos
 
@@ -27,10 +26,10 @@ const Contact: React.FC = () => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(data),
-        signal: controller.signal, // conecta com o AbortController
+        signal: controller.signal, 
       });
 
-      clearTimeout(timeoutId); // se respondeu a tempo, cancela o timeout
+      clearTimeout(timeoutId);
 
       if (!response.ok) throw new Error("Erro ao enviar");
 

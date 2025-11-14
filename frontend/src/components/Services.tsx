@@ -5,13 +5,11 @@ import TextTransition, { presets } from "react-text-transition";
 import {
   FaCode, FaServer, FaProjectDiagram, FaJava, FaReact, FaDatabase
 } from "react-icons/fa";
-//import { SiSpringboot, SiTypescript } from "react-icons/si";
 
 const Services: React.FC = () => {
   const { t, i18n } = useTranslation();
   const [langKey, setLangKey] = useState(0);
 
-  // Atualiza o key dos textos quando muda idioma (ativa animação de transição)
   useEffect(() => {
     setLangKey((prev) => prev + 1);
   }, [i18n.language]);
