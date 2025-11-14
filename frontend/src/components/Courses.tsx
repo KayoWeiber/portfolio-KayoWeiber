@@ -25,7 +25,6 @@ const Courses: React.FC = () => {
     <>
       <section id="courses" className="py-20 px-6 md:px-12 bg-[#0f172a] text-white min-h-screen">
         <div className="max-w-6xl mx-auto">
-          {/* ## INÍCIO DA CORREÇÃO ## */}
           <motion.h2
             className="text-4xl md:text-5xl font-extrabold mb-16 text-center text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-teal-300"
             initial={{ opacity: 0, y: -30 }}
@@ -34,7 +33,6 @@ const Courses: React.FC = () => {
           >
             {t("coursesPage.title")}
           </motion.h2>
-          {/* ## FIM DA CORREÇÃO ## */}
 
           <div className="grid gap-8 sm:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3" aria-labelledby="courses-heading">
             {courses.map((course, index) => (
