@@ -81,7 +81,12 @@
     "title": "Cursos e Certificações",
     "certificateAlt": "Certificado do curso {{title}}",
     "certificateAriaLabel": "Ver certificado do curso {{title}}",
-    "list":[ 
+    "list":[
+      {
+    "imageSrc": "/certificates/azureDevops.png",
+    "title": "Azure DevOps - Board, Repos, Pipeline, Test Plans e Artifacts",
+    "description": "Overview de Azure DevOps com foco prático em Azure Pipelines (CI/CD), configurando builds e releases via Editor Clássico e YAML."
+  },
     {"imageSrc":"/certificates/awsAcademy.png",
     "title":"AWS Academy Graduate - Cloud Foundations",
     "description":"Concluí o curso AWS Academy Cloud Foundations, adquirindo conhecimentos essenciais sobre os serviços e soluções da AWS, incluindo computação em nuvem, armazenamento, bancos de dados, redes e segurança."
