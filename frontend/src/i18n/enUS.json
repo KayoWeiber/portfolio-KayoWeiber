@@ -82,7 +82,11 @@
     "title": "Courses and Certifications",
     "certificateAlt": "Certificate of the {{title}} course",
     "certificateAriaLabel": "View certificate for {{title}} course",
-    "list": [
+    "list": [{
+    "imageSrc": "/certificates/ArquiteturaSoftware.png",
+    "title": "Software Architecture & Modern Systems Design",
+    "description": "I learned to design scalable and resilient software architectures, using modern patterns and best practices to ensure the efficiency and maintainability of developed systems."
+  },
       {
   "imageSrc": "/certificates/azureDevops.png",
   "title": "Azure DevOps - Board, Repos, Pipeline, Test Plans, and Artifacts",
