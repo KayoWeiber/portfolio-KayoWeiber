@@ -83,6 +83,11 @@
     "certificateAriaLabel": "Ver certificado do curso {{title}}",
     "list":[
       {
+    "imageSrc": "/certificates/ArquiteturaSoftware.png",
+    "title": "Arquitetura de Software & Design de Sistemas Modernos",
+    "description": "Aprendi a projetar arquiteturas de software escaláveis e resilientes, utilizando padrões modernos e boas práticas para garantir a eficiência e a manutenção dos sistemas desenvolvidos."
+  },
+      {
     "imageSrc": "/certificates/azureDevops.png",
     "title": "Azure DevOps - Board, Repos, Pipeline, Test Plans e Artifacts",
     "description": "Overview de Azure DevOps com foco prático em Azure Pipelines (CI/CD), configurando builds e releases via Editor Clássico e YAML."
