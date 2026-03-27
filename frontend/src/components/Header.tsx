@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { TypeAnimation } from "react-type-animation";
 import TextTransition, { presets } from "react-text-transition";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const navLinks = [
   { href: "/#home", label: "Home", pt: "Início" },
@@ -16,6 +16,7 @@ const navLinks = [
 const Header: React.FC = () => {
   const { i18n } = useTranslation();
   const location = useLocation();
+  const navigate = useNavigate();
   const [active, setActive] = useState("Home");
   const [lang, setLang] = useState(i18n.resolvedLanguage === "en-US");
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -27,6 +28,35 @@ const Header: React.FC = () => {
   };
 
   const handleMobileMenuToggle = () => setMobileMenuOpen((open) => !open);
+
+  const goToHome = () => {
+    setActive("Home");
+    setMobileMenuOpen(false);
+
+    const homeSection = document.getElementById("home");
+    if (homeSection) {
+      homeSection.scrollIntoView({ behavior: "smooth", block: "start" });
+    } else {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    if (location.pathname !== "/" || location.hash !== "#home") {
+      navigate("/#home");
+    }
+  };
+
+  useEffect(() => {
+    const currentPathWithHash = location.pathname + location.hash;
+    const matchedLink = navLinks.find((link) => link.href === currentPathWithHash);
+    if (matchedLink) {
+      setActive(matchedLink.label);
+      return;
+    }
+
+    if (location.pathname === "/") {
+      setActive("Home");
+    }
+  }, [location.pathname, location.hash]);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -58,8 +88,7 @@ const Header: React.FC = () => {
     return () => observer.disconnect();
   }, [location.pathname]);
 
-  const isActive = (href: string, label: string) =>
-    location.pathname + location.hash === href || active === label;
+  const isActive = (_href: string, label: string) => active === label;
 
   return (
     <header className="w-full fixed top-0 left-0 z-30 font-sans bg-gradient-to-r from-[#0a2342cc] via-[#181818cc] to-[#2563ebcc] shadow-lg border-b border-blue-700/30 backdrop-blur-md transition-colors duration-500">
@@ -69,11 +98,11 @@ const Header: React.FC = () => {
       <div className="max-w-7xl mx-auto flex items-center justify-between px-6 md:px-8 py-3 relative cursor-pointer">
         <button
           type="button"
-          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          onClick={goToHome}
           onKeyDown={(e) => {
             if (e.key === "Enter" || e.key === " ") {
               e.preventDefault();
-              window.scrollTo({ top: 0, behavior: "smooth" });
+              goToHome();
             }
           }}
           aria-label="Voltar ao topo"
