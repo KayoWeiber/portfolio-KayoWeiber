@@ -118,6 +118,7 @@
     "message": "Sua mensagem",
     "send": "Enviar",
     "sending": "Enviando...",
+    "waitMessage": "Aguarde enquanto enviamos sua mensagem. O envio pode levar de 1 a 2 minutos.",
     "success": "Mensagem enviada com sucesso!",
     "error": "Erro ao enviar. Tente novamente.",
     "fallback": "Ocorreu um erro ao enviar a mensagem. Por favor, envie manualmente para:"

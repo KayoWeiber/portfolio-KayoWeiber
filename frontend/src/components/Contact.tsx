@@ -26,7 +26,7 @@ const Contact: React.FC = () => {
     }
 
     const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), 70000);
+    const timeoutId = setTimeout(() => controller.abort(), 120000);
 
     try {
       const response = await fetch(CONTACT_API_URL, {
@@ -103,7 +103,7 @@ const Contact: React.FC = () => {
         <motion.button
           type="submit"
           disabled={status === "sending"}
-          className="w-full bg-blue-600 hover:bg-blue-500 text-white font-bold py-3 rounded-md transition"
+          className="w-full bg-blue-600 hover:bg-blue-500 disabled:cursor-wait disabled:bg-blue-700 disabled:text-blue-100 text-white font-bold py-3 rounded-md transition"
           whileTap={{ scale: 0.97 }}
           whileHover={{ scale: 1.02 }}
         >
@@ -115,6 +115,17 @@ const Contact: React.FC = () => {
                 ? t("contact.error")
                 : t("contact.send")}
         </motion.button>
+        {status === "sending" && (
+          <motion.p
+            className="text-center text-sm font-medium text-blue-100"
+            initial={{ opacity: 0, y: -4 }}
+            animate={{ opacity: 1, y: 0 }}
+            role="status"
+            aria-live="polite"
+          >
+            {t("contact.waitMessage")}
+          </motion.p>
+        )}
       </motion.form>
       {status === "error" && (
         <motion.p

@@ -118,6 +118,7 @@
     "message": "Your message",
     "send": "Send",
     "sending": "Sending...",
+    "waitMessage": "Please wait while we send your message. This can take 1 to 2 minutes.",
     "success": "Message sent successfully!",
     "error": "Failed to send. Try again.",
     "fallback": "There was an error sending the message. Please send it manually to:"

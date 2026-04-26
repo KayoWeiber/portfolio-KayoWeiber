@@ -45,7 +45,7 @@ npm run dev
 Copie `frontend/.env.example` para `frontend/.env` quando quiser sobrescrever a URL da API de contato:
 
 ```bash
-VITE_CONTACT_API_URL=https://portfolio-contact-backend-no6y.onrender.com/api/contact
+VITE_CONTACT_API_URL=...
 ```
 
 Se a variavel nao for definida, o frontend usa a URL de producao como fallback.
