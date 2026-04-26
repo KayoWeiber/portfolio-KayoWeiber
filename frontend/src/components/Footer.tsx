@@ -5,7 +5,7 @@ const Footer: React.FC = () => {
   const { t } = useTranslation();
 
   return (
-    <footer className="bg-[#0f172a] text-gray-400 py-8 text-center border-t border-blue-700/20">
+    <footer className="bg-slate-950 text-slate-400 py-8 text-center border-t border-sky-700/20">
       <div className="text-sm">
         © {new Date().getFullYear()} Kayo Weiber. {t("footer.rights")}.
       </div>

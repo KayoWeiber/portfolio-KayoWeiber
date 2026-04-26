@@ -1,46 +1,8 @@
 import React, { useRef } from "react";
 import { useTranslation, Trans } from "react-i18next";
-import { motion, useInView, AnimatePresence } from "framer-motion";
-import {
-  FaPython, FaJs, FaJava, FaHtml5, FaCss3Alt, FaReact, FaNodeJs,
-} from "react-icons/fa";
-import {
-  SiTypescript, SiTailwindcss,
-  SiExpress, SiMongodb, SiPostgresql, SiMysql,
-} from "react-icons/si";
-import { TbBrandCSharp } from "react-icons/tb";
-import { SiSpringboot } from "react-icons/si";
-import { easeInOut } from "framer-motion";
+import { motion, useInView, AnimatePresence, easeInOut } from "framer-motion";
+import { technologies } from "../data/technologies";
 
-
-// Cores fixas aplicadas diretamente nas classes Tailwind para evitar purge
-
-// Tecnologias
-const technologies = [
-  // Linguagens (as 6 exibidas em "Main Languages" somam 100%)
-  { name: "TypeScript", icon: SiTypescript, color: "#3178C6", percentage: "32%" },
-  { name: "JavaScript", icon: FaJs, color: "#F7DF1E", percentage: "28%" },
-  { name: "Java", icon: FaJava, color: "#ED8B00", percentage: "15%" },
-  { name: "Python", icon: FaPython, color: "#3776AB", percentage: "10%" },
-  { name: "C#", icon: TbBrandCSharp, color: "#239120", percentage: "8%" },
-  { name: "HTML", icon: FaHtml5, color: "#E34F26", percentage: "7%" },
-  // (CSS fica fora do top 6 mostrado)
-  { name: "CSS", icon: FaCss3Alt, color: "#1572B6", percentage: "5%" },
-
-  // Frameworks e libs
-  { name: "React", icon: FaReact, color: "#61DAFB", percentage: "90%" },
-  { name: "Node.js", icon: FaNodeJs, color: "#339933", percentage: "80%" },
-  { name: "SpringBoot", icon: SiSpringboot, color: "#47A248", percentage: "75%" },
-  { name: "Express.js", icon: SiExpress, color: "#000000", percentage: "70%" },
-  { name: "Tailwind CSS", icon: SiTailwindcss, color: "#06B6D4", percentage: "85%" },
-
-  // Bancos de dados
-  { name: "MongoDB", icon: SiMongodb, color: "#47A248", percentage: "65%" },
-  { name: "PostgreSQL", icon: SiPostgresql, color: "#336791", percentage: "70%" },
-  { name: "MySQL", icon: SiMysql, color: "#4479A1", percentage: "75%" },
-];
-
-// Animações
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
@@ -60,7 +22,7 @@ const itemVariants = {
     opacity: 1,
     transition: {
       duration: 0.5,
-      ease: easeInOut,// corrigido
+      ease: easeInOut,
     },
   },
 };
@@ -71,7 +33,7 @@ const iconVariants = {
     scale: 1,
     rotate: 0,
     transition: {
-      type: "spring" as const, // corrigido
+      type: "spring" as const,
       stiffness: 260,
       damping: 20,
     },
@@ -134,6 +96,7 @@ const About: React.FC = () => {
                   <Trans
                     i18nKey="About.p3"
                     components={{
+                      0: <strong className="text-sky-300" />,
                       1: <strong className="text-blue-300" />,
                       2: <strong className="text-purple-300" />,
                     }}
@@ -143,7 +106,6 @@ const About: React.FC = () => {
 
               <div className="grid grid-cols-2 md:grid-cols-3 gap-6 pt-8">
                 {(Array.isArray(stats) ? stats : []).map((stat) => {
-                  // Usa classes fixas azuis para evitar classes dinâmicas que o Tailwind pode purgar
                   return (
                     <div
                       key={stat.label}

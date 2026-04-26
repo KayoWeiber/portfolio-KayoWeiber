@@ -1,132 +1,88 @@
-# Portfólio Pessoal - Kayo Weiber
+# Portfolio Pessoal - Kayo Weiber
 
-Este repositório contém o código-fonte do **frontend** do meu portfólio pessoal, criado com o objetivo de apresentar minhas habilidades como desenvolvedor, destacar projetos e facilitar o contato profissional.
+Frontend do portfolio pessoal de Kayo Weiber, criado para apresentar projetos, stack tecnica, certificacoes e facilitar contato profissional.
 
-O backend responsável pelo formulário de contato está em um [repositório separado](https://github.com/KayoWeiber/portfolio-contact-backend).
+Versao online: [https://www.kayoweiber.com.br/](https://www.kayoweiber.com.br/)
 
-> **Status:** 🚧 Em constante evolução e melhorias.
+## Stack
 
-🔗 **Acesse a versão online:** [https:www.kayoweiber.com.br/](https:www.kayoweiber.com.br/)
+- React 19 + TypeScript
+- Vite
+- Tailwind CSS
+- Framer Motion
+- i18next / react-i18next
+- React Router
+- React Icons
 
----
+## Estrutura
 
-## 🚀 Tecnologias Utilizadas
+- `frontend/`: aplicacao Vite/React.
+- `frontend/src/components/`: componentes de interface.
+- `frontend/src/features/`: secoes principais, como Hero.
+- `frontend/src/data/`: dados compartilhados de navegacao e tecnologias.
+- `frontend/src/types/`: tipos compartilhados.
+- `frontend/src/i18n/`: traducoes PT-BR e EN-US.
+- `frontend/public/`: imagens, certificados e assets publicos.
 
-- **Frontend:**
-    - **React.js** com **TypeScript**
-    - **Tailwind CSS** para responsividade, design e animações.
-    - **Framer Motion** para animações fluidas.
-    - **i18next** para tradução dinâmica (PT-BR / EN-US).
-    - **React Icons** para a biblioteca de ícones.
-    - **Vite** como ferramenta de build e desenvolvimento.
-- **Backend:**
-    - **Node.js** com **Express** para a API REST.
-    - **Nodemailer** para o serviço de envio de e-mails.
-    - **CORS** para gerenciamento de permissões de acesso.
+## Como rodar
 
----
+Na raiz do repositorio:
 
-## 🎯 Funcionalidades
-
-- Layout moderno, limpo e totalmente responsivo.
-- Troca de idiomas dinâmica entre Português e Inglês.
-- Animações de entrada e interações ao rolar a página.
-- *Scrollspy* na barra de navegação que destaca a seção ativa.
-- Seção "Portfólio" com um carrossel interativo de projetos.
-- Modal com detalhes do projeto, incluindo navegação por imagens.
-- Formulário de contato funcional com backend próprio para envio de e-mail.
-
----
-
-## 🧠 Aprendizados do Projeto
-
-- Manipulação avançada de hooks do React (`useEffect`, `useState`, `useRef`).
-- Construção de uma API RESTful com Node.js e Express.
-- Integração entre frontend e backend, incluindo tratamento de CORS.
-- Boas práticas de organização de componentes, tipagem e componentização.
-- Gerenciamento de variáveis de ambiente para proteger dados sensíveis.
-- Foco em acessibilidade, responsividade e performance.
-
----
-
-## 📌 Como Rodar Localmente
-
-Para rodar o projeto completo localmente, você precisará configurar e executar o **backend** (servidor) e o **frontend** (interface do usuário) em terminais separados.
-
-### Parte 1: Configurando o Backend
-
-O backend é responsável por receber os dados do formulário e enviar o e-mail.
-
-**1. Clone o repositório do backend:**
-```bash
-git clone [https://github.com/KayoWeiber/portfolio-contact-backend.git](https://github.com/KayoWeiber/portfolio-contact-backend.git)
-cd portfolio-contact-backend
-```
-**2. Instale as dependências:**
-```bash
-npm install
-```
-**3. Configure as variáveis de ambiente:**
-
-Crie um arquivo .env na raiz do projeto portfolio-contact-backend e adicione as credenciais do seu serviço de e-mail (ex: Gmail, Mailgun).
-```bash
-EMAIL_USER= seuemail@gmail.com
-EMAIL_PASS= sua senha de e-mail
-EMAIL_TO= destinatario@exemplo.com
-```
-**4. Rode o servidor backend:**
-```bash
-node server.js
-```
-O servidor estará rodando em http://localhost:3001.
-
-### Parte 2: Configurando o Frontend
-
-Agora, em um novo terminal, configure a interface do usuário.
-
-**1. Clone o repositório do frontend (este repositório):**
-```bash
-git clone [https://github.com/KayoWeiber/portfolio-KayoWeiber.git](https://github.com/KayoWeiber/portfolio-KayoWeiber.git)
-cd portfolio-KayoWeiber
-```
-
-**2. Instale as dependências:**
-```bash
-npm install
-```
-**3. Aponte o frontend para o backend local:**
-
-Para que o formulário de contato funcione localmente, você precisa alterar a URL da API no código do frontend.
-
-Abra o arquivo onde a função fetch é chamada (ex: src/components/ContactForm.tsx).
-
-Localize a linha que contém a URL da API de produção.
-
-Altere de:
-https://portfolio-contact-backend-no6y.onrender.com/api/contact
-
-Para:
-http://localhost:3001/api/contact
-
-**4. Rode o servidor frontend:**
 ```bash
 npm run dev
 ```
-A aplicação React será iniciada, geralmente em http://localhost:5173. Agora o portfólio completo está rodando em sua máquina.
----
 
+Ou diretamente no frontend:
 
-## 🤝 Como Contribuir
+```bash
+cd frontend
+npm install
+npm run dev
+```
 
-Feedbacks e contribuições são sempre bem-vindos! Sinta-se à vontade para abrir uma *issue* com sugestões ou um *pull request* com melhorias em qualquer um dos repositórios.
+## Variaveis de ambiente
 
----
+Copie `frontend/.env.example` para `frontend/.env` quando quiser sobrescrever a URL da API de contato:
 
-## 📬 Contato
+```bash
+VITE_CONTACT_API_URL=...
+```
 
-- **Email:** [caioveiber598@gmail.com](mailto:caioveiber598@gmail.com)
-- **LinkedIn:** [https://www.linkedin.com/in/kayo-weiber-134067280/](https://www.linkedin.com/in/kayo-weiber-134067280/)
+Se a variavel nao for definida, o frontend usa a URL de producao como fallback.
 
----
+## Scripts
 
-Feito com ❤️ por **Kayo Weiber**.
+Na raiz:
+
+- `npm run dev`: inicia o Vite dentro de `frontend`.
+- `npm run build`: executa o build do frontend.
+- `npm run lint`: executa o ESLint.
+- `npm run preview`: abre preview do build.
+- `npm run deploy`: publica via `gh-pages`.
+
+No diretorio `frontend`, os mesmos scripts existem no `package.json` local.
+
+## Backend de contato
+
+O formulario envia mensagens para uma API separada:
+[portfolio-contact-backend](https://github.com/KayoWeiber/portfolio-contact-backend).
+
+Para desenvolvimento local, rode o backend separado e defina:
+
+```bash
+VITE_CONTACT_API_URL=http://localhost:3001/api/contact
+```
+
+## Qualidade
+
+Antes de publicar alteracoes, rode:
+
+```bash
+npm run lint
+npm run build
+```
+
+## Contato
+
+- Email: [caioveiber598@gmail.com](mailto:caioveiber598@gmail.com)
+- LinkedIn: [linkedin.com/in/kayo-weiber-134067280](https://www.linkedin.com/in/kayo-weiber-134067280/)

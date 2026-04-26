@@ -1,18 +1,18 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
-import Footer from "./components/footer";
+import Footer from "./components/Footer";
 import Hero from "./features/Hero";
 import About from "./components/About";
 import Services from "./components/Services";
 import Portfolio from "./components/Portfolio";
 import Contact from "./components/Contact";
 import Courses from "./components/Courses";
-import ScrollToHashElement from "./utils/ScrollToHashElement"; // Importe o novo componente
+import ScrollToHashElement from "./utils/ScrollToHashElement";
 
 function App() {
   return (
     <Router>
-      <ScrollToHashElement /> {/* Adicione o componente aqui */}
+      <ScrollToHashElement />
       <div className="min-h-screen bg-animate-gradient">
         <Header />
         <main id="content" role="main" tabIndex={-1} className="pt-20">

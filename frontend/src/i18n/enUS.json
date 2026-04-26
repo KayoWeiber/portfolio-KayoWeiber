@@ -1,10 +1,23 @@
 {
   "greeting": "Hi, I'm Kayo!",
   "about": "Software Developer",
+  "language": {
+    "switch": "Switch language"
+  },
+  "accessibility": {
+    "skipContent": "Skip to content",
+    "backToTop": "Back to top"
+  },
+  "modal": {
+    "close": "Close"
+  },
   "hero": {
     "name": "Kayo Weiber",
     "role": "Software Developer",
-    "hello": "HELLO WORLD 👋"
+    "hello": "HELLO WORLD 👋",
+    "viewProjects": "View projects",
+    "contactMe": "Contact me",
+    "avatarAlt": "Profile photo of Kayo Weiber"
   },
   "About": {
     "subtitle": "About Me",
@@ -19,24 +32,40 @@
     ],
     "stack": "Tech Stack",
     "mainLangs": "Main Languages"
-  },"nav": {
-  "services": "Services","portfolio": "Portfólio"
-},
-"services": {
-  "webDev": "Web Development",
-  "webDesc": "Modern and responsive websites focused on performance and UX.",
-  "backendDev": "Backend Development",
-  "backendDesc": "Robust solutions with Node.js, Express, and JWT authentication.",
-  "apiIntegration": "API Integration",
-  "apiDesc": "System connections via RESTful APIs and efficient data handling.",
-  "javaSpring": "Java with Spring Boot",
-  "javaSpringDesc": "Secure and scalable apps built with Spring Boot framework.",
-  "frontend": "Modern Frontend",
-  "frontendDesc": "Rich interfaces using React, TypeScript and Tailwind CSS.",
-  "dbDesign": "Database Design",
-  "dbDesignDesc": "Well-structured relational and NoSQL database projects."
-},
-"portfolio": {
+  },
+  "nav": {
+    "home": "Home",
+    "about": "About Me",
+    "services": "Services",
+    "portfolio": "Portfolio",
+    "contact": "Contact",
+    "courses": "Courses",
+    "mainMenu": "Main menu",
+    "mobileMenu": "Mobile menu",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu"
+  },
+  "services": {
+    "webDev": "Web Development",
+    "webDesc": "Modern and responsive websites focused on performance and UX.",
+    "backendDev": "Backend Development",
+    "backendDesc": "Robust solutions with Node.js, Express, and JWT authentication.",
+    "apiIntegration": "API Integration",
+    "apiDesc": "System connections via RESTful APIs and efficient data handling.",
+    "javaSpring": "Java with Spring Boot",
+    "javaSpringDesc": "Secure and scalable apps built with Spring Boot framework.",
+    "frontend": "Modern Frontend",
+    "frontendDesc": "Rich interfaces using React, TypeScript and Tailwind CSS.",
+    "dbDesign": "Database Design",
+    "dbDesignDesc": "Well-structured relational and NoSQL database projects."
+  },
+  "portfolio": {
+    "viewDetails": "View details",
+    "viewProject": "View project",
+    "viewCode": "View code",
+    "previousImage": "Previous image",
+    "nextImage": "Next image",
+    "imageAlt": "{{title}} - image {{index}}",
     "projects": [
       {
         "images": [
@@ -45,8 +74,9 @@
           "/projeto1/projeto1-3.png"
         ],
         "title": "Casa Lar Project",
-        "description": "Management platform for Casa Lar with modules for Registration, Finance, and Inventory. Developed to optimize internal processes and resource control.",
-        "link": "https://github.com/KayoWeiber/"
+        "description": "Management platform for Casa Lar with modules for registration, finance, and inventory. Developed to optimize internal processes and resource control.",
+        "sourceLink": "https://github.com/KayoWeiber/",
+        "technologies": ["React", "TypeScript", "Node.js", "Database"]
       },
       {
         "images": [
@@ -54,8 +84,9 @@
           "/projeto2/projeto2-2.png"
         ],
         "title": "Volumetry Website",
-        "description": "Automates the calculation of beer can volumetry to optimize operations and stock control in distribution centers.",
-        "link": "https://kayoweiber.github.io/Volumetria/"
+        "description": "Automates beer can volumetry calculations to optimize operations and stock control in distribution centers.",
+        "demoLink": "https://kayoweiber.github.io/Volumetria/",
+        "technologies": ["HTML", "CSS", "JavaScript"]
       },
       {
         "images": [
@@ -63,97 +94,136 @@
         ],
         "title": "Portfolio Website",
         "description": "I created this site to present my skills interactively, with a modern design and support for multiple languages.",
-        "link": "https://github.com/KayoWeiber/portfolio-KayoWeiber"
+        "sourceLink": "https://github.com/KayoWeiber/portfolio-KayoWeiber",
+        "technologies": ["React", "TypeScript", "Tailwind CSS", "i18next"]
+      },
+      {
+        "images": [
+          "/projeto4/projeto4-1.png",
+          "/projeto4/projeto4-2.png",
+          "/projeto4/projeto4-3.png",
+          "/projeto4/projeto4-4.png"
+        ],
+        "title": "Housewarming Tea Website",
+        "description": "I created a website to organize a housewarming event, with RSVP, gift list, and event information features to make communication and guest organization easier.",
+        "sourceLink": "https://github.com/KayoWeiber",
+        "technologies": ["React", "TypeScript", "UX"]
       }
     ]
-  },"contact": {
-  "title": "Contact Me",
-  "name": "Your name",
-  "email": "Your email",
-  "message": "Your message",
-  "send": "Send",
-  "sending": "Sending...",
-  "success": "Message sent successfully!",
-  "error": "Failed to send. Try again."
-},
-"footer": {
-  "rights": "All rights reserved"
-},"coursesPage": {
+  },
+  "contact": {
+    "title": "Contact Me",
+    "name": "Your name",
+    "email": "Your email",
+    "message": "Your message",
+    "send": "Send",
+    "sending": "Sending...",
+    "waitMessage": "Please wait while we send your message. This can take 1 to 2 minutes.",
+    "success": "Message sent successfully!",
+    "error": "Failed to send. Try again.",
+    "fallback": "There was an error sending the message. Please send it manually to:"
+  },
+  "footer": {
+    "rights": "All rights reserved"
+  },
+  "coursesPage": {
     "title": "Courses and Certifications",
     "certificateAlt": "Certificate of the {{title}} course",
     "certificateAriaLabel": "View certificate for {{title}} course",
-    "list": [{
-    "imageSrc": "/certificates/ArquiteturaSoftware.png",
-    "title": "Software Architecture & Modern Systems Design",
-    "description": "I learned to design scalable and resilient software architectures, using modern patterns and best practices to ensure the efficiency and maintainability of developed systems."
-  },
-      {
-  "imageSrc": "/certificates/azureDevops.png",
-  "title": "Azure DevOps - Board, Repos, Pipeline, Test Plans, and Artifacts",
-  "description": "Overview of Azure DevOps with a practical focus on Azure Pipelines (CI/CD), configuring builds and releases via both Classic Editor and YAML."
-},
-      {"imageSrc":"/certificates/awsAcademy.png",
-    "title":"AWS Academy Graduate - Cloud Foundations",
-    "description":"I completed the AWS Academy Cloud Foundations course, gaining essential knowledge of AWS services and solutions, including cloud computing, storage, databases, networking, and security."
+    "filterLabel": "Filter courses by category",
+    "categories": {
+      "all": "All",
+      "backend": "Backend",
+      "cloud": "Cloud",
+      "frontend": "Frontend",
+      "data": "Data",
+      "fundamentals": "Fundamentals"
     },
+    "list": [
+      {
+        "imageSrc": "/certificates/ArquiteturaSoftware.png",
+        "title": "Software Architecture & Modern Systems Design",
+        "description": "I learned to design scalable and resilient software architectures, using modern patterns and best practices to ensure the efficiency and maintainability of developed systems.",
+        "category": "backend"
+      },
+      {
+        "imageSrc": "/certificates/azureDevops.png",
+        "title": "Azure DevOps - Board, Repos, Pipeline, Test Plans, and Artifacts",
+        "description": "Overview of Azure DevOps with a practical focus on Azure Pipelines (CI/CD), configuring builds and releases via both Classic Editor and YAML.",
+        "category": "cloud"
+      },
+      {
+        "imageSrc": "/certificates/awsAcademy.png",
+        "title": "AWS Academy Graduate - Cloud Foundations",
+        "description": "I completed the AWS Academy Cloud Foundations course, gaining essential knowledge of AWS services and solutions, including cloud computing, storage, databases, networking, and security.",
+        "category": "cloud"
+      },
       {
         "imageSrc": "/certificates/springboot.png",
         "title": "Spring Boot 2025: REST APIs from Zero to AWS & GCP with Java and Docker",
-        "description": "I learned to build REST APIs with Spring Boot, using Java and Docker, and deploy them to AWS and GCP, exploring Swagger, Kubernetes, K8s RESTful APIs, JWT, JUnit 5, Mockito, and React JS."
+        "description": "I learned to build REST APIs with Spring Boot, using Java and Docker, and deploy them to AWS and GCP, exploring Swagger, Kubernetes, K8s RESTful APIs, JWT, JUnit 5, Mockito, and React JS.",
+        "category": "backend"
       },
       {
         "imageSrc": "/certificates/IntroTestes.png",
         "title": "Introduction to Software Testing",
-        "description": "I acquired knowledge about the fundamentals and importance of software testing to ensure quality, learning about different types of tests, such as unit and integration, and their role in the development cycle."
+        "description": "I acquired knowledge about the fundamentals and importance of software testing to ensure quality, learning about different types of tests, such as unit and integration, and their role in the development cycle.",
+        "category": "fundamentals"
       },
       {
         "imageSrc": "/certificates/SolidCleanCode.png",
         "title": "SOLID and Clean Code in Java: Writing High-Quality Code",
-        "description": "I applied the five SOLID principles and Clean Code concepts in the context of the Java language to build robust, flexible, and easily maintainable software, following the best practices of object-oriented programming."
+        "description": "I applied the five SOLID principles and Clean Code concepts in the context of the Java language to build robust, flexible, and easily maintainable software, following the best practices of object-oriented programming.",
+        "category": "backend"
       },
       {
         "imageSrc": "/certificates/Intro-CleanCode.png",
         "title": "Introduction to Clean Code",
-        "description": "I learned the essential principles for writing readable and easily maintainable code, focusing on techniques such as using meaningful names, creating functions with a single responsibility, and consistent code formatting."
-      },{
-          "imageSrc": "/certificates/javascript-typescripr.png",
-          "title": "JavaScript and TypeScript: From Beginner to Advanced (JS/TS)",
-          "description": "I learned JavaScript and TypeScript, from the fundamentals to advanced concepts for front-end and back-end development, covering technologies such as Node, Express, NoSQL, React, Hooks, Redux, and Design Patterns."
+        "description": "I learned the essential principles for writing readable and easily maintainable code, focusing on techniques such as using meaningful names, creating functions with a single responsibility, and consistent code formatting.",
+        "category": "fundamentals"
+      },
+      {
+        "imageSrc": "/certificates/javascript-typescripr.png",
+        "title": "JavaScript and TypeScript: From Beginner to Advanced (JS/TS)",
+        "description": "I learned JavaScript and TypeScript, from the fundamentals to advanced concepts for front-end and back-end development, covering technologies such as Node, Express, NoSQL, React, Hooks, Redux, and Design Patterns.",
+        "category": "frontend"
       },
       {
         "imageSrc": "/certificates/MySql.png",
         "title": "MySQL",
-        "description": "I learned to work with the MySQL relational database management system, focusing on data modeling and executing SQL queries to create, manipulate, and query information in a structured way."
+        "description": "I learned to work with the MySQL relational database management system, focusing on data modeling and executing SQL queries to create, manipulate, and query information in a structured way.",
+        "category": "data"
       },
       {
         "imageSrc": "/certificates/JornadaIA.png",
         "title": "AI Journey: Prompt Engineering",
-        "description": "I trained in prompt engineering to interact effectively with Artificial Intelligence models, learning to structure clear and contextual instructions to generate accurate and optimized results."
+        "description": "I trained in prompt engineering to interact effectively with Artificial Intelligence models, learning to structure clear and contextual instructions to generate accurate and optimized results.",
+        "category": "data"
       },
       {
         "imageSrc": "/certificates/GitEGitHub.png",
         "title": "Git and GitHub",
-        "description": "I studied the Git version control system to manage project history and the use of GitHub to host remote repositories, collaborate in teams, and manage branches efficiently."
+        "description": "I studied the Git version control system to manage project history and the use of GitHub to host remote repositories, collaborate in teams, and manage branches efficiently.",
+        "category": "fundamentals"
       },
       {
         "imageSrc": "/certificates/Intro-AnaliseDados.png",
         "title": "Introduction to Data Analysis - Microsoft Power BI",
-        "description": "I developed skills to transform raw data into insights with Microsoft Power BI, learning to import, process data, and create interactive reports and dashboards for information visualization and analysis."
+        "description": "I developed skills to transform raw data into insights with Microsoft Power BI, learning to import, process data, and create interactive reports and dashboards for information visualization and analysis.",
+        "category": "data"
       },
       {
         "imageSrc": "/certificates/Javascript.png",
         "title": "JavaScript",
-        "description": "I deepened my knowledge in JavaScript, covering from basic syntax and DOM manipulation to fundamental concepts for creating interactivity on web pages, such as events, functions, and data structures."
+        "description": "I deepened my knowledge in JavaScript, covering from basic syntax and DOM manipulation to fundamental concepts for creating interactivity on web pages, such as events, functions, and data structures.",
+        "category": "frontend"
       },
       {
         "imageSrc": "/certificates/Hardware.png",
         "title": "Hardware",
-        "description": "I studied the fundamental components that make up a computer, such as the processor, RAM, and motherboard. I learned about their functions, interconnections, and the basic principles of equipment assembly and maintenance."
+        "description": "I studied the fundamental components that make up a computer, such as the processor, RAM, and motherboard. I learned about their functions, interconnections, and the basic principles of equipment assembly and maintenance.",
+        "category": "fundamentals"
       }
     ]
   }
-
-
-
-
 }
