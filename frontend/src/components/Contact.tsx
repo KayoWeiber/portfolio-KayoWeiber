@@ -2,6 +2,10 @@ import React, { useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
 
+const CONTACT_API_URL =
+  import.meta.env.VITE_CONTACT_API_URL ||
+  "https://portfolio-contact-backend-no6y.onrender.com/api/contact";
+
 const Contact: React.FC = () => {
   const form = useRef<HTMLFormElement>(null);
   const { t } = useTranslation();
@@ -16,11 +20,16 @@ const Contact: React.FC = () => {
 
     setStatus("sending");
 
+    if (!CONTACT_API_URL) {
+      setStatus("error");
+      return;
+    }
+
     const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), 70000); // 70 segundos
+    const timeoutId = setTimeout(() => controller.abort(), 70000);
 
     try {
-      const response = await fetch("https://portfolio-contact-backend-no6y.onrender.com/api/contact", {
+      const response = await fetch(CONTACT_API_URL, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -36,7 +45,7 @@ const Contact: React.FC = () => {
       setStatus("success");
       form.current.reset();
     } catch (error) {
-      console.error("Erro ou timeout:", error);
+      console.error("Contact form request failed:", error);
       setStatus("error");
     }
   };
@@ -113,8 +122,7 @@ const Contact: React.FC = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
         >
-          Ocorreu um erro ao enviar a mensagem.
-          Por favor, envie manualmente para:{" "}
+          {t("contact.fallback")}{" "}
           <a
             href="mailto:caioveiber598@gmail.com"
             className="underline text-blue-400"

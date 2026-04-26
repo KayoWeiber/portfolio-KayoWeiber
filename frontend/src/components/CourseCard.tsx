@@ -1,33 +1,29 @@
-// src/components/CourseCard.tsx
 import React from "react";
 import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
-
-interface Course {
-  imageSrc: string;
-  title: string;
-  description: string;
-}
+import type { Course } from "../types/course";
 
 interface CourseCardProps {
   course: Course;
   index: number;
   langKey: number;
-  onCardClick: (course: Course) => void; 
+  onCardClick: (course: Course) => void;
 }
 
 const CourseCard: React.FC<CourseCardProps> = ({ course, index, langKey, onCardClick }) => {
   const { t } = useTranslation();
 
   return (
-    <motion.div
+    <motion.button
+      type="button"
       key={`${langKey}-${index}`}
-      onClick={() => onCardClick(course)} // Aciona o modal
-      className="group bg-blue-950/40 rounded-xl h-full overflow-hidden border border-blue-800/50 shadow-lg transition-all duration-300 hover:shadow-blue-500/20 hover:border-blue-700 hover:scale-[1.02] cursor-pointer"
+      onClick={() => onCardClick(course)}
+      className="group bg-slate-950/50 rounded-lg h-full overflow-hidden border border-sky-800/40 shadow-lg transition-all duration-300 hover:shadow-sky-500/20 hover:border-sky-600 hover:scale-[1.02] cursor-pointer text-left focus:outline-none focus:ring-2 focus:ring-sky-300"
       initial={{ opacity: 0, y: 40 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: index * 0.1, duration: 0.5 }}
-      layout // Adiciona uma animação suave ao reordenar
+      layout
+      aria-label={t("coursesPage.certificateAriaLabel", { title: course.title })}
     >
       <img
         src={course.imageSrc}
@@ -36,10 +32,13 @@ const CourseCard: React.FC<CourseCardProps> = ({ course, index, langKey, onCardC
         loading="lazy"
       />
       <div className="p-6">
+        <span className="mb-3 inline-flex rounded-full border border-sky-500/30 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-sky-200">
+          {t(`coursesPage.categories.${course.category}`)}
+        </span>
         <h3 className="text-xl font-bold text-white mb-2">{course.title}</h3>
-        <p className="text-blue-200/90 leading-relaxed">{course.description}</p>
+        <p className="text-sky-100/90 leading-relaxed">{course.description}</p>
       </div>
-    </motion.div>
+    </motion.button>
   );
 };
 

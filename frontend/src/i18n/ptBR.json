@@ -1,10 +1,23 @@
 {
   "greeting": "Olá, eu sou Kayo!",
   "about": "Desenvolvedor de Software",
+  "language": {
+    "switch": "Alternar idioma"
+  },
+  "accessibility": {
+    "skipContent": "Pular para o conteúdo",
+    "backToTop": "Voltar ao topo"
+  },
+  "modal": {
+    "close": "Fechar"
+  },
   "hero": {
     "name": "Kayo Weiber",
     "role": "Desenvolvedor de Software",
-    "hello": "HELLO WORLD 👋"
+    "hello": "HELLO WORLD 👋",
+    "viewProjects": "Ver projetos",
+    "contactMe": "Entrar em contato",
+    "avatarAlt": "Foto de perfil de Kayo Weiber"
   },
   "About": {
     "subtitle": "Sobre Mim",
@@ -19,24 +32,40 @@
     ],
     "stack": "Stack Tecnológico",
     "mainLangs": "Principais Linguagens"
-  },"nav": {
-  "services": "Serviços","portfolio": "Portfólio"
-},
-"services": {
-  "webDev": "Desenvolvimento Web",
-  "webDesc": "Criação de sites modernos e responsivos com foco em performance e UX.",
-  "backendDev": "Desenvolvimento Backend",
-  "backendDesc": "Soluções robustas com Node.js, Express e autenticação JWT.",
-  "apiIntegration": "Integração de APIs",
-  "apiDesc": "Conexão de sistemas via APIs RESTful e consumo eficiente de dados.",
-  "javaSpring": "Java com Spring Boot",
-  "javaSpringDesc": "Criação de aplicações seguras e escaláveis com Spring Boot.",
-  "frontend": "Frontend Moderno",
-  "frontendDesc": "Interfaces ricas com React, TypeScript e Tailwind CSS.",
-  "dbDesign": "Modelagem de Banco de Dados",
-  "dbDesignDesc": "Projetos de banco de dados relacionais e NoSQL bem estruturados."
-},
-"portfolio": {
+  },
+  "nav": {
+    "home": "Início",
+    "about": "Sobre Mim",
+    "services": "Serviços",
+    "portfolio": "Portfólio",
+    "contact": "Contato",
+    "courses": "Cursos",
+    "mainMenu": "Menu principal",
+    "mobileMenu": "Menu mobile",
+    "openMenu": "Abrir menu",
+    "closeMenu": "Fechar menu"
+  },
+  "services": {
+    "webDev": "Desenvolvimento Web",
+    "webDesc": "Criação de sites modernos e responsivos com foco em performance e UX.",
+    "backendDev": "Desenvolvimento Backend",
+    "backendDesc": "Soluções robustas com Node.js, Express e autenticação JWT.",
+    "apiIntegration": "Integração de APIs",
+    "apiDesc": "Conexão de sistemas via APIs RESTful e consumo eficiente de dados.",
+    "javaSpring": "Java com Spring Boot",
+    "javaSpringDesc": "Criação de aplicações seguras e escaláveis com Spring Boot.",
+    "frontend": "Frontend Moderno",
+    "frontendDesc": "Interfaces ricas com React, TypeScript e Tailwind CSS.",
+    "dbDesign": "Modelagem de Banco de Dados",
+    "dbDesignDesc": "Projetos de banco de dados relacionais e NoSQL bem estruturados."
+  },
+  "portfolio": {
+    "viewDetails": "Ver detalhes",
+    "viewProject": "Ver projeto",
+    "viewCode": "Ver código",
+    "previousImage": "Imagem anterior",
+    "nextImage": "Próxima imagem",
+    "imageAlt": "{{title}} - imagem {{index}}",
     "projects": [
       {
         "images": [
@@ -45,8 +74,9 @@
           "/projeto1/projeto1-3.png"
         ],
         "title": "Projeto Casa Lar",
-        "description": "Plataforma de gerenciamento para Casa Lar com módulos de Cadastro, Financeiro e Estoque. Desenvolvida para otimizar processos internos e controle de recursos.",
-        "link": "https://github.com/KayoWeiber/"
+        "description": "Plataforma de gerenciamento para Casa Lar com módulos de cadastro, financeiro e estoque. Desenvolvida para otimizar processos internos e controle de recursos.",
+        "sourceLink": "https://github.com/KayoWeiber/",
+        "technologies": ["React", "TypeScript", "Node.js", "Banco de dados"]
       },
       {
         "images": [
@@ -55,7 +85,8 @@
         ],
         "title": "Site para Volumetria",
         "description": "Automatiza o cálculo da volumetria de cervejas em latas para otimizar o controle de operações e estoque em distribuidoras.",
-        "link": "https://kayoweiber.github.io/Volumetria/"
+        "demoLink": "https://kayoweiber.github.io/Volumetria/",
+        "technologies": ["HTML", "CSS", "JavaScript"]
       },
       {
         "images": [
@@ -63,94 +94,135 @@
         ],
         "title": "Site de Portfólio",
         "description": "Criei este site para apresentar minhas habilidades de forma interativa, com um design moderno e suporte a múltiplos idiomas.",
-        "link": "https://github.com/KayoWeiber/portfolio-KayoWeiber"
+        "sourceLink": "https://github.com/KayoWeiber/portfolio-KayoWeiber",
+        "technologies": ["React", "TypeScript", "Tailwind CSS", "i18next"]
+      },
+      {
+        "images": [
+          "/projeto4/projeto4-1.png",
+          "/projeto4/projeto4-2.png",
+          "/projeto4/projeto4-3.png",
+          "/projeto4/projeto4-4.png"
+        ],
+        "title": "Site de chá de casa nova",
+        "description": "Criei um site para organizar um chá de casa nova, com funcionalidades para RSVP, lista de presentes e informações sobre o evento, facilitando a comunicação e a organização dos convidados.",
+        "sourceLink": "https://github.com/KayoWeiber",
+        "technologies": ["React", "TypeScript", "UX"]
       }
     ]
-  },"contact": {
-  "title": "Entre em Contato",
-  "name": "Seu nome",
-  "email": "Seu e-mail",
-  "message": "Sua mensagem",
-  "send": "Enviar",
-  "sending": "Enviando...",
-  "success": "Mensagem enviada com sucesso!",
-  "error": "Erro ao enviar. Tente novamente."
-},"footer": {
-  "rights": "Todos os direitos reservados"
-},"coursesPage": {
+  },
+  "contact": {
+    "title": "Entre em Contato",
+    "name": "Seu nome",
+    "email": "Seu e-mail",
+    "message": "Sua mensagem",
+    "send": "Enviar",
+    "sending": "Enviando...",
+    "success": "Mensagem enviada com sucesso!",
+    "error": "Erro ao enviar. Tente novamente.",
+    "fallback": "Ocorreu um erro ao enviar a mensagem. Por favor, envie manualmente para:"
+  },
+  "footer": {
+    "rights": "Todos os direitos reservados"
+  },
+  "coursesPage": {
     "title": "Cursos e Certificações",
     "certificateAlt": "Certificado do curso {{title}}",
     "certificateAriaLabel": "Ver certificado do curso {{title}}",
-    "list":[
+    "filterLabel": "Filtrar cursos por categoria",
+    "categories": {
+      "all": "Todos",
+      "backend": "Backend",
+      "cloud": "Cloud",
+      "frontend": "Frontend",
+      "data": "Dados",
+      "fundamentals": "Fundamentos"
+    },
+    "list": [
       {
-    "imageSrc": "/certificates/ArquiteturaSoftware.png",
-    "title": "Arquitetura de Software & Design de Sistemas Modernos",
-    "description": "Aprendi a projetar arquiteturas de software escaláveis e resilientes, utilizando padrões modernos e boas práticas para garantir a eficiência e a manutenção dos sistemas desenvolvidos."
-  },
+        "imageSrc": "/certificates/ArquiteturaSoftware.png",
+        "title": "Arquitetura de Software & Design de Sistemas Modernos",
+        "description": "Aprendi a projetar arquiteturas de software escaláveis e resilientes, utilizando padrões modernos e boas práticas para garantir a eficiência e a manutenção dos sistemas desenvolvidos.",
+        "category": "backend"
+      },
       {
-    "imageSrc": "/certificates/azureDevops.png",
-    "title": "Azure DevOps - Board, Repos, Pipeline, Test Plans e Artifacts",
-    "description": "Overview de Azure DevOps com foco prático em Azure Pipelines (CI/CD), configurando builds e releases via Editor Clássico e YAML."
-  },
-    {"imageSrc":"/certificates/awsAcademy.png",
-    "title":"AWS Academy Graduate - Cloud Foundations",
-    "description":"Concluí o curso AWS Academy Cloud Foundations, adquirindo conhecimentos essenciais sobre os serviços e soluções da AWS, incluindo computação em nuvem, armazenamento, bancos de dados, redes e segurança."
-    },{
-            "imageSrc": "/certificates/springboot.png",
-            "title": "Spring Boot 2025 REST API's do 0 à AWS e GCP c Java e Docker",
-            "description": "Aprendi a construir REST APIs com Spring Boot, utilizando Java e Docker, e a realizar deploy na AWS e GCP, explorando Swagger, Kubernetes, K8s API RESTful, JWT, JUnit 5 e Mockito React JS."
-            },
-  {
-    "imageSrc": "/certificates/IntroTestes.png",
-    "title": "Introdução a Testes de Software",
-    "description": "Adquiri conhecimentos sobre os fundamentos e a importância dos testes de software para garantir a qualidade, aprendendo sobre os diferentes tipos de testes, como unitários e de integração, e o papel deles no ciclo de desenvolvimento."
-  },
-  {
-    "imageSrc": "/certificates/SolidCleanCode.png",
-    "title": "SOLID e Clean Code em Java: Escrevendo Código de Alta Qualidade",
-    "description": "Apliquei os cinco princípios SOLID e conceitos de Clean Code no contexto da linguagem Java para construir um software robusto, flexível e de fácil manutenção, seguindo as melhores práticas da programação orientada a objetos."
-  },
-  {
-    "imageSrc": "/certificates/Intro-CleanCode.png",
-    "title": "Introdução a Clean Code",
-    "description": "Aprendi os princípios essenciais para escrever um código legível e de fácil manutenção, focando em técnicas como o uso de nomes significativos, a criação de funções com responsabilidade única e a formatação consistente do código."
-  },{"imageSrc": "/certificates/javascript-typescripr.png",
-          "title": "Curso de JavaScript e TypeScript do básico ao avançado JS/TS",
-          "description": "Aprendi JavaScript e TypeScript, desde os fundamentos até conceitos avançados para desenvolvimento front-end e back-end com Node, Express, noSQL, React, hooks, Redux e Design Patterns."},
-  {
-    "imageSrc": "/certificates/MySql.png",
-    "title": "MySQL",
-    "description": "Aprendi a trabalhar com o sistema de gerenciamento de banco de dados relacional MySQL, focando na modelagem de dados e na execução de consultas SQL para criar, manipular e consultar informações de forma estruturada."
-  },
-  {
-    "imageSrc": "/certificates/JornadaIA.png",
-    "title": "Jornada IA: Engenharia de Prompt",
-    "description": "Capacitei-me em engenharia de prompt para interagir de forma eficaz com modelos de Inteligência Artificial, aprendendo a estruturar instruções claras e contextuais para gerar resultados precisos e otimizados."
-  },
-  {
-    "imageSrc": "/certificates/GitEGitHub.png",
-    "title": "Git e GitHub",
-    "description": "Estudei o sistema de controle de versão Git para gerenciar o histórico de projetos e o uso do GitHub para hospedar repositórios remotos, colaborar em equipe e gerenciar branches de forma eficiente."
-  },
-  {
-    "imageSrc": "/certificates/Intro-AnaliseDados.png",
-    "title": "Introdução à Análise de Dados - Microsoft Power BI",
-    "description": "Desenvolvi habilidades para transformar dados brutos em insights com o Microsoft Power BI, aprendendo a importar, tratar dados e a criar relatórios e dashboards interativos para visualização e análise de informações."
-  },
-  {
-    "imageSrc": "/certificates/Javascript.png",
-    "title": "JavaScript",
-    "description": "Aprofundei meus conhecimentos em JavaScript, abordando desde a sintaxe básica e manipulação do DOM até conceitos fundamentais para a criação de interatividade em páginas web, como eventos, funções e estruturas de dados."
-  },
-  {
-    "imageSrc": "/certificates/Hardware.png",
-    "title": "Hardware",
-    "description": "Estudei os componentes fundamentais que formam um computador, como processador, memória RAM e placa-mãe. Aprendi sobre suas funções, interconexões e os princípios básicos de montagem e manutenção de equipamentos."
+        "imageSrc": "/certificates/azureDevops.png",
+        "title": "Azure DevOps - Board, Repos, Pipeline, Test Plans e Artifacts",
+        "description": "Overview de Azure DevOps com foco prático em Azure Pipelines (CI/CD), configurando builds e releases via Editor Clássico e YAML.",
+        "category": "cloud"
+      },
+      {
+        "imageSrc": "/certificates/awsAcademy.png",
+        "title": "AWS Academy Graduate - Cloud Foundations",
+        "description": "Concluí o curso AWS Academy Cloud Foundations, adquirindo conhecimentos essenciais sobre os serviços e soluções da AWS, incluindo computação em nuvem, armazenamento, bancos de dados, redes e segurança.",
+        "category": "cloud"
+      },
+      {
+        "imageSrc": "/certificates/springboot.png",
+        "title": "Spring Boot 2025 REST API's do 0 à AWS e GCP c Java e Docker",
+        "description": "Aprendi a construir REST APIs com Spring Boot, utilizando Java e Docker, e a realizar deploy na AWS e GCP, explorando Swagger, Kubernetes, K8s API RESTful, JWT, JUnit 5 e Mockito React JS.",
+        "category": "backend"
+      },
+      {
+        "imageSrc": "/certificates/IntroTestes.png",
+        "title": "Introdução a Testes de Software",
+        "description": "Adquiri conhecimentos sobre os fundamentos e a importância dos testes de software para garantir a qualidade, aprendendo sobre os diferentes tipos de testes, como unitários e de integração, e o papel deles no ciclo de desenvolvimento.",
+        "category": "fundamentals"
+      },
+      {
+        "imageSrc": "/certificates/SolidCleanCode.png",
+        "title": "SOLID e Clean Code em Java: Escrevendo Código de Alta Qualidade",
+        "description": "Apliquei os cinco princípios SOLID e conceitos de Clean Code no contexto da linguagem Java para construir um software robusto, flexível e de fácil manutenção, seguindo as melhores práticas da programação orientada a objetos.",
+        "category": "backend"
+      },
+      {
+        "imageSrc": "/certificates/Intro-CleanCode.png",
+        "title": "Introdução a Clean Code",
+        "description": "Aprendi os princípios essenciais para escrever um código legível e de fácil manutenção, focando em técnicas como o uso de nomes significativos, a criação de funções com responsabilidade única e a formatação consistente do código.",
+        "category": "fundamentals"
+      },
+      {
+        "imageSrc": "/certificates/javascript-typescripr.png",
+        "title": "Curso de JavaScript e TypeScript do básico ao avançado JS/TS",
+        "description": "Aprendi JavaScript e TypeScript, desde os fundamentos até conceitos avançados para desenvolvimento front-end e back-end com Node, Express, noSQL, React, hooks, Redux e Design Patterns.",
+        "category": "frontend"
+      },
+      {
+        "imageSrc": "/certificates/MySql.png",
+        "title": "MySQL",
+        "description": "Aprendi a trabalhar com o sistema de gerenciamento de banco de dados relacional MySQL, focando na modelagem de dados e na execução de consultas SQL para criar, manipular e consultar informações de forma estruturada.",
+        "category": "data"
+      },
+      {
+        "imageSrc": "/certificates/JornadaIA.png",
+        "title": "Jornada IA: Engenharia de Prompt",
+        "description": "Capacitei-me em engenharia de prompt para interagir de forma eficaz com modelos de Inteligência Artificial, aprendendo a estruturar instruções claras e contextuais para gerar resultados precisos e otimizados.",
+        "category": "data"
+      },
+      {
+        "imageSrc": "/certificates/GitEGitHub.png",
+        "title": "Git e GitHub",
+        "description": "Estudei o sistema de controle de versão Git para gerenciar o histórico de projetos e o uso do GitHub para hospedar repositórios remotos, colaborar em equipe e gerenciar branches de forma eficiente.",
+        "category": "fundamentals"
+      },
+      {
+        "imageSrc": "/certificates/Intro-AnaliseDados.png",
+        "title": "Introdução à Análise de Dados - Microsoft Power BI",
+        "description": "Desenvolvi habilidades para transformar dados brutos em insights com o Microsoft Power BI, aprendendo a importar, tratar dados e a criar relatórios e dashboards interativos para visualização e análise de informações.",
+        "category": "data"
+      },
+      {
+        "imageSrc": "/certificates/Javascript.png",
+        "title": "JavaScript",
+        "description": "Aprofundei meus conhecimentos em JavaScript, abordando desde a sintaxe básica e manipulação do DOM até conceitos fundamentais para a criação de interatividade em páginas web, como eventos, funções e estruturas de dados.",
+        "category": "frontend"
+      },
+      {
+        "imageSrc": "/certificates/Hardware.png",
+        "title": "Hardware",
+        "description": "Estudei os componentes fundamentais que formam um computador, como processador, memória RAM e placa-mãe. Aprendi sobre suas funções, interconexões e os princípios básicos de montagem e manutenção de equipamentos.",
+        "category": "fundamentals"
+      }
+    ]
   }
-]
-  }
-
-
-
-
 }

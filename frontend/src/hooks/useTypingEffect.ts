@@ -8,9 +8,10 @@ type TypingEffectParams = {
 
 export function useTypingEffect({ text, speed = 60, reverse = false }: TypingEffectParams) {
   const [displayed, setDisplayed] = useState(reverse ? text : "");
+
   useEffect(() => {
     let current = reverse ? text.length : 0;
-    let interval: number; // <-- Corrigido aqui
+    setDisplayed(reverse ? text : "");
 
     function type() {
       setDisplayed(prev =>
@@ -24,9 +25,9 @@ export function useTypingEffect({ text, speed = 60, reverse = false }: TypingEff
       }
     }
 
-    interval = window.setInterval(type, speed);
+    const interval = window.setInterval(type, speed);
     return () => clearInterval(interval);
-    // eslint-disable-next-line
-  }, [text, reverse]);
+  }, [text, reverse, speed]);
+
   return displayed;
 }
