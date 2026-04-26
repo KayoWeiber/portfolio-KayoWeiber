@@ -49,8 +49,13 @@ const Header: React.FC = () => {
     return () => observer.disconnect();
   }, [location.pathname, sectionLinks]);
 
-  const isActive = (href: string, label: string) =>
-    location.pathname + location.hash === href || active === label;
+  const isActive = (href: string, label: string) => {
+    if (location.pathname !== "/") {
+      return location.pathname === href;
+    }
+
+    return active === label;
+  };
 
   const LanguageToggle = ({ className = "" }: { className?: string }) => (
     <button
