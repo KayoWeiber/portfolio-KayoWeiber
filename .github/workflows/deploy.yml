@@ -1,18 +1,13 @@
 name: Deploy GitHub Pages
 
 on:
-  pull_request:
-    branches:
-      - main
-
   push:
     branches:
       - main
-
+  pull_request:
+    branches:
+      - main
   workflow_dispatch:
-
-permissions:
-  contents: read
 
 concurrency:
   group: github-pages
@@ -23,34 +18,27 @@ jobs:
     name: Build do projeto
     runs-on: ubuntu-latest
 
-    defaults:
-      run:
-        working-directory: frontend
+    permissions:
+      contents: read
 
     steps:
-      - name: Baixar repositório
+      - name: Baixar repositorio
         uses: actions/checkout@v4
 
       - name: Configurar Node
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: yarn
-          cache-dependency-path: frontend/yarn.lock
+          cache: npm
+          cache-dependency-path: frontend/package-lock.json
 
-      - name: Habilitar Corepack
-        run: corepack enable
-
-      - name: Instalar dependências
-        run: |
-          if yarn --version | grep -q '^1\.'; then
-            yarn install --frozen-lockfile
-          else
-            yarn install --immutable
-          fi
+      - name: Instalar dependencias
+        working-directory: frontend
+        run: npm ci
 
       - name: Gerar build
-        run: yarn build
+        working-directory: frontend
+        run: npm run build
         env:
           VITE_CONTACT_API_URL: ${{ vars.VITE_CONTACT_API_URL }}
 
@@ -63,9 +51,7 @@ jobs:
   deploy:
     name: Publicar no GitHub Pages
     needs: build
-
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-
     runs-on: ubuntu-latest
 
     permissions:
