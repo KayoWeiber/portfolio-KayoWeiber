@@ -80,7 +80,7 @@ const Header: React.FC = () => {
   const LanguageToggle = ({ className = "" }: { className?: string }) => (
     <button
       type="button"
-      className={`flex items-center bg-slate-950/60 rounded-full border border-sky-400/70 px-1 py-0.5 select-none transition-all shadow-sm hover:shadow-sky-500/20 focus:outline-none focus:ring-2 focus:ring-sky-300 ${className}`}
+      className={`flex items-center bg-slate-950/60 rounded-full border border-sky-400/70 px-1 py-0.5 select-none transition-all shadow-sm hover:shadow-sky-500/20 focus:outline-none focus:ring-2 focus:ring-sky-300 ${className} cursor-pointer`}
       style={{ height: "32px", minWidth: "100px" }}
       onClick={handleLangSwitch}
       aria-label={t("language.switch")}

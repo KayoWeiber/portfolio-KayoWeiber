@@ -1,7 +1,9 @@
-import React, { useRef } from "react";
+import React, { useMemo, useRef } from "react";
 import { useTranslation, Trans } from "react-i18next";
 import { motion, useInView, AnimatePresence, easeInOut } from "framer-motion";
+import { FaCode } from "react-icons/fa";
 import { technologies } from "../data/technologies";
+import { useGitHubLanguageStats } from "../hooks/useGitHubLanguageStats";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -40,12 +42,49 @@ const iconVariants = {
   },
 };
 
+function calculateAge(birthDate: Date) {
+  const today = new Date();
+  let age = today.getFullYear() - birthDate.getFullYear();
+  const hasBirthdayPassed =
+    today.getMonth() > birthDate.getMonth() ||
+    (today.getMonth() === birthDate.getMonth() && today.getDate() >= birthDate.getDate());
+
+  if (!hasBirthdayPassed) {
+    age -= 1;
+  }
+
+  return age;
+}
+
 const About: React.FC = () => {
   const { t, i18n, ready } = useTranslation();
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true });
 
+  const age = calculateAge(new Date(2005, 2, 10));
   const stats = t("About.stats", { returnObjects: true }) || [];
+  const { languages: githubLanguageStats, isLoading: isLoadingLanguageStats } =
+    useGitHubLanguageStats();
+  const technologyByName = useMemo(
+    () => new Map(technologies.map((tech) => [tech.name, tech])),
+    []
+  );
+  const fallbackLanguageStats = useMemo(
+    () =>
+      technologies
+        .slice(0, 6)
+        .map((tech) => ({
+          name: tech.name,
+          percentage: tech.percentage,
+          value: Number.parseInt(tech.percentage, 10),
+          bytes: 0,
+        }))
+        .sort((a, b) => b.value - a.value),
+    []
+  );
+  const languageRanking = githubLanguageStats.length > 0
+    ? githubLanguageStats
+    : fallbackLanguageStats;
 
   if (!ready) {
     return (
@@ -89,7 +128,11 @@ const About: React.FC = () => {
 
               <div className="space-y-6 text-gray-300 text-lg">
                 <p>
-                  <Trans i18nKey="About.p1" components={{ 1: <strong className="text-blue-300" /> }} />
+                  <Trans
+                    i18nKey="About.p1"
+                    values={{ age }}
+                    components={{ 1: <strong className="text-blue-300" /> }}
+                  />
                 </p>
                 <p>{t("About.p2")}</p>
                 <p>
@@ -151,11 +194,14 @@ const About: React.FC = () => {
               <h4 className="text-xl font-semibold text-white mb-6 text-center">
                 {t("About.mainLangs")}
               </h4>
-              {technologies.slice(0, 6).map((tech, index) => {
-                const Icon = tech.icon;
+              {languageRanking.map((language, index) => {
+                const tech = technologyByName.get(language.name);
+                const Icon = tech?.icon || FaCode;
+                const color = tech?.color || "#94A3B8";
+
                 return (
                   <motion.div
-                    key={tech.name}
+                    key={language.name}
                     className="space-y-2"
                     initial={{ opacity: 0, x: -50 }}
                     animate={isInView ? { opacity: 1, x: 0 } : {}}
@@ -163,21 +209,21 @@ const About: React.FC = () => {
                   >
                     <div className="flex justify-between items-center">
                       <span className="text-gray-300 font-medium flex items-center gap-2">
-                        <Icon size={16} style={{ color: tech.color }} />
-                        {tech.name}
+                        <Icon size={16} style={{ color }} />
+                        {language.name}
                       </span>
                       <span className="text-blue-400 text-sm font-semibold">
-                        {tech.percentage}
+                        {isLoadingLanguageStats ? t("About.loadingStats") : language.percentage}
                       </span>
                     </div>
                     <div className="w-full bg-gray-700/50 rounded-full h-2 overflow-hidden">
                       <motion.div
                         className="h-full rounded-full"
                         style={{
-                          background: `linear-gradient(90deg, ${tech.color}66, ${tech.color})`,
+                          background: `linear-gradient(90deg, ${color}66, ${color})`,
                         }}
                         initial={{ width: 0 }}
-                        animate={isInView ? { width: tech.percentage } : { width: 0 }}
+                        animate={isInView ? { width: language.percentage } : { width: 0 }}
                         transition={{ delay: index * 0.1 + 0.8, duration: 1.2 }}
                       />
                     </div>

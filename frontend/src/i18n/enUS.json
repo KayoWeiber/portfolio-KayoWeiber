@@ -22,16 +22,17 @@
   "About": {
     "subtitle": "About Me",
     "title": "Full Stack Developer",
-    "p1": "I'm <1>Kayo Weiber</1>, an Information Systems student at UEMG and a full-stack developer driven by the passion to turn ideas into meaningful software solutions.",
-    "p2": "With over 4 years of experience in technical support and computer maintenance, I now focus on building scalable and efficient software.",
+    "p1": "I'm <1>Kayo Weiber</1>, {{age}} years old, an Information Systems student at UEMG and a full-stack developer driven by the passion to turn ideas into meaningful software solutions.",
+    "p2": "My background combines technical support, computer maintenance, and software development, with a focus on building robust, scalable, and useful solutions for everyday workflows.",
     "p3": "I am currently working as a <1>Development Assistant II</1> at <0>Cervejaria Cidade Imperial</0>, mainly focusing on <2>web development</2>, while continuously improving my skills to face the challenges of the technology market.",
     "stats": [
-      { "number": "4+", "label": "Years of Experience", "color": "blue" },
+      { "number": "Full", "label": "Stack", "color": "blue" },
       { "number": "18+", "label": "Technologies", "color": "blue" },
       { "number": "∞", "label": "Lifelong Learning", "color": "blue" }
     ],
     "stack": "Tech Stack",
-    "mainLangs": "Main Languages"
+    "mainLangs": "Main Languages",
+    "loadingStats": "Loading..."
   },
   "nav": {
     "home": "Home",
@@ -46,18 +47,19 @@
     "closeMenu": "Close menu"
   },
   "services": {
+    "subtitle": "How I can help",
     "webDev": "Web Development",
-    "webDesc": "Modern and responsive websites focused on performance and UX.",
+    "webDesc": "Responsive websites and applications focused on clarity, performance, and user experience.",
     "backendDev": "Backend Development",
-    "backendDesc": "Robust solutions with Node.js, Express, and JWT authentication.",
+    "backendDesc": "APIs and services with Node.js, authentication, business rules, and secure integrations.",
     "apiIntegration": "API Integration",
-    "apiDesc": "System connections via RESTful APIs and efficient data handling.",
-    "javaSpring": "Java with Spring Boot",
-    "javaSpringDesc": "Secure and scalable apps built with Spring Boot framework.",
+    "apiDesc": "Connections between systems, ERPs, databases, and external services through RESTful APIs.",
+    "automation": "Automation and Flows",
+    "automationDesc": "Routine automation, integrations, and process flows with Node-RED, Protheus, and web services.",
     "frontend": "Modern Frontend",
-    "frontendDesc": "Rich interfaces using React, TypeScript and Tailwind CSS.",
+    "frontendDesc": "Rich interfaces with React, TypeScript, and Tailwind CSS, designed for maintenance and scale.",
     "dbDesign": "Database Design",
-    "dbDesignDesc": "Well-structured relational and NoSQL database projects."
+    "dbDesignDesc": "Data modeling and queries for SQL, Oracle, Supabase, PostgreSQL, MySQL, and NoSQL databases."
   },
   "portfolio": {
     "viewDetails": "View details",
@@ -113,9 +115,19 @@
   },
   "contact": {
     "title": "Contact Me",
+    "subtitle": "Let's talk",
+    "description": "Have an idea, project, or improvement to build? Send a message with the context and I will get back to you as soon as possible.",
+    "formTitle": "Send a message",
+    "formDescription": "Fill in the fields below to start the conversation.",
     "name": "Your name",
+    "namePlaceholder": "Type your name",
     "email": "Your email",
+    "emailPlaceholder": "you@example.com",
     "message": "Your message",
+    "messagePlaceholder": "Briefly describe the project, question, or opportunity.",
+    "emailLabel": "Email",
+    "linkedinLabel": "LinkedIn",
+    "githubLabel": "GitHub",
     "send": "Send",
     "sending": "Sending...",
     "waitMessage": "Please wait while we send your message. This can take 1 to 2 minutes.",

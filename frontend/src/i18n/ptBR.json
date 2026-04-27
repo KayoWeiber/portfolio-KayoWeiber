@@ -22,16 +22,17 @@
   "About": {
     "subtitle": "Sobre Mim",
     "title": "Desenvolvedor Full Stack",
-    "p1": "Me chamo <1>Kayo Weiber</1>, sou graduando em Sistemas de Informação pela UEMG e atuo como desenvolvedor full-stack, motivado por transformar ideias em soluções que impactam positivamente a vida das pessoas.",
-    "p2": "Com mais de 4 anos de experiência em suporte técnico e manutenção de computadores, hoje foco meu caminho no desenvolvimento de softwares robustos e escaláveis.",
+    "p1": "Me chamo <1>Kayo Weiber</1>, tenho {{age}} anos, sou graduando em Sistemas de Informação pela UEMG e atuo como desenvolvedor full-stack, motivado por transformar ideias em soluções que impactam positivamente a vida das pessoas.",
+    "p2": "Minha trajetória combina suporte técnico, manutenção de computadores e desenvolvimento de software, com foco em criar soluções robustas, escaláveis e úteis para o dia a dia.",
     "p3": "Atualmente, atuo como <1>Assistente de Desenvolvimento II</1> na <0>Cervejaria Cidade Imperial</0>, com foco principal em <2>desenvolvimento web</2>, enquanto sigo me aprimorando continuamente para enfrentar os desafios do mercado de tecnologia.",
     "stats": [
-      { "number": "4+", "label": "Anos de Experiência", "color": "blue" },
+      { "number": "Full", "label": "Stack", "color": "blue" },
       { "number": "18+", "label": "Tecnologias", "color": "blue" },
       { "number": "∞", "label": "Aprendizado", "color": "blue" }
     ],
     "stack": "Stack Tecnológico",
-    "mainLangs": "Principais Linguagens"
+    "mainLangs": "Principais Linguagens",
+    "loadingStats": "Carregando..."
   },
   "nav": {
     "home": "Início",
@@ -46,18 +47,19 @@
     "closeMenu": "Fechar menu"
   },
   "services": {
+    "subtitle": "Como posso ajudar",
     "webDev": "Desenvolvimento Web",
-    "webDesc": "Criação de sites modernos e responsivos com foco em performance e UX.",
+    "webDesc": "Criação de sites e aplicações responsivas com foco em clareza, performance e experiência de uso.",
     "backendDev": "Desenvolvimento Backend",
-    "backendDesc": "Soluções robustas com Node.js, Express e autenticação JWT.",
+    "backendDesc": "APIs e serviços com Node.js, autenticação, regras de negócio e integrações seguras.",
     "apiIntegration": "Integração de APIs",
-    "apiDesc": "Conexão de sistemas via APIs RESTful e consumo eficiente de dados.",
-    "javaSpring": "Java com Spring Boot",
-    "javaSpringDesc": "Criação de aplicações seguras e escaláveis com Spring Boot.",
+    "apiDesc": "Conexão entre sistemas, ERPs, bancos de dados e serviços externos via APIs RESTful.",
+    "automation": "Automação e Fluxos",
+    "automationDesc": "Automação de rotinas, integrações e processos com Node-RED, Protheus e serviços web.",
     "frontend": "Frontend Moderno",
-    "frontendDesc": "Interfaces ricas com React, TypeScript e Tailwind CSS.",
+    "frontendDesc": "Interfaces ricas com React, TypeScript e Tailwind CSS, pensadas para manutenção e escala.",
     "dbDesign": "Modelagem de Banco de Dados",
-    "dbDesignDesc": "Projetos de banco de dados relacionais e NoSQL bem estruturados."
+    "dbDesignDesc": "Modelagem e consultas para bancos SQL, Oracle, Supabase, PostgreSQL, MySQL e NoSQL."
   },
   "portfolio": {
     "viewDetails": "Ver detalhes",
@@ -113,9 +115,19 @@
   },
   "contact": {
     "title": "Entre em Contato",
+    "subtitle": "Vamos conversar",
+    "description": "Tem uma ideia, projeto ou melhoria para desenvolver? Envie uma mensagem com o contexto e eu retorno assim que possível.",
+    "formTitle": "Envie uma mensagem",
+    "formDescription": "Preencha os campos abaixo para iniciar o contato.",
     "name": "Seu nome",
+    "namePlaceholder": "Digite seu nome",
     "email": "Seu e-mail",
+    "emailPlaceholder": "seuemail@exemplo.com",
     "message": "Sua mensagem",
+    "messagePlaceholder": "Conte brevemente sobre o projeto, dúvida ou oportunidade.",
+    "emailLabel": "E-mail",
+    "linkedinLabel": "LinkedIn",
+    "githubLabel": "GitHub",
     "send": "Enviar",
     "sending": "Enviando...",
     "waitMessage": "Aguarde enquanto enviamos sua mensagem. O envio pode levar de 1 a 2 minutos.",
