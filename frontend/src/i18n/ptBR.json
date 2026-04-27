@@ -31,7 +31,8 @@
       { "number": "∞", "label": "Aprendizado", "color": "blue" }
     ],
     "stack": "Stack Tecnológico",
-    "mainLangs": "Principais Linguagens"
+    "mainLangs": "Principais Linguagens",
+    "loadingStats": "Carregando..."
   },
   "nav": {
     "home": "Início",

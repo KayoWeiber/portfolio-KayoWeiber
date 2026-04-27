@@ -31,7 +31,8 @@
       { "number": "∞", "label": "Lifelong Learning", "color": "blue" }
     ],
     "stack": "Tech Stack",
-    "mainLangs": "Main Languages"
+    "mainLangs": "Main Languages",
+    "loadingStats": "Loading..."
   },
   "nav": {
     "home": "Home",
