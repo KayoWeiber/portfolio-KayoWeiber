@@ -46,18 +46,19 @@
     "closeMenu": "Close menu"
   },
   "services": {
+    "subtitle": "How I can help",
     "webDev": "Web Development",
-    "webDesc": "Modern and responsive websites focused on performance and UX.",
+    "webDesc": "Responsive websites and applications focused on clarity, performance, and user experience.",
     "backendDev": "Backend Development",
-    "backendDesc": "Robust solutions with Node.js, Express, and JWT authentication.",
+    "backendDesc": "APIs and services with Node.js, authentication, business rules, and secure integrations.",
     "apiIntegration": "API Integration",
-    "apiDesc": "System connections via RESTful APIs and efficient data handling.",
-    "javaSpring": "Java with Spring Boot",
-    "javaSpringDesc": "Secure and scalable apps built with Spring Boot framework.",
+    "apiDesc": "Connections between systems, ERPs, databases, and external services through RESTful APIs.",
+    "automation": "Automation and Flows",
+    "automationDesc": "Routine automation, integrations, and process flows with Node-RED, Protheus, and web services.",
     "frontend": "Modern Frontend",
-    "frontendDesc": "Rich interfaces using React, TypeScript and Tailwind CSS.",
+    "frontendDesc": "Rich interfaces with React, TypeScript, and Tailwind CSS, designed for maintenance and scale.",
     "dbDesign": "Database Design",
-    "dbDesignDesc": "Well-structured relational and NoSQL database projects."
+    "dbDesignDesc": "Data modeling and queries for SQL, Oracle, Supabase, PostgreSQL, MySQL, and NoSQL databases."
   },
   "portfolio": {
     "viewDetails": "View details",

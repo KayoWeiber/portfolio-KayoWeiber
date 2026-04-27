@@ -46,18 +46,19 @@
     "closeMenu": "Fechar menu"
   },
   "services": {
+    "subtitle": "Como posso ajudar",
     "webDev": "Desenvolvimento Web",
-    "webDesc": "Criação de sites modernos e responsivos com foco em performance e UX.",
+    "webDesc": "Criação de sites e aplicações responsivas com foco em clareza, performance e experiência de uso.",
     "backendDev": "Desenvolvimento Backend",
-    "backendDesc": "Soluções robustas com Node.js, Express e autenticação JWT.",
+    "backendDesc": "APIs e serviços com Node.js, autenticação, regras de negócio e integrações seguras.",
     "apiIntegration": "Integração de APIs",
-    "apiDesc": "Conexão de sistemas via APIs RESTful e consumo eficiente de dados.",
-    "javaSpring": "Java com Spring Boot",
-    "javaSpringDesc": "Criação de aplicações seguras e escaláveis com Spring Boot.",
+    "apiDesc": "Conexão entre sistemas, ERPs, bancos de dados e serviços externos via APIs RESTful.",
+    "automation": "Automação e Fluxos",
+    "automationDesc": "Automação de rotinas, integrações e processos com Node-RED, Protheus e serviços web.",
     "frontend": "Frontend Moderno",
-    "frontendDesc": "Interfaces ricas com React, TypeScript e Tailwind CSS.",
+    "frontendDesc": "Interfaces ricas com React, TypeScript e Tailwind CSS, pensadas para manutenção e escala.",
     "dbDesign": "Modelagem de Banco de Dados",
-    "dbDesignDesc": "Projetos de banco de dados relacionais e NoSQL bem estruturados."
+    "dbDesignDesc": "Modelagem e consultas para bancos SQL, Oracle, Supabase, PostgreSQL, MySQL e NoSQL."
   },
   "portfolio": {
     "viewDetails": "Ver detalhes",
