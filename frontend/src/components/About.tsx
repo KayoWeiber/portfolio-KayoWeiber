@@ -1,9 +1,16 @@
 import React, { useMemo, useRef } from "react";
-import { useTranslation, Trans } from "react-i18next";
-import { motion, useInView, AnimatePresence, easeInOut } from "framer-motion";
+import { Trans, useTranslation } from "react-i18next";
+import { AnimatePresence, easeInOut, motion, useInView } from "framer-motion";
 import { FaCode } from "react-icons/fa";
 import { technologies } from "../data/technologies";
 import { useGitHubLanguageStats } from "../hooks/useGitHubLanguageStats";
+
+type Technology = (typeof technologies)[number];
+
+interface AboutStat {
+  label: string;
+  number: string | number;
+}
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -45,9 +52,11 @@ const iconVariants = {
 function calculateAge(birthDate: Date) {
   const today = new Date();
   let age = today.getFullYear() - birthDate.getFullYear();
+
   const hasBirthdayPassed =
     today.getMonth() > birthDate.getMonth() ||
-    (today.getMonth() === birthDate.getMonth() && today.getDate() >= birthDate.getDate());
+    (today.getMonth() === birthDate.getMonth() &&
+      today.getDate() >= birthDate.getDate());
 
   if (!hasBirthdayPassed) {
     age -= 1;
@@ -56,19 +65,43 @@ function calculateAge(birthDate: Date) {
   return age;
 }
 
+function isAboutStat(value: unknown): value is AboutStat {
+  if (!value || typeof value !== "object") return false;
+
+  const stat = value as Partial<AboutStat>;
+
+  return (
+    typeof stat.label === "string" &&
+    (typeof stat.number === "string" || typeof stat.number === "number")
+  );
+}
+
 const About: React.FC = () => {
   const { t, i18n, ready } = useTranslation();
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true });
 
   const age = calculateAge(new Date(2005, 2, 10));
-  const stats = t("About.stats", { returnObjects: true }) || [];
+  const rawStats = t("About.stats", { returnObjects: true });
+
+  const stats = useMemo<AboutStat[]>(() => {
+    if (!Array.isArray(rawStats)) return [];
+
+    return rawStats.filter(isAboutStat);
+  }, [rawStats]);
+
   const { languages: githubLanguageStats, isLoading: isLoadingLanguageStats } =
     useGitHubLanguageStats();
-  const technologyByName = useMemo(
-    () => new Map(technologies.map((tech) => [tech.name, tech])),
-    []
-  );
+
+  const technologyByName = useMemo(() => {
+    const entries = technologies.map((tech): [string, Technology] => [
+      tech.name,
+      tech,
+    ]);
+
+    return new Map<string, Technology>(entries);
+  }, []);
+
   const fallbackLanguageStats = useMemo(
     () =>
       technologies
@@ -82,9 +115,9 @@ const About: React.FC = () => {
         .sort((a, b) => b.value - a.value),
     []
   );
-  const languageRanking = githubLanguageStats.length > 0
-    ? githubLanguageStats
-    : fallbackLanguageStats;
+
+  const languageRanking =
+    githubLanguageStats.length > 0 ? githubLanguageStats : fallbackLanguageStats;
 
   if (!ready) {
     return (
@@ -122,7 +155,10 @@ const About: React.FC = () => {
 
               <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight">
                 <Trans i18nKey="About.title">
-                  Full Stack <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">Developer</span>
+                  Full Stack{" "}
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">
+                    Developer
+                  </span>
                 </Trans>
               </h2>
 
@@ -134,7 +170,9 @@ const About: React.FC = () => {
                     components={{ 1: <strong className="text-blue-300" /> }}
                   />
                 </p>
+
                 <p>{t("About.p2")}</p>
+
                 <p>
                   <Trans
                     i18nKey="About.p3"
@@ -148,17 +186,19 @@ const About: React.FC = () => {
               </div>
 
               <div className="grid grid-cols-2 md:grid-cols-3 gap-6 pt-8">
-                {(Array.isArray(stats) ? stats : []).map((stat) => {
-                  return (
-                    <div
-                      key={stat.label}
-                      className={"text-center p-4 rounded-lg border bg-blue-500/10 border-blue-500/20"}
-                    >
-                      <div className={"text-2xl font-bold text-blue-400"}>{stat.number}</div>
-                      <div className="text-sm text-gray-400 uppercase tracking-wide">{stat.label}</div>
+                {stats.map((stat) => (
+                  <div
+                    key={stat.label}
+                    className="text-center p-4 rounded-lg border bg-blue-500/10 border-blue-500/20"
+                  >
+                    <div className="text-2xl font-bold text-blue-400">
+                      {stat.number}
                     </div>
-                  );
-                })}
+                    <div className="text-sm text-gray-400 uppercase tracking-wide">
+                      {stat.label}
+                    </div>
+                  </div>
+                ))}
               </div>
             </motion.div>
           </AnimatePresence>
@@ -174,6 +214,7 @@ const About: React.FC = () => {
             >
               {technologies.map((tech) => {
                 const Icon = tech.icon;
+
                 return (
                   <motion.div
                     key={tech.name}
@@ -182,6 +223,7 @@ const About: React.FC = () => {
                     whileHover={{ scale: 1.1, y: -5 }}
                   >
                     <Icon size={32} style={{ color: tech.color }} />
+
                     <div className="absolute -top-10 left-1/2 transform -translate-x-1/2 bg-gray-900 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity">
                       {tech.name}
                     </div>
@@ -194,10 +236,11 @@ const About: React.FC = () => {
               <h4 className="text-xl font-semibold text-white mb-6 text-center">
                 {t("About.mainLangs")}
               </h4>
+
               {languageRanking.map((language, index) => {
                 const tech = technologyByName.get(language.name);
-                const Icon = tech?.icon || FaCode;
-                const color = tech?.color || "#94A3B8";
+                const Icon = tech?.icon ?? FaCode;
+                const color = tech?.color ?? "#94A3B8";
 
                 return (
                   <motion.div
@@ -212,10 +255,14 @@ const About: React.FC = () => {
                         <Icon size={16} style={{ color }} />
                         {language.name}
                       </span>
+
                       <span className="text-blue-400 text-sm font-semibold">
-                        {isLoadingLanguageStats ? t("About.loadingStats") : language.percentage}
+                        {isLoadingLanguageStats
+                          ? t("About.loadingStats")
+                          : language.percentage}
                       </span>
                     </div>
+
                     <div className="w-full bg-gray-700/50 rounded-full h-2 overflow-hidden">
                       <motion.div
                         className="h-full rounded-full"
@@ -223,8 +270,15 @@ const About: React.FC = () => {
                           background: `linear-gradient(90deg, ${color}66, ${color})`,
                         }}
                         initial={{ width: 0 }}
-                        animate={isInView ? { width: language.percentage } : { width: 0 }}
-                        transition={{ delay: index * 0.1 + 0.8, duration: 1.2 }}
+                        animate={
+                          isInView
+                            ? { width: language.percentage }
+                            : { width: 0 }
+                        }
+                        transition={{
+                          delay: index * 0.1 + 0.8,
+                          duration: 1.2,
+                        }}
                       />
                     </div>
                   </motion.div>
