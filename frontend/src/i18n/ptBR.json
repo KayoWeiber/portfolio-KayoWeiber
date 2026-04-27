@@ -22,7 +22,7 @@
   "About": {
     "subtitle": "Sobre Mim",
     "title": "Desenvolvedor Full Stack",
-    "p1": "Me chamo <1>Kayo Weiber</1>, sou graduando em Sistemas de Informação pela UEMG e atuo como desenvolvedor full-stack, motivado por transformar ideias em soluções que impactam positivamente a vida das pessoas.",
+    "p1": "Me chamo <1>Kayo Weiber</1>, tenho {{age}} anos, sou graduando em Sistemas de Informação pela UEMG e atuo como desenvolvedor full-stack, motivado por transformar ideias em soluções que impactam positivamente a vida das pessoas.",
     "p2": "Minha trajetória combina suporte técnico, manutenção de computadores e desenvolvimento de software, com foco em criar soluções robustas, escaláveis e úteis para o dia a dia.",
     "p3": "Atualmente, atuo como <1>Assistente de Desenvolvimento II</1> na <0>Cervejaria Cidade Imperial</0>, com foco principal em <2>desenvolvimento web</2>, enquanto sigo me aprimorando continuamente para enfrentar os desafios do mercado de tecnologia.",
     "stats": [

@@ -22,7 +22,7 @@
   "About": {
     "subtitle": "About Me",
     "title": "Full Stack Developer",
-    "p1": "I'm <1>Kayo Weiber</1>, an Information Systems student at UEMG and a full-stack developer driven by the passion to turn ideas into meaningful software solutions.",
+    "p1": "I'm <1>Kayo Weiber</1>, {{age}} years old, an Information Systems student at UEMG and a full-stack developer driven by the passion to turn ideas into meaningful software solutions.",
     "p2": "My background combines technical support, computer maintenance, and software development, with a focus on building robust, scalable, and useful solutions for everyday workflows.",
     "p3": "I am currently working as a <1>Development Assistant II</1> at <0>Cervejaria Cidade Imperial</0>, mainly focusing on <2>web development</2>, while continuously improving my skills to face the challenges of the technology market.",
     "stats": [

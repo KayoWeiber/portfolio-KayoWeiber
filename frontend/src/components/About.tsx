@@ -42,11 +42,26 @@ const iconVariants = {
   },
 };
 
+function calculateAge(birthDate: Date) {
+  const today = new Date();
+  let age = today.getFullYear() - birthDate.getFullYear();
+  const hasBirthdayPassed =
+    today.getMonth() > birthDate.getMonth() ||
+    (today.getMonth() === birthDate.getMonth() && today.getDate() >= birthDate.getDate());
+
+  if (!hasBirthdayPassed) {
+    age -= 1;
+  }
+
+  return age;
+}
+
 const About: React.FC = () => {
   const { t, i18n, ready } = useTranslation();
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true });
 
+  const age = calculateAge(new Date(2005, 2, 10));
   const stats = t("About.stats", { returnObjects: true }) || [];
   const { languages: githubLanguageStats, isLoading: isLoadingLanguageStats } =
     useGitHubLanguageStats();
@@ -113,7 +128,11 @@ const About: React.FC = () => {
 
               <div className="space-y-6 text-gray-300 text-lg">
                 <p>
-                  <Trans i18nKey="About.p1" components={{ 1: <strong className="text-blue-300" /> }} />
+                  <Trans
+                    i18nKey="About.p1"
+                    values={{ age }}
+                    components={{ 1: <strong className="text-blue-300" /> }}
+                  />
                 </p>
                 <p>{t("About.p2")}</p>
                 <p>
