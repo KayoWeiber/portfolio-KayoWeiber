@@ -6,6 +6,8 @@
   <link rel="icon" type="image/x-icon" href="/logoKW.ico" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#0f172a" />
+  <meta name="application-name" content="Kayo Weiber" />
+  <meta name="apple-mobile-web-app-title" content="Kayo Weiber" />
   <link rel="canonical" href="https://www.kayoweiber.com.br/" />
   <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,14 +29,30 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "WebSite",
-    "url": "https://www.kayoweiber.com.br/",
-    "name": "Kayo Weiber",
-    "author": {
-      "@type": "Person",
-      "name": "Kayo Weiber"
-    },
-    "description": "Portfólio de Kayo Weiber, graduando em Sistemas de Informação pela UEMG e desenvolvedor full-stack."
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://www.kayoweiber.com.br/#website",
+        "url": "https://www.kayoweiber.com.br/",
+        "name": "Kayo Weiber",
+        "alternateName": "Portfólio Kayo Weiber",
+        "description": "Portfólio de Kayo Weiber, graduando em Sistemas de Informação pela UEMG e desenvolvedor full-stack.",
+        "inLanguage": "pt-BR",
+        "publisher": {
+          "@id": "https://www.kayoweiber.com.br/#person"
+        }
+      },
+      {
+        "@type": "Person",
+        "@id": "https://www.kayoweiber.com.br/#person",
+        "name": "Kayo Weiber",
+        "url": "https://www.kayoweiber.com.br/",
+        "sameAs": [
+          "https://github.com/KayoWeiber",
+          "https://www.linkedin.com/in/kayo-weiber-134067280/"
+        ]
+      }
+    ]
   }
   </script>
 </head>
