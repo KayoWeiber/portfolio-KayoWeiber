@@ -1,7 +1,8 @@
 import React, { useMemo, useRef } from "react";
 import { useTranslation, Trans } from "react-i18next";
-import { motion, useInView, AnimatePresence, easeInOut } from "framer-motion";
-import { FaCode } from "react-icons/fa";
+import { motion, useInView, easeInOut } from "framer-motion";
+import type { IconType } from "react-icons";
+import { FaBolt, FaCode, FaLaptopCode, FaLayerGroup, FaServer } from "react-icons/fa";
 import { technologies } from "../data/technologies";
 import { useGitHubLanguageStats } from "../hooks/useGitHubLanguageStats";
 
@@ -42,6 +43,28 @@ const iconVariants = {
   },
 };
 
+type TranslationStat = {
+  number: string;
+  label: string;
+};
+
+type TranslationFocusArea = {
+  title: string;
+  description: string;
+};
+
+const focusIcons: IconType[] = [FaLaptopCode, FaServer, FaBolt];
+const focusThemes = [
+  "border-sky-400/30 bg-sky-400/10 text-sky-200",
+  "border-emerald-400/30 bg-emerald-400/10 text-emerald-200",
+  "border-amber-400/30 bg-amber-400/10 text-amber-200",
+] as const;
+const statThemes = [
+  "from-sky-400/25 to-cyan-300/10 text-sky-200 border-sky-300/20",
+  "from-emerald-400/25 to-teal-300/10 text-emerald-200 border-emerald-300/20",
+  "from-amber-400/25 to-orange-300/10 text-amber-200 border-amber-300/20",
+] as const;
+
 function calculateAge(birthDate: Date) {
   const today = new Date();
   let age = today.getFullYear() - birthDate.getFullYear();
@@ -57,16 +80,17 @@ function calculateAge(birthDate: Date) {
 }
 
 const About: React.FC = () => {
-  const { t, i18n, ready } = useTranslation();
+  const { t, ready } = useTranslation();
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true });
 
   const age = calculateAge(new Date(2005, 2, 10));
-  const stats = t("About.stats", { returnObjects: true }) || [];
+  const stats = t("About.stats", { returnObjects: true }) as TranslationStat[];
+  const focusAreas = t("About.focusAreas", { returnObjects: true }) as TranslationFocusArea[];
   const { languages: githubLanguageStats, isLoading: isLoadingLanguageStats } =
     useGitHubLanguageStats();
   const technologyByName = useMemo(
-    () => new Map(technologies.map((tech) => [tech.name, tech])),
+    () => new Map<string, (typeof technologies)[number]>(technologies.map((tech) => [tech.name, tech])),
     []
   );
   const fallbackLanguageStats = useMemo(
@@ -85,6 +109,8 @@ const About: React.FC = () => {
   const languageRanking = githubLanguageStats.length > 0
     ? githubLanguageStats
     : fallbackLanguageStats;
+  const safeStats = Array.isArray(stats) ? stats : [];
+  const safeFocusAreas = Array.isArray(focusAreas) ? focusAreas : [];
 
   if (!ready) {
     return (
@@ -98,35 +124,31 @@ const About: React.FC = () => {
     <section
       id="about"
       ref={ref}
-      className="min-h-screen bg-gradient-to-br from-[#0a2342] via-[#181818] to-[#1e293b] py-20 px-4 scroll-mt-24"
+      className="relative min-h-screen overflow-hidden bg-[#07111f] py-20 px-4 scroll-mt-24"
     >
-      <div className="max-w-7xl mx-auto">
+      <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(14,165,233,0.16),transparent_34%),linear-gradient(225deg,rgba(16,185,129,0.12),transparent_30%),linear-gradient(180deg,#07111f_0%,#0f172a_52%,#111827_100%)]" />
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(148,163,184,0.06)_1px,transparent_1px),linear-gradient(90deg,rgba(148,163,184,0.06)_1px,transparent_1px)] bg-[size:48px_48px] [mask-image:linear-gradient(to_bottom,black,transparent_92%)]" />
+
+      <div className="relative max-w-7xl mx-auto">
         <motion.div
           variants={containerVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
-          className="grid lg:grid-cols-2 gap-16 items-center"
+          className="grid lg:grid-cols-[1.05fr_0.95fr] gap-12 xl:gap-16 items-center"
         >
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={i18n.language}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.4 }}
-              className="space-y-8"
-            >
-              <span className="inline-block px-4 py-2 bg-blue-500/20 text-blue-300 rounded-full text-sm font-medium uppercase tracking-wider border border-blue-500/30">
+          <motion.div variants={itemVariants} className="space-y-8">
+              <span className="inline-flex items-center gap-2 rounded-full border border-sky-300/30 bg-sky-300/10 px-4 py-2 text-sm font-semibold uppercase tracking-[0.28em] text-sky-200">
+                <FaLayerGroup className="text-emerald-300" />
                 {t("About.subtitle")}
               </span>
 
-              <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight">
+              <h2 className="max-w-3xl text-4xl md:text-5xl xl:text-6xl font-bold text-white leading-tight">
                 <Trans i18nKey="About.title">
-                  Full Stack <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">Developer</span>
+                  Full Stack <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-300 via-emerald-300 to-amber-200">Developer</span>
                 </Trans>
               </h2>
 
-              <div className="space-y-6 text-gray-300 text-lg">
+              <div className="max-w-2xl space-y-5 text-base md:text-lg leading-8 text-slate-300">
                 <p>
                   <Trans
                     i18nKey="About.p1"
@@ -147,30 +169,57 @@ const About: React.FC = () => {
                 </p>
               </div>
 
-              <div className="grid grid-cols-2 md:grid-cols-3 gap-6 pt-8">
-                {(Array.isArray(stats) ? stats : []).map((stat) => {
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
+                {safeStats.map((stat, index) => {
+                  const theme = statThemes[index % statThemes.length] ?? statThemes[0];
                   return (
-                    <div
+                    <motion.div
                       key={stat.label}
-                      className={"text-center p-4 rounded-lg border bg-blue-500/10 border-blue-500/20"}
+                      variants={itemVariants}
+                      className={`rounded-2xl border bg-gradient-to-br ${theme} p-4 shadow-lg shadow-slate-950/20`}
                     >
-                      <div className={"text-2xl font-bold text-blue-400"}>{stat.number}</div>
-                      <div className="text-sm text-gray-400 uppercase tracking-wide">{stat.label}</div>
-                    </div>
+                      <div className="text-3xl font-bold text-white">{stat.number}</div>
+                      <div className="mt-1 text-xs font-semibold uppercase tracking-[0.2em] text-current">{stat.label}</div>
+                    </motion.div>
                   );
                 })}
               </div>
-            </motion.div>
-          </AnimatePresence>
 
-          <motion.div variants={itemVariants} className="space-y-8">
-            <motion.h3 className="text-2xl md:text-3xl font-bold text-white text-center">
-              {t("About.stack")}
-            </motion.h3>
+              <motion.div variants={containerVariants} className="grid md:grid-cols-3 gap-4">
+                {safeFocusAreas.map((area, index) => {
+                  const Icon = focusIcons[index % focusIcons.length] ?? FaCode;
+                  const theme = focusThemes[index % focusThemes.length] ?? focusThemes[0];
+
+                  return (
+                    <motion.div
+                      key={area.title}
+                      variants={itemVariants}
+                      className={`rounded-2xl border p-5 ${theme}`}
+                      whileHover={{ y: -6 }}
+                    >
+                      <Icon size={22} />
+                      <h3 className="mt-4 text-base font-semibold text-white">{area.title}</h3>
+                      <p className="mt-2 text-sm leading-6 text-slate-300">{area.description}</p>
+                    </motion.div>
+                  );
+                })}
+              </motion.div>
+          </motion.div>
+
+          <motion.div
+            variants={itemVariants}
+            className="rounded-[2rem] border border-white/10 bg-white/[0.04] p-5 md:p-7 shadow-2xl shadow-slate-950/40 backdrop-blur"
+          >
+            <div className="mb-7 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+              <motion.h3 className="text-2xl md:text-3xl font-bold text-white">
+                {t("About.stack")}
+              </motion.h3>
+              <span className="text-sm font-medium text-slate-400">{t("About.mainLangs")}</span>
+            </div>
 
             <motion.div
               variants={containerVariants}
-              className="grid grid-cols-4 md:grid-cols-5 gap-4 md:gap-6"
+              className="grid grid-cols-4 md:grid-cols-5 gap-3 md:gap-4"
             >
               {technologies.map((tech) => {
                 const Icon = tech.icon;
@@ -178,7 +227,7 @@ const About: React.FC = () => {
                   <motion.div
                     key={tech.name}
                     variants={iconVariants}
-                    className="group relative flex flex-col items-center p-3 md:p-4 bg-gray-800/50 rounded-xl border border-gray-700/50 hover:border-blue-500/50 transition-all"
+                    className="group relative flex aspect-square items-center justify-center rounded-2xl border border-slate-700/70 bg-slate-900/70 transition-all hover:border-sky-300/60 hover:bg-slate-800/80"
                     whileHover={{ scale: 1.1, y: -5 }}
                   >
                     <Icon size={32} style={{ color: tech.color }} />
@@ -191,9 +240,6 @@ const About: React.FC = () => {
             </motion.div>
 
             <motion.div className="space-y-4 mt-12">
-              <h4 className="text-xl font-semibold text-white mb-6 text-center">
-                {t("About.mainLangs")}
-              </h4>
               {languageRanking.map((language, index) => {
                 const tech = technologyByName.get(language.name);
                 const Icon = tech?.icon || FaCode;
@@ -208,15 +254,15 @@ const About: React.FC = () => {
                     transition={{ delay: index * 0.1 + 0.5, duration: 0.6 }}
                   >
                     <div className="flex justify-between items-center">
-                      <span className="text-gray-300 font-medium flex items-center gap-2">
+                      <span className="text-slate-300 font-medium flex items-center gap-2">
                         <Icon size={16} style={{ color }} />
                         {language.name}
                       </span>
-                      <span className="text-blue-400 text-sm font-semibold">
+                      <span className="text-sky-300 text-sm font-semibold">
                         {isLoadingLanguageStats ? t("About.loadingStats") : language.percentage}
                       </span>
                     </div>
-                    <div className="w-full bg-gray-700/50 rounded-full h-2 overflow-hidden">
+                    <div className="h-2 w-full overflow-hidden rounded-full bg-slate-800">
                       <motion.div
                         className="h-full rounded-full"
                         style={{
