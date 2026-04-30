@@ -21,14 +21,28 @@
   },
   "About": {
     "subtitle": "About Me",
-    "title": "Full Stack Developer",
-    "p1": "I'm <1>Kayo Weiber</1>, {{age}} years old, an Information Systems student at UEMG and a full-stack developer driven by the passion to turn ideas into meaningful software solutions.",
-    "p2": "My background combines technical support, computer maintenance, and software development, with a focus on building robust, scalable, and useful solutions for everyday workflows.",
-    "p3": "I am currently working as a <1>Development Assistant II</1> at <0>Cervejaria Cidade Imperial</0>, mainly focusing on <2>web development</2>, while continuously improving my skills to face the challenges of the technology market.",
+    "title": "Product-minded Full Stack Developer",
+    "p1": "I'm <1>Kayo Weiber</1>, {{age}} years old, and I study Information Systems at UEMG. I build digital solutions that connect interface, business logic, and data to solve real problems.",
+    "p2": "My foundation spans technical support, computer maintenance, and software development. That combination helps me understand the whole system, from user experience to API integrations, databases, and automations.",
+    "p3": "I currently work as a <1>Development Assistant II</1> at <0>Cervejaria Cidade Imperial</0>, focused on <2>web applications, integrations, and process improvement</2>, while continuously evolving to deliver clearer, reliable, and scalable software.",
     "stats": [
       { "number": "Full", "label": "Stack", "color": "blue" },
       { "number": "18+", "label": "Technologies", "color": "blue" },
       { "number": "∞", "label": "Lifelong Learning", "color": "blue" }
+    ],
+    "focusAreas": [
+      {
+        "title": "Modern interfaces",
+        "description": "React, TypeScript, and Tailwind to create responsive, fast, and maintainable experiences."
+      },
+      {
+        "title": "Back-end and data",
+        "description": "APIs, business rules, and SQL/NoSQL databases connected to useful operational flows."
+      },
+      {
+        "title": "Practical automation",
+        "description": "Integrations and routines that reduce manual work and make processes more consistent."
+      }
     ],
     "stack": "Tech Stack",
     "mainLangs": "Main Languages",

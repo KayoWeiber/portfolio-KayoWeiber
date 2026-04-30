@@ -21,14 +21,28 @@
   },
   "About": {
     "subtitle": "Sobre Mim",
-    "title": "Desenvolvedor Full Stack",
-    "p1": "Me chamo <1>Kayo Weiber</1>, tenho {{age}} anos, sou graduando em Sistemas de Informação pela UEMG e atuo como desenvolvedor full-stack, motivado por transformar ideias em soluções que impactam positivamente a vida das pessoas.",
-    "p2": "Minha trajetória combina suporte técnico, manutenção de computadores e desenvolvimento de software, com foco em criar soluções robustas, escaláveis e úteis para o dia a dia.",
-    "p3": "Atualmente, atuo como <1>Assistente de Desenvolvimento II</1> na <0>Cervejaria Cidade Imperial</0>, com foco principal em <2>desenvolvimento web</2>, enquanto sigo me aprimorando continuamente para enfrentar os desafios do mercado de tecnologia.",
+    "title": "Desenvolvedor Full Stack orientado a produto",
+    "p1": "Sou <1>Kayo Weiber</1>, tenho {{age}} anos e curso Sistemas de Informação na UEMG. Trabalho criando soluções digitais que unem interface, regra de negócio e dados para resolver problemas reais.",
+    "p2": "Minha base passa por suporte técnico, manutenção de computadores e desenvolvimento de software. Essa combinação me ajuda a enxergar o sistema inteiro: da experiência do usuário até a integração com APIs, banco de dados e automações.",
+    "p3": "Hoje atuo como <1>Assistente de Desenvolvimento II</1> na <0>Cervejaria Cidade Imperial</0>, com foco em <2>aplicações web, integrações e melhoria de processos</2>, evoluindo constantemente para entregar software mais claro, confiável e escalável.",
     "stats": [
       { "number": "Full", "label": "Stack", "color": "blue" },
       { "number": "18+", "label": "Tecnologias", "color": "blue" },
       { "number": "∞", "label": "Aprendizado", "color": "blue" }
+    ],
+    "focusAreas": [
+      {
+        "title": "Interfaces modernas",
+        "description": "React, TypeScript e Tailwind para criar experiências responsivas, rápidas e fáceis de manter."
+      },
+      {
+        "title": "Back-end e dados",
+        "description": "APIs, regras de negócio e bancos SQL/NoSQL conectados a fluxos úteis para a operação."
+      },
+      {
+        "title": "Automação prática",
+        "description": "Integrações e rotinas que reduzem trabalho manual e tornam processos mais consistentes."
+      }
     ],
     "stack": "Stack Tecnológico",
     "mainLangs": "Principais Linguagens",
