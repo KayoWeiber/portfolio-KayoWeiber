@@ -4,7 +4,18 @@ import { motion } from "framer-motion";
 import { FaCode } from "react-icons/fa";
 import { technologies } from "../data/technologies";
 import { useGitHubLanguageStats } from "../hooks/useGitHubLanguageStats";
-import TechStackGraph from "./TechStackGraph";
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      duration: 0.6,
+      staggerChildren: 0.1,
+      delayChildren: 0.2,
+    },
+  },
+};
 
 const itemVariants = {
   hidden: { y: 20, opacity: 0 },
@@ -12,6 +23,19 @@ const itemVariants = {
     y: 0,
     opacity: 1,
     transition: { duration: 0.5 },
+  },
+};
+
+const iconVariants = {
+  hidden: { scale: 0, rotate: -180 },
+  visible: {
+    scale: 1,
+    rotate: 0,
+    transition: {
+      type: "spring" as const,
+      stiffness: 260,
+      damping: 20,
+    },
   },
 };
 
@@ -58,7 +82,29 @@ const TechStackPanel = ({ isInView }: { isInView: boolean }) => {
         <span className="text-sm font-medium text-slate-400">{t("About.mainLangs")}</span>
       </div>
 
-      <TechStackGraph />
+      <motion.div
+        variants={containerVariants}
+        className="grid grid-cols-4 md:grid-cols-5 gap-3 md:gap-4"
+      >
+        {technologies.map((tech) => {
+          const Icon = tech.icon;
+
+          return (
+            <motion.div
+              key={tech.name}
+              variants={iconVariants}
+              className="group relative flex aspect-square items-center justify-center rounded-2xl border border-slate-700/70 bg-slate-900/70 transition-all hover:border-sky-300/60 hover:bg-slate-800/80"
+              whileHover={{ scale: 1.1, y: -5 }}
+            >
+              <Icon size={32} style={{ color: tech.color }} />
+
+              <div className="absolute -top-10 left-1/2 transform -translate-x-1/2 bg-gray-900 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity">
+                {tech.name}
+              </div>
+            </motion.div>
+          );
+        })}
+      </motion.div>
 
       <motion.div className="space-y-4 mt-12">
         {languageRanking.map((language, index) => {
