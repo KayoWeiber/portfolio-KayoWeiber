@@ -1,53 +1,10 @@
-import React, { useMemo } from "react";
+import React from "react";
 import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
-import {
-  FaCode,
-  FaDatabase,
-  FaProjectDiagram,
-  FaReact,
-  FaServer,
-} from "react-icons/fa";
-import { SiNodered } from "react-icons/si";
+import { services } from "../data/services";
 
 const Services: React.FC = () => {
   const { t } = useTranslation();
-
-  const services = useMemo(
-    () => [
-      {
-        icon: FaCode,
-        title: t("services.webDev"),
-        description: t("services.webDesc"),
-      },
-      {
-        icon: FaReact,
-        title: t("services.frontend"),
-        description: t("services.frontendDesc"),
-      },
-      {
-        icon: FaServer,
-        title: t("services.backendDev"),
-        description: t("services.backendDesc"),
-      },
-      {
-        icon: FaProjectDiagram,
-        title: t("services.apiIntegration"),
-        description: t("services.apiDesc"),
-      },
-      {
-        icon: SiNodered,
-        title: t("services.automation"),
-        description: t("services.automationDesc"),
-      },
-      {
-        icon: FaDatabase,
-        title: t("services.dbDesign"),
-        description: t("services.dbDesignDesc"),
-      },
-    ],
-    [t]
-  );
 
   return (
     <section id="services" className="py-20 px-6 md:px-12 bg-slate-950 text-white scroll-mt-24">
@@ -73,7 +30,7 @@ const Services: React.FC = () => {
 
             return (
               <motion.article
-                key={service.title}
+                key={service.titleKey}
                 className="group relative overflow-hidden rounded-lg border border-sky-500/20 bg-slate-900/70 p-6 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:border-sky-300/50 hover:bg-slate-900"
                 initial={{ opacity: 0, y: 28 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -84,8 +41,8 @@ const Services: React.FC = () => {
                 <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-lg border border-sky-400/30 bg-sky-400/10 text-sky-300 shadow-inner shadow-sky-950/30 transition group-hover:bg-sky-400/20">
                   <Icon size={26} aria-hidden="true" />
                 </div>
-                <h3 className="text-xl font-bold text-white">{service.title}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-sky-100/85">{service.description}</p>
+                <h3 className="text-xl font-bold text-white">{t(service.titleKey)}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-sky-100/85">{t(service.descriptionKey)}</p>
               </motion.article>
             );
           })}

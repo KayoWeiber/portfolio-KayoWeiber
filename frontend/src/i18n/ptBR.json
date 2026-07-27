@@ -1,6 +1,4 @@
 {
-  "greeting": "Olá, eu sou Kayo!",
-  "about": "Desenvolvedor de Software",
   "language": {
     "switch": "Alternar idioma"
   },
@@ -176,6 +174,19 @@
     "projects": [
       {
         "images": [
+          "/projeto5/duocal-1.jpeg",
+          "/projeto5/duocal-2.jpeg",
+          "/projeto5/duocal-3.jpeg",
+          "/projeto5/duocal-4.jpeg",
+          "/projeto5/duocal-5.jpeg"
+        ],
+        "title": "DuoCal",
+        "description": "Agenda compartilhada em PWA mobile-first para casais, com workspace multi-tenant, conexão por token, agenda colaborativa e Kanban de tarefas. Sincronia é a base de tudo: transforma o \"meu horário\" em \"nosso tempo\".",
+        "sourceLink": "https://github.com/KayoWeiber/DuoCal",
+        "technologies": ["React", "TypeScript", "Tailwind CSS", "Supabase", "TanStack Query", "PWA"]
+      },
+      {
+        "images": [
           "/projeto1/projeto1-1.png",
           "/projeto1/projeto1-2.png",
           "/projeto1/projeto1-3.png"
@@ -244,9 +255,14 @@
     "rights": "Todos os direitos reservados"
   },
   "coursesPage": {
+    "subtitle": "Formação",
     "title": "Cursos e Certificações",
     "metaTitle": "Cursos e Certificações - Kayo Weiber",
     "metaDescription": "Cursos, certificações e trilhas de estudo de Kayo Weiber em desenvolvimento full-stack, cloud, dados e fundamentos de programação.",
+    "description": "Trilhas de estudo e certificados que embasam minha atuação como desenvolvedor full stack.",
+    "backHome": "Voltar ao início",
+    "count_one": "{{count}} certificado",
+    "count_other": "{{count}} certificados",
     "certificateAlt": "Certificado do curso {{title}}",
     "certificateAriaLabel": "Ver certificado do curso {{title}}",
     "filterLabel": "Filtrar cursos por categoria",

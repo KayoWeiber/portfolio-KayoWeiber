@@ -93,12 +93,18 @@ const TechStackPanel = ({ isInView }: { isInView: boolean }) => {
             <motion.div
               key={tech.name}
               variants={iconVariants}
-              className="group relative flex aspect-square items-center justify-center rounded-2xl border border-slate-700/70 bg-slate-900/70 transition-all hover:border-sky-300/60 hover:bg-slate-800/80"
+              className="group relative aspect-square"
               whileHover={{ scale: 1.1, y: -5 }}
             >
-              <Icon size={32} style={{ color: tech.color }} />
+              <button
+                type="button"
+                className="flex h-full w-full items-center justify-center rounded-2xl border border-slate-700/70 bg-slate-900/70 transition-all hover:border-sky-300/60 hover:bg-slate-800/80 focus:outline-none focus:ring-2 focus:ring-sky-300"
+              >
+                <Icon size={32} style={{ color: tech.color }} aria-hidden="true" />
+                <span className="sr-only">{tech.name}</span>
+              </button>
 
-              <div className="absolute -top-10 left-1/2 transform -translate-x-1/2 bg-gray-900 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity">
+              <div className="pointer-events-none absolute -top-10 left-1/2 -translate-x-1/2 whitespace-nowrap rounded bg-gray-900 px-2 py-1 text-xs text-white opacity-0 transition-opacity group-hover:opacity-100 group-focus-within:opacity-100">
                 {tech.name}
               </div>
             </motion.div>
@@ -120,13 +126,13 @@ const TechStackPanel = ({ isInView }: { isInView: boolean }) => {
               animate={isInView ? { opacity: 1, x: 0 } : {}}
               transition={{ delay: index * 0.1 + 0.5, duration: 0.6 }}
             >
-              <div className="flex justify-between items-center">
-                <span className="text-slate-300 font-medium flex items-center gap-2">
-                  <Icon size={16} style={{ color }} />
-                  {language.name}
+              <div className="flex items-center justify-between gap-2">
+                <span className="flex min-w-0 items-center gap-2 font-medium text-slate-300">
+                  <Icon size={16} style={{ color }} className="shrink-0" />
+                  <span className="truncate">{language.name}</span>
                 </span>
 
-                <span className="text-sky-300 text-sm font-semibold">
+                <span className="shrink-0 text-sm font-semibold text-sky-300">
                   {isLoadingLanguageStats ? t("About.loadingStats") : language.percentage}
                 </span>
               </div>

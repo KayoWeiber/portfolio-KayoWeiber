@@ -58,7 +58,7 @@ const ProjectModal = ({
       >
         <motion.div
           ref={dialogRef}
-          className="relative bg-slate-950/95 rounded-lg shadow-2xl p-6 md:p-8 max-w-3xl w-full text-white border border-sky-400/30"
+          className="relative max-h-[85vh] w-full max-w-3xl overflow-y-auto rounded-lg border border-sky-400/30 bg-slate-950/95 p-6 text-white shadow-2xl md:p-8"
           initial={{ scale: 0.9, opacity: 0, y: 40 }}
           animate={{ scale: 1, opacity: 1, y: 0 }}
           exit={{ scale: 0.9, opacity: 0, y: 40 }}
@@ -73,12 +73,12 @@ const ProjectModal = ({
             ref={closeButtonRef}
             type="button"
             onClick={onClose}
-            className="absolute top-3 right-3 text-white text-2xl hover:text-sky-300 transition focus:outline-none focus:ring-2 focus:ring-sky-300 rounded"
+            className="absolute top-2 right-2 flex h-11 w-11 items-center justify-center rounded-full text-2xl text-white transition hover:text-sky-300 focus:outline-none focus:ring-2 focus:ring-sky-300"
             aria-label={t("modal.close")}
           >
             ×
           </button>
-          <h2 id="project-modal-title" className="text-2xl md:text-3xl font-extrabold mb-6 tracking-tight pr-8">
+          <h2 id="project-modal-title" className="text-2xl md:text-3xl font-extrabold mb-6 tracking-tight pr-10">
             {project.title}
           </h2>
           <div className="relative flex justify-center items-center mb-6">
@@ -95,18 +95,18 @@ const ProjectModal = ({
                 <button
                   type="button"
                   onClick={() => handleSwitch("prev")}
-                  className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-sky-800/80 p-2 rounded-full focus:outline-none focus:ring-2 focus:ring-sky-300"
+                  className="absolute left-2 top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-black/50 hover:bg-sky-800/80 focus:outline-none focus:ring-2 focus:ring-sky-300"
                   aria-label={t("portfolio.previousImage")}
                 >
-                  <FaArrowLeft />
+                  <FaArrowLeft size={18} />
                 </button>
                 <button
                   type="button"
                   onClick={() => handleSwitch("next")}
-                  className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-sky-800/80 p-2 rounded-full focus:outline-none focus:ring-2 focus:ring-sky-300"
+                  className="absolute right-2 top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-black/50 hover:bg-sky-800/80 focus:outline-none focus:ring-2 focus:ring-sky-300"
                   aria-label={t("portfolio.nextImage")}
                 >
-                  <FaArrowRight />
+                  <FaArrowRight size={18} />
                 </button>
               </>
             )}
@@ -239,7 +239,7 @@ const Portfolio: React.FC = () => {
               key={technology}
               type="button"
               onClick={() => setSelectedTechnology(technology)}
-              className={`rounded-full border px-4 py-2 text-sm font-semibold transition focus:outline-none focus:ring-2 focus:ring-sky-300 ${
+              className={`rounded-full border px-4 py-2.5 text-sm font-semibold transition focus:outline-none focus:ring-2 focus:ring-sky-300 ${
                 selectedTechnology === technology
                   ? "border-sky-300 bg-sky-400 text-slate-950"
                   : "border-sky-500/30 text-sky-100 hover:bg-sky-400/10"
@@ -290,10 +290,10 @@ const Portfolio: React.FC = () => {
                       setHoveredProject(null);
                       handleImageSwitch(proj.title, proj.images.length, "prev");
                     }}
-                    className="absolute left-3 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-sky-800/80 p-2 rounded-full transition focus:outline-none focus:ring-2 focus:ring-sky-300"
+                    className="absolute left-2 top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-black/50 transition hover:bg-sky-800/80 focus:outline-none focus:ring-2 focus:ring-sky-300"
                     aria-label={t("portfolio.previousImage")}
                   >
-                    <FaArrowLeft />
+                    <FaArrowLeft size={18} />
                   </button>
                   <button
                     type="button"
@@ -301,10 +301,10 @@ const Portfolio: React.FC = () => {
                       setHoveredProject(null);
                       handleImageSwitch(proj.title, proj.images.length, "next");
                     }}
-                    className="absolute right-3 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-sky-800/80 p-2 rounded-full transition focus:outline-none focus:ring-2 focus:ring-sky-300"
+                    className="absolute right-2 top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-black/50 transition hover:bg-sky-800/80 focus:outline-none focus:ring-2 focus:ring-sky-300"
                     aria-label={t("portfolio.nextImage")}
                   >
-                    <FaArrowRight />
+                    <FaArrowRight size={18} />
                   </button>
                   <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1">
                     {proj.images.map((_, i) => (

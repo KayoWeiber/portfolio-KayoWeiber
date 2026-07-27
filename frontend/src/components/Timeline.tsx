@@ -39,7 +39,7 @@ const Timeline: React.FC = () => {
         {t("About.timelineTitle")}
       </h4>
 
-      <ol className="relative space-y-8 border-l border-slate-700/70 pl-8">
+      <ol className="relative space-y-8 border-l border-slate-700/70 pl-10 sm:pl-8">
         {safeMilestones.map((milestone, index) => {
           const Icon = milestone.type === "education" ? FaGraduationCap : FaBriefcase;
           const isCurrent = milestone.period.toLowerCase().includes(
@@ -59,7 +59,7 @@ const Timeline: React.FC = () => {
               transition={{ delay: index * 0.12, duration: 0.5 }}
             >
               <span
-                className={`absolute -left-[2.55rem] flex h-8 w-8 items-center justify-center rounded-full border ${typeStyles[milestone.type]}`}
+                className={`absolute -left-[2.15rem] sm:-left-[2.55rem] flex h-8 w-8 items-center justify-center rounded-full border ${typeStyles[milestone.type]}`}
               >
                 <Icon size={14} aria-hidden="true" />
               </span>
