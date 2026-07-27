@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import { useMemo } from "react";
 import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
 import { FaCode } from "react-icons/fa";

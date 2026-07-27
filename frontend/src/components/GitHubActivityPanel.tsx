@@ -1,4 +1,3 @@
-import React from "react";
 import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
 import { FaCodeBranch, FaDatabase, FaStar } from "react-icons/fa";
