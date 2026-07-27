@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { AnimatePresence, motion } from "framer-motion";
 import { createPortal } from "react-dom";
@@ -25,6 +25,19 @@ const ProjectModal = ({
       dir === "next" ? (prev + 1) % total : (prev - 1 + total) % total
     );
   };
+
+  useEffect(() => {
+    if (project.images.length <= 1) return;
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "ArrowLeft") handleSwitch("prev");
+      if (event.key === "ArrowRight") handleSwitch("next");
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [project.images.length]);
 
   const demoLink = project.demoLink || project.link;
   const sourceLink = project.sourceLink || project.link;
@@ -139,29 +152,41 @@ const ProjectModal = ({
 
 const Portfolio: React.FC = () => {
   const { t, i18n } = useTranslation();
-  const [currentImg, setCurrentImg] = useState<number[]>([]);
+  const [currentImg, setCurrentImg] = useState<Record<string, number>>({});
   const [projects, setProjects] = useState<Project[]>([]);
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [selectedTechnology, setSelectedTechnology] = useState<string>("all");
 
   useEffect(() => {
     const projectData = t("portfolio.projects", { returnObjects: true }) as Project[];
     setProjects(projectData || []);
+    setSelectedTechnology("all");
   }, [i18n.language, t]);
 
   useEffect(() => {
-    setCurrentImg(projects.map(() => 0));
+    setCurrentImg(Object.fromEntries(projects.map((proj) => [proj.title, 0])));
   }, [projects]);
 
-  const handleImageSwitch = (projIndex: number, direction: "prev" | "next") => {
-    setCurrentImg((prev) =>
-      prev.map((val, idx) => {
-        if (idx !== projIndex) return val;
-        const total = projects[projIndex].images.length;
-        return direction === "next"
-          ? (val + 1) % total
-          : (val - 1 + total) % total;
-      })
-    );
+  const technologies = useMemo(() => {
+    const unique = new Set<string>();
+    projects.forEach((proj) => proj.technologies?.forEach((tech) => unique.add(tech)));
+    return Array.from(unique).sort((a, b) => a.localeCompare(b));
+  }, [projects]);
+
+  const filteredProjects = useMemo(() => {
+    if (selectedTechnology === "all") return projects;
+    return projects.filter((proj) => proj.technologies?.includes(selectedTechnology));
+  }, [projects, selectedTechnology]);
+
+  const handleImageSwitch = (projectTitle: string, totalImages: number, direction: "prev" | "next") => {
+    setCurrentImg((prev) => {
+      const current = prev[projectTitle] ?? 0;
+      const next =
+        direction === "next"
+          ? (current + 1) % totalImages
+          : (current - 1 + totalImages) % totalImages;
+      return { ...prev, [projectTitle]: next };
+    });
   };
 
   return (
@@ -178,13 +203,38 @@ const Portfolio: React.FC = () => {
         {t("nav.portfolio")}
       </motion.h2>
 
+      {technologies.length > 0 && (
+        <div
+          className="mb-10 flex flex-wrap justify-center gap-2"
+          role="list"
+          aria-label={t("portfolio.filterLabel")}
+        >
+          {["all", ...technologies].map((technology) => (
+            <button
+              key={technology}
+              type="button"
+              onClick={() => setSelectedTechnology(technology)}
+              className={`rounded-full border px-4 py-2 text-sm font-semibold transition focus:outline-none focus:ring-2 focus:ring-sky-300 ${
+                selectedTechnology === technology
+                  ? "border-sky-300 bg-sky-400 text-slate-950"
+                  : "border-sky-500/30 text-sky-100 hover:bg-sky-400/10"
+              }`}
+              aria-pressed={selectedTechnology === technology}
+            >
+              {technology === "all" ? t("portfolio.filterAll") : technology}
+            </button>
+          ))}
+        </div>
+      )}
+
       <div className="mx-auto grid max-w-7xl gap-8 md:grid-cols-2 xl:grid-cols-3">
-        {projects.map((proj, index) => {
-          const imageIndex = currentImg[index] ?? 0;
+        {filteredProjects.map((proj, index) => {
+          const imageIndex = currentImg[proj.title] ?? 0;
 
           return (
           <motion.article
             key={proj.title}
+            layout
             className="group overflow-hidden rounded-lg border border-sky-500/20 bg-slate-900/70 shadow-xl transition-transform duration-300 hover:-translate-y-1 hover:border-sky-400/50"
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -209,7 +259,7 @@ const Portfolio: React.FC = () => {
                 <>
                   <button
                     type="button"
-                    onClick={() => handleImageSwitch(index, "prev")}
+                    onClick={() => handleImageSwitch(proj.title, proj.images.length, "prev")}
                     className="absolute left-3 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-sky-800/80 p-2 rounded-full transition focus:outline-none focus:ring-2 focus:ring-sky-300"
                     aria-label={t("portfolio.previousImage")}
                   >
@@ -217,7 +267,7 @@ const Portfolio: React.FC = () => {
                   </button>
                   <button
                     type="button"
-                    onClick={() => handleImageSwitch(index, "next")}
+                    onClick={() => handleImageSwitch(proj.title, proj.images.length, "next")}
                     className="absolute right-3 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-sky-800/80 p-2 rounded-full transition focus:outline-none focus:ring-2 focus:ring-sky-300"
                     aria-label={t("portfolio.nextImage")}
                   >

@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { MotionConfig } from "framer-motion";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Hero from "./features/Hero";
@@ -11,30 +12,32 @@ import ScrollToHashElement from "./utils/ScrollToHashElement";
 
 function App() {
   return (
-    <Router>
-      <ScrollToHashElement />
-      <div className="min-h-screen bg-animate-gradient">
-        <Header />
-        <main id="content" role="main" tabIndex={-1} className="pt-20">
-          <Routes>
-            <Route
-              path="/"
-              element={
-                <>
-                  <Hero />
-                  <About />
-                  <Services />
-                  <Portfolio />
-                  <Contact />
-                </>
-              }
-            />
-            <Route path="/cursos" element={<Courses />} />
-          </Routes>
-        </main>
-        <Footer />
-      </div>
-    </Router>
+    <MotionConfig reducedMotion="user">
+      <Router>
+        <ScrollToHashElement />
+        <div className="min-h-screen bg-animate-gradient">
+          <Header />
+          <main id="content" role="main" tabIndex={-1} className="pt-20">
+            <Routes>
+              <Route
+                path="/"
+                element={
+                  <>
+                    <Hero />
+                    <About />
+                    <Services />
+                    <Portfolio />
+                    <Contact />
+                  </>
+                }
+              />
+              <Route path="/cursos" element={<Courses />} />
+            </Routes>
+          </main>
+          <Footer />
+        </div>
+      </Router>
+    </MotionConfig>
   );
 }
 

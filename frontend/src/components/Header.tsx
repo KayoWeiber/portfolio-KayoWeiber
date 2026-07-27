@@ -142,34 +142,51 @@ const Header: React.FC = () => {
           className="hidden md:flex items-center gap-7"
           aria-label={t("nav.mainMenu")}
         >
-          {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              to={link.href}
-              onClick={() => {
-                setActive(link.label);
-                setMobileMenuOpen(false);
-              }}
-              className={`relative px-2 py-1 text-base font-medium transition-all duration-200 group ${
-                isActive(link.href, link.label)
-                  ? "text-sky-100"
-                  : "text-slate-200 hover:text-sky-300"
-              }`}
-              style={{ fontFamily: "'Montserrat', sans-serif" }}
-            >
-              <TextTransition springConfig={presets.gentle} inline>
-                {t(link.translationKey)}
-              </TextTransition>
-
-              <span
-                className={`absolute left-1/2 -bottom-2 -translate-x-1/2 h-1.5 rounded bg-sky-400/80 transition-all duration-300 ${
+          {navLinks.map((link) =>
+            link.label === "Contact" ? (
+              <Link
+                key={link.href}
+                to={link.href}
+                onClick={() => {
+                  setActive(link.label);
+                  setMobileMenuOpen(false);
+                }}
+                className="rounded-md bg-sky-500 px-4 py-2 text-sm font-bold text-slate-950 shadow-md transition hover:bg-sky-300 focus:outline-none focus:ring-2 focus:ring-sky-200"
+                style={{ fontFamily: "'Montserrat', sans-serif" }}
+              >
+                <TextTransition springConfig={presets.gentle} inline>
+                  {t(link.translationKey)}
+                </TextTransition>
+              </Link>
+            ) : (
+              <Link
+                key={link.href}
+                to={link.href}
+                onClick={() => {
+                  setActive(link.label);
+                  setMobileMenuOpen(false);
+                }}
+                className={`relative px-2 py-1 text-base font-medium transition-all duration-200 group ${
                   isActive(link.href, link.label)
-                    ? "w-6 opacity-100"
-                    : "w-0 opacity-0 group-hover:w-6 group-hover:opacity-60"
+                    ? "text-sky-100"
+                    : "text-slate-200 hover:text-sky-300"
                 }`}
-              />
-            </Link>
-          ))}
+                style={{ fontFamily: "'Montserrat', sans-serif" }}
+              >
+                <TextTransition springConfig={presets.gentle} inline>
+                  {t(link.translationKey)}
+                </TextTransition>
+
+                <span
+                  className={`absolute left-1/2 -bottom-2 -translate-x-1/2 h-1.5 rounded bg-sky-400/80 transition-all duration-300 ${
+                    isActive(link.href, link.label)
+                      ? "w-6 opacity-100"
+                      : "w-0 opacity-0 group-hover:w-6 group-hover:opacity-60"
+                  }`}
+                />
+              </Link>
+            )
+          )}
         </nav>
 
         <LanguageToggle className="hidden md:flex" />
@@ -223,24 +240,39 @@ const Header: React.FC = () => {
           aria-label={t("nav.mobileMenu")}
         >
           <div className="flex flex-col gap-2 px-6 py-4">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                to={link.href}
-                onClick={() => {
-                  setActive(link.label);
-                  setMobileMenuOpen(false);
-                }}
-                className={`text-lg font-semibold py-2 px-3 rounded transition ${
-                  isActive(link.href, link.label)
-                    ? "bg-sky-500/20 text-sky-100"
-                    : "text-slate-200 hover:bg-sky-500/10 hover:text-sky-300"
-                }`}
-                style={{ fontFamily: "'Montserrat', sans-serif" }}
-              >
-                {t(link.translationKey)}
-              </Link>
-            ))}
+            {navLinks.map((link) =>
+              link.label === "Contact" ? (
+                <Link
+                  key={link.href}
+                  to={link.href}
+                  onClick={() => {
+                    setActive(link.label);
+                    setMobileMenuOpen(false);
+                  }}
+                  className="rounded-md bg-sky-500 px-3 py-2 text-lg font-bold text-slate-950 text-center shadow-md transition hover:bg-sky-300"
+                  style={{ fontFamily: "'Montserrat', sans-serif" }}
+                >
+                  {t(link.translationKey)}
+                </Link>
+              ) : (
+                <Link
+                  key={link.href}
+                  to={link.href}
+                  onClick={() => {
+                    setActive(link.label);
+                    setMobileMenuOpen(false);
+                  }}
+                  className={`text-lg font-semibold py-2 px-3 rounded transition ${
+                    isActive(link.href, link.label)
+                      ? "bg-sky-500/20 text-sky-100"
+                      : "text-slate-200 hover:bg-sky-500/10 hover:text-sky-300"
+                  }`}
+                  style={{ fontFamily: "'Montserrat', sans-serif" }}
+                >
+                  {t(link.translationKey)}
+                </Link>
+              )
+            )}
 
             <div className="mt-4">
               <LanguageToggle />
