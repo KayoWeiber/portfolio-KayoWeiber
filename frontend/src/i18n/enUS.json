@@ -82,6 +82,8 @@
     "previousImage": "Previous image",
     "nextImage": "Next image",
     "imageAlt": "{{title}} - image {{index}}",
+    "filterLabel": "Filter projects by technology",
+    "filterAll": "All",
     "projects": [
       {
         "images": [
@@ -166,6 +168,12 @@
       "fundamentals": "Fundamentals"
     },
     "list": [
+      {
+        "imageSrc": "/certificates/AWS.jpeg",
+        "title": "AWS Academy Graduate – Cloud Architecting – Training Badge",
+        "description": "I completed the AWS Academy Graduate – Cloud Architecting – Training Badge course, offered by Amazon Web Services (AWS). This training strengthened my knowledge of cloud computing, solution architecture, and IT infrastructure, broadening my understanding of best practices for using AWS services.",
+        "category": "cloud"
+      },
       {
         "imageSrc": "/certificates/ArquiteturaSoftware.png",
         "title": "Software Architecture & Modern Systems Design",
