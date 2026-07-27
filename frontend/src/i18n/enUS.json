@@ -242,9 +242,14 @@
     "rights": "All rights reserved"
   },
   "coursesPage": {
+    "subtitle": "Education",
     "title": "Courses and Certifications",
     "metaTitle": "Courses and Certifications - Kayo Weiber",
     "metaDescription": "Kayo Weiber's courses, certifications, and study tracks in full-stack development, cloud, data, and programming fundamentals.",
+    "description": "Study tracks and certifications that support my work as a full stack developer.",
+    "backHome": "Back to home",
+    "count_one": "{{count}} certificate",
+    "count_other": "{{count}} certificates",
     "certificateAlt": "Certificate of the {{title}} course",
     "certificateAriaLabel": "View certificate for {{title}} course",
     "filterLabel": "Filter courses by category",
