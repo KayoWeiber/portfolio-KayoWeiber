@@ -166,7 +166,7 @@ const Contact: React.FC = () => {
                   placeholder={t("contact.namePlaceholder")}
                   autoComplete="name"
                   required
-                  className="w-full rounded-md border border-sky-500/20 bg-slate-900/90 px-4 py-3 text-white placeholder:text-slate-500 outline-none transition focus:border-sky-300 focus:ring-2 focus:ring-sky-300/30"
+                  className="w-full rounded-md border border-sky-500/20 bg-slate-900/90 px-4 py-3 text-white placeholder:text-slate-400 outline-none transition focus:border-sky-300 focus:ring-2 focus:ring-sky-300/30"
                 />
               </div>
 
@@ -181,7 +181,7 @@ const Contact: React.FC = () => {
                   autoComplete="email"
                   required
                   type="email"
-                  className="w-full rounded-md border border-sky-500/20 bg-slate-900/90 px-4 py-3 text-white placeholder:text-slate-500 outline-none transition focus:border-sky-300 focus:ring-2 focus:ring-sky-300/30"
+                  className="w-full rounded-md border border-sky-500/20 bg-slate-900/90 px-4 py-3 text-white placeholder:text-slate-400 outline-none transition focus:border-sky-300 focus:ring-2 focus:ring-sky-300/30"
                 />
               </div>
             </div>
@@ -195,7 +195,7 @@ const Contact: React.FC = () => {
                 name="message"
                 placeholder={t("contact.messagePlaceholder")}
                 required
-                className="h-40 w-full resize-none rounded-md border border-sky-500/20 bg-slate-900/90 px-4 py-3 text-white placeholder:text-slate-500 outline-none transition focus:border-sky-300 focus:ring-2 focus:ring-sky-300/30"
+                className="h-40 w-full resize-none rounded-md border border-sky-500/20 bg-slate-900/90 px-4 py-3 text-white placeholder:text-slate-400 outline-none transition focus:border-sky-300 focus:ring-2 focus:ring-sky-300/30"
               />
             </div>
 

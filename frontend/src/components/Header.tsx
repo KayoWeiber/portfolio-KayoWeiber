@@ -166,6 +166,7 @@ const Header: React.FC = () => {
                   setActive(link.label);
                   setMobileMenuOpen(false);
                 }}
+                aria-current={isActive(link.href, link.label) ? "page" : undefined}
                 className={`relative px-2 py-1 text-base font-medium transition-all duration-200 group ${
                   isActive(link.href, link.label)
                     ? "text-sky-100"

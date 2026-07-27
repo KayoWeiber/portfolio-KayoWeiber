@@ -8,6 +8,7 @@ import { useGitHubLanguageStats } from "../hooks/useGitHubLanguageStats";
 import { useGitHubRepos } from "../hooks/useGitHubRepos";
 import { BIRTH_DATE, calculateAge } from "../utils/calculateAge";
 import Timeline from "./Timeline";
+import TechStackGraph from "./TechStackGraph";
 
 function formatRepoSize(sizeKb: number) {
   if (sizeKb < 1024) return `${sizeKb} KB`;
@@ -34,19 +35,6 @@ const itemVariants = {
     transition: {
       duration: 0.5,
       ease: easeInOut,
-    },
-  },
-};
-
-const iconVariants = {
-  hidden: { scale: 0, rotate: -180 },
-  visible: {
-    scale: 1,
-    rotate: 0,
-    transition: {
-      type: "spring" as const,
-      stiffness: 260,
-      damping: 20,
     },
   },
 };
@@ -246,29 +234,7 @@ const About: React.FC = () => {
               </span>
             </div>
 
-            <motion.div
-              variants={containerVariants}
-              className="grid grid-cols-4 md:grid-cols-5 gap-3 md:gap-4"
-            >
-              {technologies.map((tech) => {
-                const Icon = tech.icon;
-
-                return (
-                  <motion.div
-                    key={tech.name}
-                    variants={iconVariants}
-                    className="group relative flex aspect-square items-center justify-center rounded-2xl border border-slate-700/70 bg-slate-900/70 transition-all hover:border-sky-300/60 hover:bg-slate-800/80"
-                    whileHover={{ scale: 1.1, y: -5 }}
-                  >
-                    <Icon size={32} style={{ color: tech.color }} />
-
-                    <div className="absolute -top-10 left-1/2 transform -translate-x-1/2 bg-gray-900 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity">
-                      {tech.name}
-                    </div>
-                  </motion.div>
-                );
-              })}
-            </motion.div>
+            <TechStackGraph />
 
             <motion.div className="space-y-4 mt-12">
               {languageRanking.map((language, index) => {

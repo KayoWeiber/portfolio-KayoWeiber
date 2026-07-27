@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { createPortal } from "react-dom";
 import { FaArrowLeft, FaArrowRight, FaExternalLinkAlt, FaGithub } from "react-icons/fa";
 import { useModalA11y } from "../hooks/useModalA11y";
@@ -16,8 +16,9 @@ const ProjectModal = ({
   const { t } = useTranslation();
   const [imgIndex, setImgIndex] = useState(0);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
+  const dialogRef = useRef<HTMLDivElement>(null);
 
-  useModalA11y(true, onClose);
+  useModalA11y(true, onClose, dialogRef);
 
   const handleSwitch = (dir: "prev" | "next") => {
     const total = project.images.length;
@@ -56,6 +57,7 @@ const ProjectModal = ({
         }}
       >
         <motion.div
+          ref={dialogRef}
           className="relative bg-slate-950/95 rounded-lg shadow-2xl p-6 md:p-8 max-w-3xl w-full text-white border border-sky-400/30"
           initial={{ scale: 0.9, opacity: 0, y: 40 }}
           animate={{ scale: 1, opacity: 1, y: 0 }}
@@ -150,12 +152,16 @@ const ProjectModal = ({
   );
 };
 
+const HOVER_PREVIEW_INTERVAL_MS = 900;
+
 const Portfolio: React.FC = () => {
   const { t, i18n } = useTranslation();
   const [currentImg, setCurrentImg] = useState<Record<string, number>>({});
   const [projects, setProjects] = useState<Project[]>([]);
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [selectedTechnology, setSelectedTechnology] = useState<string>("all");
+  const [hoveredProject, setHoveredProject] = useState<string | null>(null);
+  const prefersReducedMotion = useReducedMotion();
 
   useEffect(() => {
     const projectData = t("portfolio.projects", { returnObjects: true }) as Project[];
@@ -187,6 +193,25 @@ const Portfolio: React.FC = () => {
           : (current - 1 + totalImages) % totalImages;
       return { ...prev, [projectTitle]: next };
     });
+  };
+
+  useEffect(() => {
+    if (!hoveredProject || prefersReducedMotion) return;
+
+    const hoveredProjectData = projects.find((proj) => proj.title === hoveredProject);
+    if (!hoveredProjectData || hoveredProjectData.images.length <= 1) return;
+
+    const intervalId = window.setInterval(() => {
+      handleImageSwitch(hoveredProject, hoveredProjectData.images.length, "next");
+    }, HOVER_PREVIEW_INTERVAL_MS);
+
+    return () => window.clearInterval(intervalId);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [hoveredProject, projects, prefersReducedMotion]);
+
+  const handleProjectHoverEnd = (projectTitle: string) => {
+    setHoveredProject(null);
+    setCurrentImg((prev) => ({ ...prev, [projectTitle]: 0 }));
   };
 
   return (
@@ -240,6 +265,8 @@ const Portfolio: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: index * 0.1, type: "spring" }}
+            onMouseEnter={() => setHoveredProject(proj.title)}
+            onMouseLeave={() => handleProjectHoverEnd(proj.title)}
           >
             <div className="relative w-full h-64 overflow-hidden bg-slate-950">
               <AnimatePresence mode="wait">
@@ -259,7 +286,10 @@ const Portfolio: React.FC = () => {
                 <>
                   <button
                     type="button"
-                    onClick={() => handleImageSwitch(proj.title, proj.images.length, "prev")}
+                    onClick={() => {
+                      setHoveredProject(null);
+                      handleImageSwitch(proj.title, proj.images.length, "prev");
+                    }}
                     className="absolute left-3 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-sky-800/80 p-2 rounded-full transition focus:outline-none focus:ring-2 focus:ring-sky-300"
                     aria-label={t("portfolio.previousImage")}
                   >
@@ -267,7 +297,10 @@ const Portfolio: React.FC = () => {
                   </button>
                   <button
                     type="button"
-                    onClick={() => handleImageSwitch(proj.title, proj.images.length, "next")}
+                    onClick={() => {
+                      setHoveredProject(null);
+                      handleImageSwitch(proj.title, proj.images.length, "next");
+                    }}
                     className="absolute right-3 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-sky-800/80 p-2 rounded-full transition focus:outline-none focus:ring-2 focus:ring-sky-300"
                     aria-label={t("portfolio.nextImage")}
                   >

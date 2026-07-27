@@ -54,3 +54,15 @@ html {
     animation: none;
   }
 }
+
+@media (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  body {
+    cursor: none;
+  }
+
+  a,
+  button,
+  [role="button"] {
+    cursor: none;
+  }
+}

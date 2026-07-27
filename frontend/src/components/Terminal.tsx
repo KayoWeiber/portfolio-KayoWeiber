@@ -12,6 +12,7 @@ const TerminalPanel = ({ onClose }: { onClose: () => void }) => {
   const commands = useTerminalCommands(t);
   const inputRef = useRef<HTMLInputElement>(null);
   const historyEndRef = useRef<HTMLDivElement>(null);
+  const dialogRef = useRef<HTMLDivElement>(null);
 
   const [lines, setLines] = useState<TerminalLine[]>([
     { type: "output", content: t("terminal.welcome") },
@@ -20,7 +21,7 @@ const TerminalPanel = ({ onClose }: { onClose: () => void }) => {
   const [commandHistory, setCommandHistory] = useState<string[]>([]);
   const [historyIndex, setHistoryIndex] = useState(-1);
 
-  useModalA11y(true, onClose);
+  useModalA11y(true, onClose, dialogRef);
 
   useEffect(() => {
     historyEndRef.current?.scrollIntoView({ block: "end" });
@@ -103,6 +104,7 @@ const TerminalPanel = ({ onClose }: { onClose: () => void }) => {
         style={{ background: "rgba(15,23,42,0.6)" }}
       >
         <motion.div
+          ref={dialogRef}
           className="flex h-[70vh] w-full max-w-2xl flex-col overflow-hidden rounded-lg border border-sky-400/30 bg-slate-950/95 shadow-2xl"
           initial={{ scale: 0.95, opacity: 0, y: 20 }}
           animate={{ scale: 1, opacity: 1, y: 0 }}
@@ -165,7 +167,7 @@ const TerminalPanel = ({ onClose }: { onClose: () => void }) => {
               autoComplete="off"
               autoCapitalize="off"
               spellCheck={false}
-              className="flex-1 bg-transparent font-mono text-sm text-white outline-none placeholder:text-slate-600"
+              className="flex-1 bg-transparent font-mono text-sm text-white outline-none placeholder:text-slate-400"
               placeholder={t("terminal.placeholder")}
               aria-label={t("terminal.title")}
             />

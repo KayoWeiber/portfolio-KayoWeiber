@@ -14,8 +14,9 @@ const CourseModal = ({
 }) => {
   const { t } = useTranslation();
   const closeButtonRef = useRef<HTMLButtonElement>(null);
+  const dialogRef = useRef<HTMLDivElement>(null);
 
-  useModalA11y(true, onClose);
+  useModalA11y(true, onClose, dialogRef);
 
   return createPortal(
     <AnimatePresence>
@@ -31,6 +32,7 @@ const CourseModal = ({
         }}
       >
         <motion.div
+          ref={dialogRef}
           className="relative bg-slate-950/95 rounded-lg shadow-2xl p-6 md:p-8 max-w-3xl w-full text-white border border-sky-400/30"
           initial={{ scale: 0.9, opacity: 0, y: 40 }}
           animate={{ scale: 1, opacity: 1, y: 0 }}

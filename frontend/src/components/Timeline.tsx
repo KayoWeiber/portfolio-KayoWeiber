@@ -70,7 +70,7 @@ const Timeline: React.FC = () => {
                     {milestone.period}
                   </span>
 
-                  <span className="text-xs font-medium text-slate-500">
+                  <span className="text-xs font-medium text-slate-400">
                     · {t("timeline.duration", { duration: durationLabel })}
                   </span>
 
@@ -92,7 +92,7 @@ const Timeline: React.FC = () => {
                   {milestone.description}
                 </p>
 
-                <p className="mt-3 text-xs font-medium text-slate-500">
+                <p className="mt-3 text-xs font-medium text-slate-400">
                   {t("timeline.myAgeAt", { age: ageAtMilestone })}
                 </p>
               </div>

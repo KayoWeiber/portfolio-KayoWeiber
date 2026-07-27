@@ -11,6 +11,10 @@
   "modal": {
     "close": "Fechar"
   },
+  "easterEgg": {
+    "activated": "Easter egg ativado",
+    "message": "Konami code ativado! Obrigado por explorar o portfólio a fundo."
+  },
   "terminal": {
     "open": "Abrir terminal",
     "title": "kayo@portfolio: ~",
