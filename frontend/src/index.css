@@ -42,3 +42,27 @@ html {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .bg-animate-gradient,
+  .hero-depth,
+  .animate-float-y {
+    animation: none;
+  }
+}
+
+@media (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  body {
+    cursor: none;
+  }
+
+  a,
+  button,
+  [role="button"] {
+    cursor: none;
+  }
+}

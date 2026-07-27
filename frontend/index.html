@@ -59,6 +59,23 @@
 
 <body>
   <div id="root"></div>
+  <script type="text/javascript">
+    // Single Page Apps for GitHub Pages: reconstrói a URL original a partir
+    // do redirect feito em 404.html, antes do React Router assumir a rota.
+    (function (location) {
+      if (location.search[1] === "/") {
+        var decoded = location.search.slice(1).split("&").map(function (segment) {
+          return segment.replace(/~and~/g, "&");
+        }).join("?");
+
+        window.history.replaceState(
+          null,
+          null,
+          location.pathname.slice(0, -1) + decoded + location.hash
+        );
+      }
+    })(window.location);
+  </script>
   <script type="module" src="/src/main.tsx"></script>
 </body>
 </html>

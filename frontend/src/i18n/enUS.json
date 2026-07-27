@@ -11,6 +11,35 @@
   "modal": {
     "close": "Close"
   },
+  "notFound": {
+    "title": "Page not found",
+    "metaTitle": "Page not found - Kayo Weiber",
+    "description": "The page you tried to access doesn't exist or has been moved.",
+    "backHome": "Back to home"
+  },
+  "easterEgg": {
+    "activated": "Easter egg activated",
+    "message": "Konami code activated! Thanks for exploring the portfolio in depth."
+  },
+  "terminal": {
+    "open": "Open terminal",
+    "title": "kayo@portfolio: ~",
+    "placeholder": "Type a command... (help)",
+    "welcome": "Welcome to the portfolio terminal. Type \"help\" to see the available commands.",
+    "notFound": "command not found: {{command}}. Type \"help\" to see the available commands.",
+    "empty": "No items found.",
+    "aboutResponse": "Kayo Weiber — Product-minded Full Stack Developer, studying Information Systems at UEMG. Works with React, TypeScript, Node.js and integrations, connecting interface, business logic, and data to solve real problems.",
+    "hireMeResponse": "Availability: open to good opportunities. Use the \"contact\" command to reach me.",
+    "commands": {
+      "help": "lists the available commands",
+      "about": "a summary about me",
+      "projects": "lists the portfolio projects",
+      "skills": "lists the technologies I use",
+      "timeline": "shows my professional journey",
+      "contact": "shows my contact info",
+      "hireMe": "availability for new opportunities"
+    }
+  },
   "hero": {
     "name": "Kayo Weiber",
     "role": "Software Developer",
@@ -46,7 +75,67 @@
     ],
     "stack": "Tech Stack",
     "mainLangs": "Main Languages",
-    "loadingStats": "Loading..."
+    "loadingStats": "Loading...",
+    "githubActivity": "Recent GitHub repositories",
+    "githubCreatedAt": "Created in {{date}}",
+    "timelineTitle": "Journey"
+  },
+  "timeline": {
+    "current": "Current",
+    "myAgeAt": "I was {{age}} years old at this milestone",
+    "duration": "Duration: {{duration}}",
+    "years_one": "{{count}} year",
+    "years_other": "{{count}} years",
+    "months_one": "{{count}} month",
+    "months_other": "{{count}} months",
+    "milestones": [
+      {
+        "period": "Sep 2025 — Current",
+        "startDate": "2025-09-01",
+        "title": "Development Assistant II",
+        "organization": "Cervejaria Cidade Imperial",
+        "location": "Frutal, Minas Gerais",
+        "description": "Working as a Full Stack Web Developer with a strategic focus on optimizing business processes, designing and building systems to automate internal HR workflows.",
+        "type": "work"
+      },
+      {
+        "period": "2024 — Current",
+        "startDate": "2024-02-01",
+        "title": "Information Systems",
+        "organization": "UEMG",
+        "description": "Bachelor's degree in Information Systems, the academic foundation for my work as a full stack developer.",
+        "type": "education"
+      },
+      {
+        "period": "Aug 2023 — Sep 2025",
+        "startDate": "2023-08-01",
+        "endDate": "2025-09-01",
+        "title": "Production Operator",
+        "organization": "Cervejaria Cidade Imperial",
+        "location": "Frutal, Minas Gerais",
+        "description": "Operated packaging line equipment, monitoring processes and adjusting machines to ensure quality and efficiency within planned production volumes.",
+        "type": "work"
+      },
+      {
+        "period": "Aug 2021 — Aug 2023",
+        "startDate": "2021-08-01",
+        "endDate": "2023-08-01",
+        "title": "Computer and Mobile Phone Maintenance Technician",
+        "organization": "Sos Celulares",
+        "location": "Planura, Minas Gerais",
+        "description": "Diagnosis, repair, and preventive/corrective maintenance of computers and mobile devices, with direct technical support to customers.",
+        "type": "work"
+      },
+      {
+        "period": "Feb 2021 — Dec 2022",
+        "startDate": "2021-02-01",
+        "endDate": "2022-12-01",
+        "title": "Technical High School Diploma in Administration, Management and Business",
+        "organization": "ETEC - Escola Técnica Estadual de São Paulo",
+        "description": "Integrated technical high school program focused on marketing strategy and budget management, the starting point of my technical education.",
+        "type": "education"
+      }
+    ]
   },
   "nav": {
     "home": "Home",
@@ -82,6 +171,8 @@
     "previousImage": "Previous image",
     "nextImage": "Next image",
     "imageAlt": "{{title}} - image {{index}}",
+    "filterLabel": "Filter projects by technology",
+    "filterAll": "All",
     "projects": [
       {
         "images": [
@@ -154,6 +245,8 @@
   },
   "coursesPage": {
     "title": "Courses and Certifications",
+    "metaTitle": "Courses and Certifications - Kayo Weiber",
+    "metaDescription": "Kayo Weiber's courses, certifications, and study tracks in full-stack development, cloud, data, and programming fundamentals.",
     "certificateAlt": "Certificate of the {{title}} course",
     "certificateAriaLabel": "View certificate for {{title}} course",
     "filterLabel": "Filter courses by category",
@@ -166,6 +259,12 @@
       "fundamentals": "Fundamentals"
     },
     "list": [
+      {
+        "imageSrc": "/certificates/AWS.jpeg",
+        "title": "AWS Academy Graduate – Cloud Architecting – Training Badge",
+        "description": "I completed the AWS Academy Graduate – Cloud Architecting – Training Badge course, offered by Amazon Web Services (AWS). This training strengthened my knowledge of cloud computing, solution architecture, and IT infrastructure, broadening my understanding of best practices for using AWS services.",
+        "category": "cloud"
+      },
       {
         "imageSrc": "/certificates/ArquiteturaSoftware.png",
         "title": "Software Architecture & Modern Systems Design",

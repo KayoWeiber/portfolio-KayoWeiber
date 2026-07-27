@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import CourseCard from "./CourseCard";
 import CourseModal from "./CourseModal";
 import type { Course, CourseCategory } from "../types/course";
+import { useDocumentMeta } from "../hooks/useDocumentMeta";
 
 const categoryOrder: CourseCategory[] = ["all", "backend", "cloud", "frontend", "data", "fundamentals"];
 
@@ -12,6 +13,8 @@ const Courses: React.FC = () => {
   const [langKey, setLangKey] = useState(0);
   const [selectedCourse, setSelectedCourse] = useState<Course | null>(null);
   const [selectedCategory, setSelectedCategory] = useState<CourseCategory>("all");
+
+  useDocumentMeta(t("coursesPage.metaTitle"), t("coursesPage.metaDescription"));
 
   useEffect(() => {
     setLangKey((prev) => prev + 1);
@@ -31,7 +34,7 @@ const Courses: React.FC = () => {
     <>
       <section id="courses" className="py-20 px-6 md:px-12 bg-slate-950 text-white min-h-screen">
         <div className="max-w-6xl mx-auto">
-          <motion.h2
+          <motion.h1
             id="courses-heading"
             className="text-4xl md:text-5xl font-extrabold mb-8 text-center text-transparent bg-clip-text bg-gradient-to-r from-sky-300 to-teal-300"
             initial={{ opacity: 0, y: -30 }}
@@ -39,7 +42,7 @@ const Courses: React.FC = () => {
             transition={{ duration: 0.6 }}
           >
             {t("coursesPage.title")}
-          </motion.h2>
+          </motion.h1>
 
           <div className="mb-10 flex flex-wrap justify-center gap-2" role="list" aria-label={t("coursesPage.filterLabel")}>
             {categoryOrder.map((category) => (

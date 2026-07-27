@@ -11,6 +11,35 @@
   "modal": {
     "close": "Fechar"
   },
+  "notFound": {
+    "title": "Página não encontrada",
+    "metaTitle": "Página não encontrada - Kayo Weiber",
+    "description": "A página que você tentou acessar não existe ou foi movida.",
+    "backHome": "Voltar para o início"
+  },
+  "easterEgg": {
+    "activated": "Easter egg ativado",
+    "message": "Konami code ativado! Obrigado por explorar o portfólio a fundo."
+  },
+  "terminal": {
+    "open": "Abrir terminal",
+    "title": "kayo@portfolio: ~",
+    "placeholder": "Digite um comando... (help)",
+    "welcome": "Bem-vindo ao terminal do portfólio. Digite \"help\" para ver os comandos disponíveis.",
+    "notFound": "comando não encontrado: {{command}}. Digite \"help\" para ver os comandos disponíveis.",
+    "empty": "Nenhum item encontrado.",
+    "aboutResponse": "Kayo Weiber — Desenvolvedor Full Stack orientado a produto, cursando Sistemas de Informação na UEMG. Atua com React, TypeScript, Node.js e integrações, unindo interface, regra de negócio e dados para resolver problemas reais.",
+    "hireMeResponse": "Disponibilidade: aberto a boas oportunidades. Use o comando \"contact\" para falar comigo.",
+    "commands": {
+      "help": "lista os comandos disponíveis",
+      "about": "um resumo sobre mim",
+      "projects": "lista os projetos do portfólio",
+      "skills": "lista as tecnologias que utilizo",
+      "timeline": "mostra minha trajetória profissional",
+      "contact": "mostra meus contatos",
+      "hireMe": "disponibilidade para novas oportunidades"
+    }
+  },
   "hero": {
     "name": "Kayo Weiber",
     "role": "Desenvolvedor de Software",
@@ -46,7 +75,67 @@
     ],
     "stack": "Stack Tecnológico",
     "mainLangs": "Principais Linguagens",
-    "loadingStats": "Carregando..."
+    "loadingStats": "Carregando...",
+    "githubActivity": "Repositórios recentes no GitHub",
+    "githubCreatedAt": "Criado em {{date}}",
+    "timelineTitle": "Trajetória"
+  },
+  "timeline": {
+    "current": "Atual",
+    "myAgeAt": "Eu tinha {{age}} anos nesse marco",
+    "duration": "Duração: {{duration}}",
+    "years_one": "{{count}} ano",
+    "years_other": "{{count}} anos",
+    "months_one": "{{count}} mês",
+    "months_other": "{{count}} meses",
+    "milestones": [
+      {
+        "period": "Set. 2025 — Atual",
+        "startDate": "2025-09-01",
+        "title": "Assistente de Desenvolvimento II",
+        "organization": "Cervejaria Cidade Imperial",
+        "location": "Frutal, Minas Gerais",
+        "description": "Atuo como desenvolvedor Web Fullstack com foco estratégico na otimização de processos de negócio, projetando e desenvolvendo sistemas para automatizar processos internos da área de Recursos Humanos.",
+        "type": "work"
+      },
+      {
+        "period": "2024 — Atual",
+        "startDate": "2024-02-01",
+        "title": "Sistemas de Informação",
+        "organization": "UEMG",
+        "description": "Graduação em Sistemas de Informação, base acadêmica para minha atuação como desenvolvedor full stack.",
+        "type": "education"
+      },
+      {
+        "period": "Ago. 2023 — Set. 2025",
+        "startDate": "2023-08-01",
+        "endDate": "2025-09-01",
+        "title": "Operador de Produção",
+        "organization": "Cervejaria Cidade Imperial",
+        "location": "Frutal, Minas Gerais",
+        "description": "Operação de equipamentos na área de envasamento, monitorando processos e ajustando máquinas para garantir qualidade e eficiência dentro dos volumes de produção planejados.",
+        "type": "work"
+      },
+      {
+        "period": "Ago. 2021 — Ago. 2023",
+        "startDate": "2021-08-01",
+        "endDate": "2023-08-01",
+        "title": "Técnico em Manutenção de Computadores e Celulares",
+        "organization": "Sos Celulares",
+        "location": "Planura, Minas Gerais",
+        "description": "Diagnóstico, reparo e manutenção preventiva e corretiva de computadores e dispositivos móveis, com suporte técnico direto a clientes.",
+        "type": "work"
+      },
+      {
+        "period": "Fev. 2021 — Dez. 2022",
+        "startDate": "2021-02-01",
+        "endDate": "2022-12-01",
+        "title": "Técnico Integrado em Administração, Gestão e Negócios",
+        "organization": "ETEC - Escola Técnica Estadual de São Paulo",
+        "description": "Curso técnico integrado com foco em estratégia de marketing e gestão de orçamentos, base inicial da minha formação técnica.",
+        "type": "education"
+      }
+    ]
   },
   "nav": {
     "home": "Início",
@@ -82,6 +171,8 @@
     "previousImage": "Imagem anterior",
     "nextImage": "Próxima imagem",
     "imageAlt": "{{title}} - imagem {{index}}",
+    "filterLabel": "Filtrar projetos por tecnologia",
+    "filterAll": "Todos",
     "projects": [
       {
         "images": [
@@ -154,6 +245,8 @@
   },
   "coursesPage": {
     "title": "Cursos e Certificações",
+    "metaTitle": "Cursos e Certificações - Kayo Weiber",
+    "metaDescription": "Cursos, certificações e trilhas de estudo de Kayo Weiber em desenvolvimento full-stack, cloud, dados e fundamentos de programação.",
     "certificateAlt": "Certificado do curso {{title}}",
     "certificateAriaLabel": "Ver certificado do curso {{title}}",
     "filterLabel": "Filtrar cursos por categoria",
@@ -166,6 +259,12 @@
       "fundamentals": "Fundamentos"
     },
     "list": [
+      {
+        "imageSrc": "/certificates/AWS.jpeg",
+        "title": "AWS Academy Graduate – Cloud Architecting – Training Badge",
+        "description": "Concluí o curso AWS Academy Graduate – Cloud Architecting – Training Badge, oferecido pela Amazon Web Services (AWS). Essa formação contribuiu para fortalecer meus conhecimentos em computação em nuvem, arquitetura de soluções e infraestrutura de TI, ampliando minha visão sobre boas práticas no uso dos serviços AWS.",
+        "category": "cloud"
+      },
       {
         "imageSrc": "/certificates/ArquiteturaSoftware.png",
         "title": "Arquitetura de Software & Design de Sistemas Modernos",
