@@ -46,7 +46,9 @@
     ],
     "stack": "Stack Tecnológico",
     "mainLangs": "Principais Linguagens",
-    "loadingStats": "Carregando..."
+    "loadingStats": "Carregando...",
+    "githubActivity": "Repositórios recentes no GitHub",
+    "githubCreatedAt": "Criado em {{date}}"
   },
   "nav": {
     "home": "Início",

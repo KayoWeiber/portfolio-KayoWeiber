@@ -46,7 +46,9 @@
     ],
     "stack": "Tech Stack",
     "mainLangs": "Main Languages",
-    "loadingStats": "Loading..."
+    "loadingStats": "Loading...",
+    "githubActivity": "Recent GitHub repositories",
+    "githubCreatedAt": "Created in {{date}}"
   },
   "nav": {
     "home": "Home",
