@@ -48,7 +48,57 @@
     "mainLangs": "Main Languages",
     "loadingStats": "Loading...",
     "githubActivity": "Recent GitHub repositories",
-    "githubCreatedAt": "Created in {{date}}"
+    "githubCreatedAt": "Created in {{date}}",
+    "timelineTitle": "Journey"
+  },
+  "timeline": {
+    "current": "Current",
+    "ageAt": "age {{age}}",
+    "milestones": [
+      {
+        "period": "Sep 2025 — Current",
+        "startDate": "2025-09-01",
+        "title": "Development Assistant II",
+        "organization": "Cervejaria Cidade Imperial",
+        "location": "Frutal, Minas Gerais",
+        "description": "Working as a Full Stack Web Developer with a strategic focus on optimizing business processes, designing and building systems to automate internal HR workflows.",
+        "type": "work"
+      },
+      {
+        "period": "2024 — Current",
+        "startDate": "2024-02-01",
+        "title": "Information Systems",
+        "organization": "UEMG",
+        "description": "Bachelor's degree in Information Systems, the academic foundation for my work as a full stack developer.",
+        "type": "education"
+      },
+      {
+        "period": "Aug 2023 — Sep 2025",
+        "startDate": "2023-08-01",
+        "title": "Production Operator",
+        "organization": "Cervejaria Cidade Imperial",
+        "location": "Frutal, Minas Gerais",
+        "description": "Operated packaging line equipment, monitoring processes and adjusting machines to ensure quality and efficiency within planned production volumes.",
+        "type": "work"
+      },
+      {
+        "period": "Aug 2021 — Aug 2023",
+        "startDate": "2021-08-01",
+        "title": "Computer and Mobile Phone Maintenance Technician",
+        "organization": "Sos Celulares",
+        "location": "Planura, Minas Gerais",
+        "description": "Diagnosis, repair, and preventive/corrective maintenance of computers and mobile devices, with direct technical support to customers.",
+        "type": "work"
+      },
+      {
+        "period": "Feb 2021 — Dec 2022",
+        "startDate": "2021-02-01",
+        "title": "Technical High School Diploma in Administration, Management and Business",
+        "organization": "ETEC - Escola Técnica Estadual de São Paulo",
+        "description": "Integrated technical high school program focused on marketing strategy and budget management, the starting point of my technical education.",
+        "type": "education"
+      }
+    ]
   },
   "nav": {
     "home": "Home",

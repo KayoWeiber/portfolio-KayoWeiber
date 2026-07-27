@@ -48,7 +48,57 @@
     "mainLangs": "Principais Linguagens",
     "loadingStats": "Carregando...",
     "githubActivity": "Repositórios recentes no GitHub",
-    "githubCreatedAt": "Criado em {{date}}"
+    "githubCreatedAt": "Criado em {{date}}",
+    "timelineTitle": "Trajetória"
+  },
+  "timeline": {
+    "current": "Atual",
+    "ageAt": "{{age}} anos",
+    "milestones": [
+      {
+        "period": "Set. 2025 — Atual",
+        "startDate": "2025-09-01",
+        "title": "Assistente de Desenvolvimento II",
+        "organization": "Cervejaria Cidade Imperial",
+        "location": "Frutal, Minas Gerais",
+        "description": "Atuo como desenvolvedor Web Fullstack com foco estratégico na otimização de processos de negócio, projetando e desenvolvendo sistemas para automatizar processos internos da área de Recursos Humanos.",
+        "type": "work"
+      },
+      {
+        "period": "2024 — Atual",
+        "startDate": "2024-02-01",
+        "title": "Sistemas de Informação",
+        "organization": "UEMG",
+        "description": "Graduação em Sistemas de Informação, base acadêmica para minha atuação como desenvolvedor full stack.",
+        "type": "education"
+      },
+      {
+        "period": "Ago. 2023 — Set. 2025",
+        "startDate": "2023-08-01",
+        "title": "Operador de Produção",
+        "organization": "Cervejaria Cidade Imperial",
+        "location": "Frutal, Minas Gerais",
+        "description": "Operação de equipamentos na área de envasamento, monitorando processos e ajustando máquinas para garantir qualidade e eficiência dentro dos volumes de produção planejados.",
+        "type": "work"
+      },
+      {
+        "period": "Ago. 2021 — Ago. 2023",
+        "startDate": "2021-08-01",
+        "title": "Técnico em Manutenção de Computadores e Celulares",
+        "organization": "Sos Celulares",
+        "location": "Planura, Minas Gerais",
+        "description": "Diagnóstico, reparo e manutenção preventiva e corretiva de computadores e dispositivos móveis, com suporte técnico direto a clientes.",
+        "type": "work"
+      },
+      {
+        "period": "Fev. 2021 — Dez. 2022",
+        "startDate": "2021-02-01",
+        "title": "Técnico Integrado em Administração, Gestão e Negócios",
+        "organization": "ETEC - Escola Técnica Estadual de São Paulo",
+        "description": "Curso técnico integrado com foco em estratégia de marketing e gestão de orçamentos, base inicial da minha formação técnica.",
+        "type": "education"
+      }
+    ]
   },
   "nav": {
     "home": "Início",

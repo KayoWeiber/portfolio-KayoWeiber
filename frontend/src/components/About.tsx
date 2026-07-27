@@ -6,6 +6,8 @@ import { FaBolt, FaCode, FaCodeBranch, FaDatabase, FaLaptopCode, FaLayerGroup, F
 import { technologies } from "../data/technologies";
 import { useGitHubLanguageStats } from "../hooks/useGitHubLanguageStats";
 import { useGitHubRepos } from "../hooks/useGitHubRepos";
+import { BIRTH_DATE, calculateAge } from "../utils/calculateAge";
+import Timeline from "./Timeline";
 
 function formatRepoSize(sizeKb: number) {
   if (sizeKb < 1024) return `${sizeKb} KB`;
@@ -73,28 +75,12 @@ const statThemes = [
   "from-amber-400/25 to-orange-300/10 text-amber-200 border-amber-300/20",
 ] as const;
 
-function calculateAge(birthDate: Date) {
-  const today = new Date();
-  let age = today.getFullYear() - birthDate.getFullYear();
-
-  const hasBirthdayPassed =
-    today.getMonth() > birthDate.getMonth() ||
-    (today.getMonth() === birthDate.getMonth() &&
-      today.getDate() >= birthDate.getDate());
-
-  if (!hasBirthdayPassed) {
-    age -= 1;
-  }
-
-  return age;
-}
-
 const About: React.FC = () => {
   const { t, i18n, ready } = useTranslation();
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true });
 
-  const age = calculateAge(new Date(2005, 2, 10));
+  const age = calculateAge(BIRTH_DATE);
   const stats = t("About.stats", { returnObjects: true }) as TranslationStat[];
   const focusAreas = t("About.focusAreas", {
     returnObjects: true,
@@ -422,6 +408,8 @@ const About: React.FC = () => {
             </div>
           </motion.div>
         )}
+
+        <Timeline />
       </div>
     </section>
   );
