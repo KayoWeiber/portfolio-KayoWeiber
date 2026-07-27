@@ -38,7 +38,7 @@ const GitHubActivityPanel = ({ isInView }: { isInView: boolean }) => {
             transition={{ delay: index * 0.1 + 0.4, duration: 0.5 }}
           >
             <div className="flex items-center justify-between gap-2">
-              <span className="truncate font-semibold text-white group-hover:text-sky-300">
+              <span className="min-w-0 truncate font-semibold text-white group-hover:text-sky-300">
                 {repo.name}
               </span>
 

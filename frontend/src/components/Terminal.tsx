@@ -96,7 +96,7 @@ const TerminalPanel = ({ onClose }: { onClose: () => void }) => {
   return createPortal(
     <AnimatePresence>
       <motion.div
-        className="fixed inset-0 z-50 flex items-end justify-end p-4 sm:items-center sm:justify-center"
+        className="fixed inset-0 z-50 flex items-end justify-end p-0 sm:items-center sm:justify-center sm:p-4"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
@@ -105,7 +105,7 @@ const TerminalPanel = ({ onClose }: { onClose: () => void }) => {
       >
         <motion.div
           ref={dialogRef}
-          className="flex h-[70vh] w-full max-w-2xl flex-col overflow-hidden rounded-lg border border-sky-400/30 bg-slate-950/95 shadow-2xl"
+          className="flex h-[100dvh] w-full max-w-2xl flex-col overflow-hidden border border-sky-400/30 bg-slate-950/95 shadow-2xl sm:h-[70vh] sm:rounded-lg"
           initial={{ scale: 0.95, opacity: 0, y: 20 }}
           animate={{ scale: 1, opacity: 1, y: 0 }}
           exit={{ scale: 0.95, opacity: 0, y: 20 }}
@@ -128,7 +128,7 @@ const TerminalPanel = ({ onClose }: { onClose: () => void }) => {
             <button
               type="button"
               onClick={onClose}
-              className="text-slate-400 transition hover:text-sky-300 focus:outline-none focus:ring-2 focus:ring-sky-300 rounded"
+              className="flex h-9 w-9 items-center justify-center rounded-full text-xl text-slate-400 transition hover:text-sky-300 focus:outline-none focus:ring-2 focus:ring-sky-300"
               aria-label={t("modal.close")}
             >
               ×
@@ -167,7 +167,7 @@ const TerminalPanel = ({ onClose }: { onClose: () => void }) => {
               autoComplete="off"
               autoCapitalize="off"
               spellCheck={false}
-              className="flex-1 bg-transparent font-mono text-sm text-white outline-none placeholder:text-slate-400"
+              className="flex-1 bg-transparent font-mono text-base text-white outline-none placeholder:text-slate-400"
               placeholder={t("terminal.placeholder")}
               aria-label={t("terminal.title")}
             />
