@@ -13,6 +13,7 @@
   },
   "notFound": {
     "title": "Página não encontrada",
+    "metaTitle": "Página não encontrada - Kayo Weiber",
     "description": "A página que você tentou acessar não existe ou foi movida.",
     "backHome": "Voltar para o início"
   },
@@ -244,6 +245,8 @@
   },
   "coursesPage": {
     "title": "Cursos e Certificações",
+    "metaTitle": "Cursos e Certificações - Kayo Weiber",
+    "metaDescription": "Cursos, certificações e trilhas de estudo de Kayo Weiber em desenvolvimento full-stack, cloud, dados e fundamentos de programação.",
     "certificateAlt": "Certificado do curso {{title}}",
     "certificateAriaLabel": "Ver certificado do curso {{title}}",
     "filterLabel": "Filtrar cursos por categoria",

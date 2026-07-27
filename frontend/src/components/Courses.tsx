@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import CourseCard from "./CourseCard";
 import CourseModal from "./CourseModal";
 import type { Course, CourseCategory } from "../types/course";
+import { useDocumentMeta } from "../hooks/useDocumentMeta";
 
 const categoryOrder: CourseCategory[] = ["all", "backend", "cloud", "frontend", "data", "fundamentals"];
 
@@ -12,6 +13,8 @@ const Courses: React.FC = () => {
   const [langKey, setLangKey] = useState(0);
   const [selectedCourse, setSelectedCourse] = useState<Course | null>(null);
   const [selectedCategory, setSelectedCategory] = useState<CourseCategory>("all");
+
+  useDocumentMeta(t("coursesPage.metaTitle"), t("coursesPage.metaDescription"));
 
   useEffect(() => {
     setLangKey((prev) => prev + 1);

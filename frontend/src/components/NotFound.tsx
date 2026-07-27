@@ -1,11 +1,25 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { FaHome } from "react-icons/fa";
+import { useDocumentMeta } from "../hooks/useDocumentMeta";
 
 const NotFound: React.FC = () => {
   const { t } = useTranslation();
+
+  useDocumentMeta(t("notFound.metaTitle"), t("notFound.description"));
+
+  useEffect(() => {
+    const robotsTag = document.createElement("meta");
+    robotsTag.name = "robots";
+    robotsTag.content = "noindex";
+    document.head.appendChild(robotsTag);
+
+    return () => {
+      document.head.removeChild(robotsTag);
+    };
+  }, []);
 
   return (
     <section className="flex min-h-screen flex-col items-center justify-center px-4 py-20 text-center text-white">
