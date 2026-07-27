@@ -8,6 +8,7 @@ import Services from "./components/Services";
 import Portfolio from "./components/Portfolio";
 import Contact from "./components/Contact";
 import Courses from "./components/Courses";
+import NotFound from "./components/NotFound";
 import Terminal from "./components/Terminal";
 import KonamiEasterEgg from "./components/KonamiEasterEgg";
 import CustomCursor from "./components/CustomCursor";
@@ -38,6 +39,7 @@ function App() {
                 }
               />
               <Route path="/cursos" element={<Courses />} />
+              <Route path="*" element={<NotFound />} />
             </Routes>
           </main>
           <Footer />

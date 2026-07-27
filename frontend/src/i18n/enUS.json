@@ -11,6 +11,11 @@
   "modal": {
     "close": "Close"
   },
+  "notFound": {
+    "title": "Page not found",
+    "description": "The page you tried to access doesn't exist or has been moved.",
+    "backHome": "Back to home"
+  },
   "easterEgg": {
     "activated": "Easter egg activated",
     "message": "Konami code activated! Thanks for exploring the portfolio in depth."
