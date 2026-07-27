@@ -11,9 +11,7 @@ import {
 } from "react-icons/fa";
 import { contactInfo } from "../data/contactLinks";
 
-const CONTACT_API_URL =
-  import.meta.env.VITE_CONTACT_API_URL ||
-  "https://portfolio-contact-backend-no6y.onrender.com/api/contact";
+const CONTACT_API_URL = import.meta.env.VITE_CONTACT_API_URL;
 
 const Contact: React.FC = () => {
   const form = useRef<HTMLFormElement>(null);
