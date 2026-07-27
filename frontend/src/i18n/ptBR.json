@@ -11,6 +11,25 @@
   "modal": {
     "close": "Fechar"
   },
+  "terminal": {
+    "open": "Abrir terminal",
+    "title": "kayo@portfolio: ~",
+    "placeholder": "Digite um comando... (help)",
+    "welcome": "Bem-vindo ao terminal do portfólio. Digite \"help\" para ver os comandos disponíveis.",
+    "notFound": "comando não encontrado: {{command}}. Digite \"help\" para ver os comandos disponíveis.",
+    "empty": "Nenhum item encontrado.",
+    "aboutResponse": "Kayo Weiber — Desenvolvedor Full Stack orientado a produto, cursando Sistemas de Informação na UEMG. Atua com React, TypeScript, Node.js e integrações, unindo interface, regra de negócio e dados para resolver problemas reais.",
+    "hireMeResponse": "Disponibilidade: aberto a boas oportunidades. Use o comando \"contact\" para falar comigo.",
+    "commands": {
+      "help": "lista os comandos disponíveis",
+      "about": "um resumo sobre mim",
+      "projects": "lista os projetos do portfólio",
+      "skills": "lista as tecnologias que utilizo",
+      "timeline": "mostra minha trajetória profissional",
+      "contact": "mostra meus contatos",
+      "hireMe": "disponibilidade para novas oportunidades"
+    }
+  },
   "hero": {
     "name": "Kayo Weiber",
     "role": "Desenvolvedor de Software",

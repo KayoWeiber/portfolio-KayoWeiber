@@ -9,6 +9,7 @@ import {
   FaLinkedin,
   FaPaperPlane,
 } from "react-icons/fa";
+import { contactInfo } from "../data/contactLinks";
 
 const CONTACT_API_URL =
   import.meta.env.VITE_CONTACT_API_URL ||
@@ -62,20 +63,20 @@ const Contact: React.FC = () => {
     {
       icon: FaEnvelope,
       label: t("contact.emailLabel"),
-      value: "caioveiber598@gmail.com",
-      href: "mailto:caioveiber598@gmail.com",
+      value: contactInfo.email,
+      href: `mailto:${contactInfo.email}`,
     },
     {
       icon: FaLinkedin,
       label: t("contact.linkedinLabel"),
-      value: "kayo-weiber",
-      href: "https://www.linkedin.com/in/kayo-weiber-134067280/",
+      value: contactInfo.linkedinHandle,
+      href: contactInfo.linkedinUrl,
     },
     {
       icon: FaGithub,
       label: t("contact.githubLabel"),
-      value: "KayoWeiber",
-      href: "https://github.com/KayoWeiber",
+      value: contactInfo.githubHandle,
+      href: contactInfo.githubUrl,
     },
   ];
 
@@ -226,8 +227,8 @@ const Contact: React.FC = () => {
                       ? (
                         <>
                           {t("contact.fallback")}{" "}
-                          <a href="mailto:caioveiber598@gmail.com" className="font-bold underline">
-                            caioveiber598@gmail.com
+                          <a href={`mailto:${contactInfo.email}`} className="font-bold underline">
+                            {contactInfo.email}
                           </a>
                         </>
                       )

@@ -8,6 +8,7 @@ import Services from "./components/Services";
 import Portfolio from "./components/Portfolio";
 import Contact from "./components/Contact";
 import Courses from "./components/Courses";
+import Terminal from "./components/Terminal";
 import ScrollToHashElement from "./utils/ScrollToHashElement";
 
 function App() {
@@ -35,6 +36,7 @@ function App() {
             </Routes>
           </main>
           <Footer />
+          <Terminal />
         </div>
       </Router>
     </MotionConfig>

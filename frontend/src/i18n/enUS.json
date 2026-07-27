@@ -11,6 +11,25 @@
   "modal": {
     "close": "Close"
   },
+  "terminal": {
+    "open": "Open terminal",
+    "title": "kayo@portfolio: ~",
+    "placeholder": "Type a command... (help)",
+    "welcome": "Welcome to the portfolio terminal. Type \"help\" to see the available commands.",
+    "notFound": "command not found: {{command}}. Type \"help\" to see the available commands.",
+    "empty": "No items found.",
+    "aboutResponse": "Kayo Weiber — Product-minded Full Stack Developer, studying Information Systems at UEMG. Works with React, TypeScript, Node.js and integrations, connecting interface, business logic, and data to solve real problems.",
+    "hireMeResponse": "Availability: open to good opportunities. Use the \"contact\" command to reach me.",
+    "commands": {
+      "help": "lists the available commands",
+      "about": "a summary about me",
+      "projects": "lists the portfolio projects",
+      "skills": "lists the technologies I use",
+      "timeline": "shows my professional journey",
+      "contact": "shows my contact info",
+      "hireMe": "availability for new opportunities"
+    }
+  },
   "hero": {
     "name": "Kayo Weiber",
     "role": "Software Developer",
