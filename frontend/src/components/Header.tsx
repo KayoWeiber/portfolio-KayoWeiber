@@ -53,7 +53,7 @@ const Header: React.FC = () => {
           }
         });
       },
-      { threshold: 0.6 }
+      { rootMargin: "-96px 0px -70% 0px", threshold: 0 }
     );
 
     if (location.pathname === "/") {

@@ -53,7 +53,12 @@
   },
   "timeline": {
     "current": "Current",
-    "ageAt": "age {{age}}",
+    "myAgeAt": "I was {{age}} years old at this milestone",
+    "duration": "Duration: {{duration}}",
+    "years_one": "{{count}} year",
+    "years_other": "{{count}} years",
+    "months_one": "{{count}} month",
+    "months_other": "{{count}} months",
     "milestones": [
       {
         "period": "Sep 2025 — Current",
@@ -75,6 +80,7 @@
       {
         "period": "Aug 2023 — Sep 2025",
         "startDate": "2023-08-01",
+        "endDate": "2025-09-01",
         "title": "Production Operator",
         "organization": "Cervejaria Cidade Imperial",
         "location": "Frutal, Minas Gerais",
@@ -84,6 +90,7 @@
       {
         "period": "Aug 2021 — Aug 2023",
         "startDate": "2021-08-01",
+        "endDate": "2023-08-01",
         "title": "Computer and Mobile Phone Maintenance Technician",
         "organization": "Sos Celulares",
         "location": "Planura, Minas Gerais",
@@ -93,6 +100,7 @@
       {
         "period": "Feb 2021 — Dec 2022",
         "startDate": "2021-02-01",
+        "endDate": "2022-12-01",
         "title": "Technical High School Diploma in Administration, Management and Business",
         "organization": "ETEC - Escola Técnica Estadual de São Paulo",
         "description": "Integrated technical high school program focused on marketing strategy and budget management, the starting point of my technical education.",

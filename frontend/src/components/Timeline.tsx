@@ -4,6 +4,7 @@ import { motion, useInView } from "framer-motion";
 import { FaBriefcase, FaGraduationCap } from "react-icons/fa";
 import type { TimelineMilestone } from "../types/timeline";
 import { BIRTH_DATE, calculateAge } from "../utils/calculateAge";
+import { calculateDurationInMonths } from "../utils/calculateDuration";
 
 const typeStyles = {
   work: "border-sky-400/40 bg-sky-400/10 text-sky-200",
@@ -14,6 +15,18 @@ const Timeline: React.FC = () => {
   const { t } = useTranslation();
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true });
+
+  const formatDuration = (totalMonths: number) => {
+    const years = Math.floor(totalMonths / 12);
+    const months = totalMonths % 12;
+
+    const parts = [
+      years > 0 ? t("timeline.years", { count: years }) : null,
+      months > 0 ? t("timeline.months", { count: months }) : null,
+    ].filter(Boolean);
+
+    return parts.length > 0 ? parts.join(" ") : t("timeline.months", { count: 0 });
+  };
 
   const milestones = t("timeline.milestones", { returnObjects: true }) as TimelineMilestone[];
   const safeMilestones = Array.isArray(milestones) ? milestones : [];
@@ -32,7 +45,10 @@ const Timeline: React.FC = () => {
           const isCurrent = milestone.period.toLowerCase().includes(
             t("timeline.current").toLowerCase()
           );
-          const ageAtMilestone = calculateAge(BIRTH_DATE, new Date(milestone.startDate));
+          const startDate = new Date(milestone.startDate);
+          const endDate = milestone.endDate ? new Date(milestone.endDate) : new Date();
+          const ageAtMilestone = calculateAge(BIRTH_DATE, startDate);
+          const durationLabel = formatDuration(calculateDurationInMonths(startDate, endDate));
 
           return (
             <motion.li
@@ -55,7 +71,7 @@ const Timeline: React.FC = () => {
                   </span>
 
                   <span className="text-xs font-medium text-slate-500">
-                    · {t("timeline.ageAt", { age: ageAtMilestone })}
+                    · {t("timeline.duration", { duration: durationLabel })}
                   </span>
 
                   {isCurrent && (
@@ -74,6 +90,10 @@ const Timeline: React.FC = () => {
 
                 <p className="mt-2 text-sm leading-6 text-slate-400">
                   {milestone.description}
+                </p>
+
+                <p className="mt-3 text-xs font-medium text-slate-500">
+                  {t("timeline.myAgeAt", { age: ageAtMilestone })}
                 </p>
               </div>
             </motion.li>
