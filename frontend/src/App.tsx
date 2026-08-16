@@ -11,7 +11,6 @@ import Courses from "./components/Courses";
 import NotFound from "./components/NotFound";
 import Terminal from "./components/Terminal";
 import KonamiEasterEgg from "./components/KonamiEasterEgg";
-import CustomCursor from "./components/CustomCursor";
 import ScrollToHashElement from "./utils/ScrollToHashElement";
 import { useKonamiCode } from "./hooks/useKonamiCode";
 
@@ -44,7 +43,6 @@ function App() {
           </main>
           <Footer />
           <Terminal />
-          <CustomCursor />
           {isKonamiActive && <KonamiEasterEgg onDismiss={dismissKonami} />}
         </div>
       </Router>
