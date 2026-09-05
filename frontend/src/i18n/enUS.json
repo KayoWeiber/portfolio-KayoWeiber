@@ -62,6 +62,188 @@
       "courses": "Courses and certifications"
     }
   },
+  "resumeBuilder": {
+    "metaTitle": "Resume Builder - Kayo Weiber",
+    "metaDescription": "Create, preview, and download your resume as a PDF for free. Your data stays in your browser.",
+    "eyebrow": "Free tool",
+    "title": "Create your professional resume",
+    "description": "Complete it step by step, preview the result live, and download a PDF ready for job applications.",
+    "backHome": "Back to portfolio",
+    "privacy": "Privacy: your data and photo remain in this browser and are never sent to a server.",
+    "clearConfirmation": "Permanently delete all resume data stored in this browser?",
+    "downloadError": "The PDF could not be generated. Review your information and try again.",
+    "mobile": { "form": "Edit", "preview": "Preview" },
+    "preview": { "title": "Resume preview" },
+    "saveStatus": { "saved": "Saved locally", "saving": "Saving...", "error": "Save failed" },
+    "steps": {
+      "label": "Resume steps",
+      "personal": "Profile",
+      "experience": "Experience",
+      "education": "Education",
+      "skills": "Skills",
+      "extras": "Courses and projects",
+      "settings": "Template and review"
+    },
+    "actions": {
+      "add": "Add",
+      "remove": "Delete",
+      "removeItem": "Remove {{item}}",
+      "moveUp": "Move up",
+      "moveDown": "Move down",
+      "addLink": "Add link",
+      "addExperience": "Add experience",
+      "addEducation": "Add education",
+      "addLanguage": "Add language",
+      "addCourse": "Add course or certification",
+      "addProject": "Add project",
+      "previous": "Previous",
+      "next": "Continue",
+      "clear": "Clear data",
+      "download": "Download resume PDF",
+      "generating": "Generating PDF..."
+    },
+    "personal": {
+      "title": "Personal information",
+      "description": "Start with the essential details that will appear in your resume header.",
+      "otherLinks": "Other links",
+      "summaryHint": "Introduce your field, experience, specialties, and key strengths in a few lines."
+    },
+    "photo": {
+      "title": "Professional photo (optional)",
+      "description": "JPG, PNG, or WebP up to 8 MB. The image is resized and compressed before being stored locally.",
+      "add": "Add photo",
+      "change": "Change photo",
+      "remove": "Remove photo",
+      "previewAlt": "Resume photo preview",
+      "errors": {
+        "invalidType": "Choose a JPG, PNG, or WebP image.",
+        "tooLarge": "The image must be no larger than 8 MB.",
+        "processing": "This image could not be processed. Try another photo."
+      }
+    },
+    "experience": {
+      "title": "Professional experience",
+      "description": "Add roles from newest to oldest and highlight measurable outcomes.",
+      "empty": "No experience added. You can create a resume without professional experience.",
+      "item": "Experience {{number}}"
+    },
+    "education": {
+      "title": "Education",
+      "description": "Include degrees, technical programs, and other relevant education.",
+      "empty": "No education added.",
+      "item": "Education {{number}}"
+    },
+    "skills": {
+      "title": "Skills and languages",
+      "description": "Add technical knowledge, tools, and strengths relevant to your field.",
+      "hint": "Type a skill and press Enter, comma, or the Add button."
+    },
+    "languages": { "title": "Languages", "description": "List the languages you know and your current level." },
+    "courses": {
+      "title": "Courses and certifications",
+      "description": "Prioritize recent training or credentials directly related to your target roles.",
+      "item": "Course or certification {{number}}"
+    },
+    "projects": {
+      "title": "Projects",
+      "description": "Optional section for personal, academic, or professional projects that strengthen your profile.",
+      "item": "Project {{number}}"
+    },
+    "settings": {
+      "title": "Template and review",
+      "description": "Choose the document style and which optional sections should be displayed.",
+      "photo": "Photo settings",
+      "includePhoto": "Show photo on resume",
+      "sections": "Optional sections"
+    },
+    "templates": {
+      "professional": { "name": "Professional", "description": "Traditional structure suitable for corporate hiring." },
+      "modern": { "name": "Modern", "description": "Two columns, visual contrast, and contemporary organization." },
+      "minimal": { "name": "Minimal", "description": "Few visual elements with maximum focus on content." }
+    },
+    "photoSizes": { "small": "Small", "medium": "Medium", "large": "Large" },
+    "fields": {
+      "fullName": "Full name",
+      "professionalTitle": "Target role or professional title",
+      "email": "Email",
+      "phone": "Phone",
+      "location": "City and state",
+      "website": "Website or portfolio",
+      "summary": "Professional summary",
+      "company": "Company",
+      "role": "Role",
+      "startDate": "Start date",
+      "endDate": "End date",
+      "currentJob": "I currently work here",
+      "currentEducation": "Currently studying",
+      "description": "Description",
+      "optionalDescription": "Description (optional)",
+      "responsibilities": "Key responsibilities",
+      "results": "Relevant results",
+      "technologies": "Technologies used",
+      "institution": "Institution",
+      "course": "Program or course",
+      "degreeType": "Degree type",
+      "skills": "Skills",
+      "certificationName": "Course or certification name",
+      "date": "Date",
+      "workload": "Course hours",
+      "credentialUrl": "Credential link",
+      "projectName": "Project name",
+      "projectUrl": "Project link",
+      "repositoryUrl": "Repository link"
+    },
+    "placeholders": {
+      "fullName": "Your full name",
+      "professionalTitle": "E.g. Full Stack Developer",
+      "location": "E.g. Austin, TX",
+      "linkLabel": "Link name",
+      "summary": "E.g. Developer experienced in web applications, specializing in...",
+      "company": "Company name",
+      "role": "Your role",
+      "experienceDescription": "Describe your role and core activities.",
+      "responsibilities": "One responsibility per line",
+      "results": "E.g. Reduced processing time by 30%",
+      "skill": "E.g. JavaScript",
+      "institution": "Institution name",
+      "course": "E.g. Information Systems",
+      "degreeType": "E.g. Bachelor's, Technical",
+      "educationDescription": "Relevant additional information",
+      "language": "E.g. English",
+      "certificationName": "E.g. AWS Cloud Foundations",
+      "workload": "E.g. 20 hours",
+      "projectName": "Project name",
+      "projectDescription": "Explain the problem, solution, and your contribution."
+    },
+    "hints": { "separateLines": "Place each different item on a separate line." },
+    "validation": {
+      "fullName": "Enter your full name.",
+      "professionalTitle": "Enter your target role or professional title.",
+      "email": "Enter a valid email.",
+      "required": "Enter your name, professional title, and a valid email before generating the PDF."
+    },
+    "languageLevels": { "basic": "Basic", "intermediate": "Intermediate", "advanced": "Advanced", "fluent": "Fluent", "native": "Native" },
+    "documentSections": {
+      "contact": "Contact",
+      "summary": "Professional profile",
+      "experience": "Professional experience",
+      "education": "Education",
+      "courses": "Courses and certifications",
+      "skills": "Skills",
+      "languages": "Languages",
+      "projects": "Projects"
+    },
+    "document": { "current": "Current", "present": "Present", "responsibilities": "Responsibilities", "results": "Results", "technologies": "Technologies" },
+    "content": {
+      "title": "Estimated length",
+      "comfortable": "Comfortable",
+      "attention": "Attention",
+      "overflow": "Long content",
+      "comfortableDescription": "The content should comfortably fit one page in most templates.",
+      "attentionDescription": "The resume is getting dense. Review long text or hide less important sections.",
+      "overflowDescription": "The document may generate additional pages. No content will be silently cut."
+    }
+  },
   "About": {
     "subtitle": "About Me",
     "locationLabel": "Location",
@@ -159,6 +341,7 @@
     "portfolio": "Portfolio",
     "contact": "Contact",
     "courses": "Courses",
+    "resumeBuilder": "Create CV",
     "mainMenu": "Main menu",
     "mobileMenu": "Mobile menu",
     "openMenu": "Open menu",
