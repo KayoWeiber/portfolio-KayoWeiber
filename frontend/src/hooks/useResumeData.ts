@@ -55,9 +55,6 @@ export const useResumeData = (): ResumeData => {
     const milestones = Array.isArray(translatedMilestones) ? translatedMilestones : [];
     const projects = Array.isArray(translatedProjects) ? translatedProjects : [];
     const courses = Array.isArray(translatedCourses) ? translatedCourses : [];
-    const location = milestones.find(
-      (milestone) => milestone.type === "work" && milestone.location
-    )?.location;
     const avatarUrl = new URL(
       profileInfo.avatarPath.replace(/^\//, ""),
       `${window.location.origin}${import.meta.env.BASE_URL}`
@@ -81,7 +78,7 @@ export const useResumeData = (): ResumeData => {
           )} ${t("About.p2")}`,
           430
         ),
-        location,
+        location: profileInfo.location,
       },
       contacts: [
         {

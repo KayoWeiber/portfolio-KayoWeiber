@@ -64,6 +64,7 @@
   },
   "About": {
     "subtitle": "Sobre Mim",
+    "locationLabel": "Localização",
     "title": "Desenvolvedor Full Stack orientado a produto",
     "p1": "Sou <1>Kayo Weiber</1>, tenho {{age}} anos e curso Sistemas de Informação na UEMG. Trabalho criando soluções digitais que unem interface, regra de negócio e dados para resolver problemas reais.",
     "p2": "Minha base passa por suporte técnico, manutenção de computadores e desenvolvimento de software. Essa combinação me ajuda a enxergar o sistema inteiro: da experiência do usuário até a integração com APIs, banco de dados e automações.",
