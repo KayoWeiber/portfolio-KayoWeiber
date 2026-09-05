@@ -1,7 +1,15 @@
 import { useTranslation, Trans } from "react-i18next";
 import { motion, easeInOut } from "framer-motion";
 import type { IconType } from "react-icons";
-import { FaBolt, FaCode, FaLaptopCode, FaLayerGroup, FaServer } from "react-icons/fa";
+import {
+  FaBolt,
+  FaCode,
+  FaLaptopCode,
+  FaLayerGroup,
+  FaMapMarkerAlt,
+  FaServer,
+} from "react-icons/fa";
+import { profileInfo } from "../data/profile";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -62,10 +70,17 @@ const AboutIntro = ({ age }: { age: number }) => {
 
   return (
     <motion.div variants={itemVariants} className="space-y-8">
-      <span className="inline-flex items-center gap-2 rounded-full border border-sky-300/30 bg-sky-300/10 px-4 py-2 text-sm font-semibold uppercase tracking-[0.28em] text-sky-200">
-        <FaLayerGroup className="text-emerald-300" />
-        {t("About.subtitle")}
-      </span>
+      <div className="flex flex-wrap items-center gap-3">
+        <span className="inline-flex items-center gap-2 rounded-full border border-sky-300/30 bg-sky-300/10 px-4 py-2 text-sm font-semibold uppercase tracking-[0.28em] text-sky-200">
+          <FaLayerGroup className="text-emerald-300" />
+          {t("About.subtitle")}
+        </span>
+        <span className="inline-flex items-center gap-2 rounded-full border border-slate-600/70 bg-slate-900/60 px-4 py-2 text-sm font-medium text-slate-300">
+          <FaMapMarkerAlt className="text-sky-300" aria-hidden="true" />
+          <span className="sr-only">{t("About.locationLabel")}:</span>
+          {profileInfo.location}
+        </span>
+      </div>
 
       <h2 className="max-w-3xl text-4xl md:text-5xl xl:text-6xl font-bold text-white leading-tight">
         <Trans i18nKey="About.title">

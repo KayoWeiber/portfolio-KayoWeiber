@@ -46,8 +46,25 @@
     "contactMe": "Contact me",
     "avatarAlt": "Profile photo of Kayo Weiber"
   },
+  "resume": {
+    "download": "Download résumé",
+    "generating": "Generating PDF...",
+    "error": "The résumé could not be generated. Please try again.",
+    "website": "Portfolio",
+    "location": "Location",
+    "sections": {
+      "profile": "Professional profile",
+      "contacts": "Contact",
+      "experience": "Professional experience",
+      "education": "Education",
+      "skills": "Technical skills",
+      "projects": "Selected projects",
+      "courses": "Courses and certifications"
+    }
+  },
   "About": {
     "subtitle": "About Me",
+    "locationLabel": "Location",
     "title": "Product-minded Full Stack Developer",
     "p1": "I'm <1>Kayo Weiber</1>, {{age}} years old, and I study Information Systems at UEMG. I build digital solutions that connect interface, business logic, and data to solve real problems.",
     "p2": "My foundation spans technical support, computer maintenance, and software development. That combination helps me understand the whole system, from user experience to API integrations, databases, and automations.",

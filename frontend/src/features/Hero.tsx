@@ -3,6 +3,9 @@ import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { useTypingEffect } from "../hooks/useTypingEffect";
+import { contactInfo } from "../data/contactLinks";
+import { profileInfo } from "../data/profile";
+import DownloadResumeButton from "../components/DownloadResumeButton";
 
 const Hero: React.FC = () => {
   const { t } = useTranslation();
@@ -21,7 +24,7 @@ const Hero: React.FC = () => {
           className="text-5xl md:text-7xl font-extrabold text-white mb-1 text-left"
           style={{ fontFamily: "'Montserrat', sans-serif" }}
         >
-          Kayo Weiber,
+          {t("hero.name")},
         </h1>
         <h2
           className="text-3xl md:text-4xl font-semibold text-sky-100 h-12 mb-1 text-left"
@@ -44,11 +47,12 @@ const Hero: React.FC = () => {
           >
             {t("hero.contactMe")}
           </Link>
+          <DownloadResumeButton />
         </div>
 
         <div className="flex gap-4 mt-2">
           <a
-            href="https://www.linkedin.com/in/kayo-weiber-134067280/"
+            href={contactInfo.linkedinUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="text-sky-300 hover:text-sky-200 transition text-3xl"
@@ -57,7 +61,7 @@ const Hero: React.FC = () => {
             <FaLinkedin />
           </a>
           <a
-            href="https://github.com/KayoWeiber"
+            href={contactInfo.githubUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="text-sky-300 hover:text-sky-200 transition text-3xl"
@@ -72,7 +76,7 @@ const Hero: React.FC = () => {
         <div className="relative">
           <div className="w-56 h-56 md:w-80 md:h-80 rounded-full bg-gradient-to-br from-sky-800 via-blue-600 to-teal-300 animate-float-y shadow-2xl flex items-center justify-center transition-transform duration-700">
             <img
-              src="/Avatar.jpg"
+              src={profileInfo.avatarPath}
               alt={t("hero.avatarAlt")}
               loading="eager"
               width={256}
