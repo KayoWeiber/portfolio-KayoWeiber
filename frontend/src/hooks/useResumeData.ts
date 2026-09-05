@@ -67,7 +67,7 @@ export const useResumeData = (): ResumeData => {
       title: milestone.title,
       organization: milestone.organization,
       period: milestone.period,
-      description: compactText(milestone.description, index === 0 ? 230 : 155),
+      description: compactText(milestone.description, index === 0 ? 300 : 230),
     });
 
     return {
@@ -76,8 +76,10 @@ export const useResumeData = (): ResumeData => {
         role: t("hero.role"),
         avatarUrl,
         summary: compactText(
-          removeTranslationMarkup(t("About.p1", { age: calculateAge(BIRTH_DATE) })),
-          260
+          `${removeTranslationMarkup(
+            t("About.p1", { age: calculateAge(BIRTH_DATE) })
+          )} ${t("About.p2")}`,
+          430
         ),
         location,
       },
@@ -112,17 +114,17 @@ export const useResumeData = (): ResumeData => {
         .slice(0, 2)
         .map((milestone, index) => ({
           ...toResumeEntry(milestone, index),
-          description: compactText(milestone.description, 115),
+          description: compactText(milestone.description, 190),
         })),
-      skills: technologies.slice(0, 14).map((technology) => technology.name),
-      projects: projects.slice(0, 2).map((project) => ({
+      skills: technologies.map((technology) => technology.name),
+      projects: projects.slice(0, 3).map((project) => ({
         title: project.title,
-        description: compactText(project.description, 125),
-        technologies: project.technologies?.slice(0, 5) ?? [],
+        description: compactText(project.description, 180),
+        technologies: project.technologies?.slice(0, 6) ?? [],
         href: project.demoLink || project.sourceLink || project.link,
       })),
-      courses: selectDiverseCourses(courses, 4).map((course) =>
-        compactText(course.title, 62)
+      courses: selectDiverseCourses(courses, 7).map((course) =>
+        compactText(course.title, 72)
       ),
       labels: {
         profile: t("resume.sections.profile"),
