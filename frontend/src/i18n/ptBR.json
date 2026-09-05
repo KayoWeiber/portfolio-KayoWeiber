@@ -46,6 +46,22 @@
     "contactMe": "Entrar em contato",
     "avatarAlt": "Foto de perfil de Kayo Weiber"
   },
+  "resume": {
+    "download": "Baixar currículo",
+    "generating": "Gerando PDF...",
+    "error": "Não foi possível gerar o currículo. Tente novamente.",
+    "website": "Portfólio",
+    "location": "Localização",
+    "sections": {
+      "profile": "Perfil profissional",
+      "contacts": "Contatos",
+      "experience": "Experiência profissional",
+      "education": "Formação acadêmica",
+      "skills": "Conhecimentos técnicos",
+      "projects": "Projetos relevantes",
+      "courses": "Cursos e certificações"
+    }
+  },
   "About": {
     "subtitle": "Sobre Mim",
     "title": "Desenvolvedor Full Stack orientado a produto",

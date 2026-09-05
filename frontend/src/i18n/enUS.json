@@ -46,6 +46,22 @@
     "contactMe": "Contact me",
     "avatarAlt": "Profile photo of Kayo Weiber"
   },
+  "resume": {
+    "download": "Download résumé",
+    "generating": "Generating PDF...",
+    "error": "The résumé could not be generated. Please try again.",
+    "website": "Portfolio",
+    "location": "Location",
+    "sections": {
+      "profile": "Professional profile",
+      "contacts": "Contact",
+      "experience": "Professional experience",
+      "education": "Education",
+      "skills": "Technical skills",
+      "projects": "Selected projects",
+      "courses": "Courses and certifications"
+    }
+  },
   "About": {
     "subtitle": "About Me",
     "title": "Product-minded Full Stack Developer",
