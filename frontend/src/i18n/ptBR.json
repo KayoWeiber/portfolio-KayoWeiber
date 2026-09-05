@@ -58,8 +58,193 @@
       "experience": "Experiência profissional",
       "education": "Formação acadêmica",
       "skills": "Conhecimentos técnicos",
-      "projects": "Projetos relevantes",
+      "projects": "Projetos pessoais relevantes",
       "courses": "Cursos e certificações"
+    }
+  },
+  "resumeBuilder": {
+    "metaTitle": "Criador de Currículos - Kayo Weiber",
+    "metaDescription": "Crie, visualize e baixe gratuitamente seu currículo em PDF. Seus dados permanecem somente no navegador.",
+    "eyebrow": "Ferramenta gratuita",
+    "title": "Crie seu currículo profissional",
+    "description": "Preencha por etapas, acompanhe o resultado em tempo real e baixe um PDF pronto para processos seletivos.",
+    "backHome": "Voltar ao portfólio",
+    "privacy": "Privacidade: seus dados e sua foto ficam somente neste navegador e não são enviados para servidores.",
+    "clearConfirmation": "Deseja apagar permanentemente todos os dados deste currículo armazenados no navegador?",
+    "downloadError": "Não foi possível gerar o PDF. Revise os dados e tente novamente.",
+    "mobile": { "form": "Editar", "preview": "Visualizar" },
+    "preview": { "title": "Pré-visualização do currículo" },
+    "saveStatus": { "saved": "Salvo localmente", "saving": "Salvando...", "error": "Falha ao salvar" },
+    "steps": {
+      "label": "Etapas do currículo",
+      "personal": "Perfil",
+      "experience": "Experiência",
+      "education": "Formação",
+      "skills": "Competências",
+      "extras": "Cursos e projetos",
+      "settings": "Modelo e revisão"
+    },
+    "actions": {
+      "add": "Adicionar",
+      "remove": "Excluir",
+      "removeItem": "Remover {{item}}",
+      "moveUp": "Mover para cima",
+      "moveDown": "Mover para baixo",
+      "addLink": "Adicionar link",
+      "addExperience": "Adicionar experiência",
+      "addEducation": "Adicionar formação",
+      "addLanguage": "Adicionar idioma",
+      "addCourse": "Adicionar curso ou certificação",
+      "addProject": "Adicionar projeto",
+      "previous": "Anterior",
+      "next": "Continuar",
+      "clear": "Limpar dados",
+      "download": "Baixar currículo em PDF",
+      "generating": "Gerando PDF..."
+    },
+    "personal": {
+      "title": "Informações pessoais",
+      "description": "Comece pelos dados essenciais que aparecerão no cabeçalho do currículo.",
+      "otherLinks": "Outros links",
+      "summaryHint": "Apresente sua área, experiência, especialidades e principais competências em poucas linhas."
+    },
+    "photo": {
+      "title": "Foto profissional (opcional)",
+      "description": "JPG, PNG ou WebP de até 8 MB. A imagem será redimensionada e comprimida antes de ser salva localmente.",
+      "add": "Adicionar foto",
+      "change": "Alterar foto",
+      "remove": "Remover foto",
+      "previewAlt": "Prévia da foto do currículo",
+      "errors": {
+        "invalidType": "Escolha uma imagem JPG, PNG ou WebP.",
+        "tooLarge": "A imagem deve ter no máximo 8 MB.",
+        "processing": "Não foi possível processar esta imagem. Tente outra foto."
+      }
+    },
+    "experience": {
+      "title": "Experiência profissional",
+      "description": "Adicione suas experiências da mais recente para a mais antiga e destaque resultados concretos.",
+      "empty": "Nenhuma experiência adicionada. Você pode criar um currículo sem experiência profissional.",
+      "item": "Experiência {{number}}"
+    },
+    "education": {
+      "title": "Formação acadêmica",
+      "description": "Inclua graduações, cursos técnicos e outras formações acadêmicas relevantes.",
+      "empty": "Nenhuma formação adicionada.",
+      "item": "Formação {{number}}"
+    },
+    "skills": {
+      "title": "Competências e idiomas",
+      "description": "Adicione conhecimentos técnicos, ferramentas e competências relevantes para sua área.",
+      "hint": "Digite uma competência e pressione Enter, vírgula ou o botão Adicionar."
+    },
+    "languages": {
+      "title": "Idiomas",
+      "description": "Informe os idiomas que conhece e o nível atual."
+    },
+    "courses": {
+      "title": "Cursos e certificações",
+      "description": "Priorize formações recentes ou diretamente relacionadas às vagas desejadas.",
+      "item": "Curso ou certificação {{number}}"
+    },
+    "projects": {
+      "title": "Projetos",
+      "description": "Seção opcional para projetos pessoais, acadêmicos ou profissionais que fortaleçam seu perfil.",
+      "item": "Projeto {{number}}"
+    },
+    "settings": {
+      "title": "Modelo e revisão",
+      "description": "Escolha a apresentação do documento e decida quais seções opcionais serão exibidas.",
+      "photo": "Configuração da foto",
+      "includePhoto": "Exibir foto no currículo",
+      "sections": "Seções opcionais"
+    },
+    "templates": {
+      "professional": { "name": "Profissional", "description": "Estrutura tradicional e adequada a processos corporativos." },
+      "modern": { "name": "Moderno", "description": "Duas colunas, contraste visual e organização contemporânea." },
+      "minimal": { "name": "Minimalista", "description": "Poucos elementos e foco máximo no conteúdo." }
+    },
+    "photoSizes": { "small": "Pequena", "medium": "Média", "large": "Grande" },
+    "fields": {
+      "fullName": "Nome completo",
+      "professionalTitle": "Cargo desejado ou título profissional",
+      "email": "E-mail",
+      "phone": "Telefone",
+      "location": "Cidade e estado",
+      "website": "Site ou portfólio",
+      "summary": "Resumo profissional",
+      "company": "Empresa",
+      "role": "Cargo",
+      "startDate": "Data inicial",
+      "endDate": "Data final",
+      "currentJob": "Trabalho atualmente aqui",
+      "currentEducation": "Formação em andamento",
+      "description": "Descrição",
+      "optionalDescription": "Descrição (opcional)",
+      "responsibilities": "Principais responsabilidades",
+      "results": "Resultados relevantes",
+      "technologies": "Tecnologias utilizadas",
+      "institution": "Instituição",
+      "course": "Curso",
+      "degreeType": "Tipo de formação",
+      "skills": "Competências",
+      "certificationName": "Nome do curso ou certificação",
+      "date": "Data",
+      "workload": "Carga horária",
+      "credentialUrl": "Link da certificação",
+      "projectName": "Nome do projeto",
+      "projectUrl": "Link do projeto",
+      "repositoryUrl": "Link do repositório"
+    },
+    "placeholders": {
+      "fullName": "Seu nome completo",
+      "professionalTitle": "Ex.: Desenvolvedor Full Stack",
+      "location": "Ex.: Belo Horizonte, MG",
+      "linkLabel": "Nome do link",
+      "summary": "Ex.: Desenvolvedor com experiência em aplicações web, especializado em...",
+      "company": "Nome da empresa",
+      "role": "Seu cargo",
+      "experienceDescription": "Contextualize sua atuação e as principais atividades.",
+      "responsibilities": "Uma responsabilidade por linha",
+      "results": "Ex.: Reduzi o tempo do processo em 30%",
+      "skill": "Ex.: JavaScript",
+      "institution": "Nome da instituição",
+      "course": "Ex.: Sistemas de Informação",
+      "degreeType": "Ex.: Bacharelado, Técnico",
+      "educationDescription": "Informações adicionais relevantes",
+      "language": "Ex.: Inglês",
+      "certificationName": "Ex.: AWS Cloud Foundations",
+      "workload": "Ex.: 20 horas",
+      "projectName": "Nome do projeto",
+      "projectDescription": "Explique o problema, a solução e sua contribuição."
+    },
+    "hints": { "separateLines": "Separe itens diferentes usando uma linha para cada um." },
+    "validation": {
+      "fullName": "Informe seu nome completo.",
+      "professionalTitle": "Informe seu objetivo ou título profissional.",
+      "email": "Informe um e-mail válido.",
+      "required": "Preencha nome, título profissional e um e-mail válido antes de gerar o PDF."
+    },
+    "languageLevels": { "basic": "Básico", "intermediate": "Intermediário", "advanced": "Avançado", "fluent": "Fluente", "native": "Nativo" },
+    "documentSections": {
+      "contact": "Contato",
+      "summary": "Perfil profissional",
+      "experience": "Experiência profissional",
+      "education": "Formação acadêmica",
+      "courses": "Cursos e certificações",
+      "skills": "Competências",
+      "languages": "Idiomas",
+      "projects": "Projetos"
+    },
+    "document": { "current": "Atual", "present": "Atual", "responsibilities": "Responsabilidades", "results": "Resultados", "technologies": "Tecnologias" },
+    "content": {
+      "title": "Ocupação estimada",
+      "comfortable": "Confortável",
+      "attention": "Atenção",
+      "overflow": "Conteúdo extenso",
+      "comfortableDescription": "O conteúdo deve caber confortavelmente em uma página na maioria dos modelos.",
+      "attentionDescription": "O currículo está ficando denso. Revise textos longos ou oculte seções menos importantes.",
+      "overflowDescription": "O documento pode gerar páginas adicionais. Nenhum conteúdo será cortado silenciosamente."
     }
   },
   "About": {
@@ -159,6 +344,7 @@
     "portfolio": "Portfólio",
     "contact": "Contato",
     "courses": "Cursos",
+    "resumeBuilder": "Criar CV",
     "mainMenu": "Menu principal",
     "mobileMenu": "Menu mobile",
     "openMenu": "Abrir menu",

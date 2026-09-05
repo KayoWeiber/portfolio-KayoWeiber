@@ -1,3 +1,4 @@
+import { lazy, Suspense } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { MotionConfig } from "framer-motion";
 import Header from "./components/Header";
@@ -13,6 +14,8 @@ import Terminal from "./components/Terminal";
 import KonamiEasterEgg from "./components/KonamiEasterEgg";
 import ScrollToHashElement from "./utils/ScrollToHashElement";
 import { useKonamiCode } from "./hooks/useKonamiCode";
+
+const ResumeBuilderPage = lazy(() => import("./resume-builder/pages/ResumeBuilderPage"));
 
 function App() {
   const { isActive: isKonamiActive, dismiss: dismissKonami } = useKonamiCode();
@@ -38,6 +41,14 @@ function App() {
                 }
               />
               <Route path="/cursos" element={<Courses />} />
+              <Route
+                path="/criar-curriculo"
+                element={
+                  <Suspense fallback={<div className="min-h-screen bg-slate-950" />}>
+                    <ResumeBuilderPage />
+                  </Suspense>
+                }
+              />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </main>

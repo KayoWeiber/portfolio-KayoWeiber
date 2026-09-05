@@ -5,4 +5,5 @@ export const navLinks = [
   { href: "/#portfolio", label: "Portfolio", translationKey: "nav.portfolio" },
   { href: "/#contact", label: "Contact", translationKey: "nav.contact" },
   { href: "/cursos", label: "Courses", translationKey: "nav.courses" },
+  { href: "/criar-curriculo", label: "ResumeBuilder", translationKey: "nav.resumeBuilder" },
 ] as const;

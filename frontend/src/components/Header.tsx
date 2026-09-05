@@ -139,7 +139,7 @@ const Header: React.FC = () => {
         </button>
 
         <nav
-          className="hidden md:flex items-center gap-7"
+          className="hidden lg:flex items-center gap-5 xl:gap-7"
           aria-label={t("nav.mainMenu")}
         >
           {navLinks.map((link) =>
@@ -190,11 +190,11 @@ const Header: React.FC = () => {
           )}
         </nav>
 
-        <LanguageToggle className="hidden md:flex" />
+        <LanguageToggle className="hidden lg:flex" />
 
         <button
           type="button"
-          className="md:hidden text-white hover:text-sky-300 transition text-3xl ml-2 p-2 z-[999]"
+          className="lg:hidden text-white hover:text-sky-300 transition text-3xl ml-2 p-2 z-[999]"
           aria-label={mobileMenuOpen ? t("nav.closeMenu") : t("nav.openMenu")}
           aria-expanded={mobileMenuOpen}
           onClick={handleMobileMenuToggle}
@@ -237,7 +237,7 @@ const Header: React.FC = () => {
 
       {mobileMenuOpen && (
         <nav
-          className="absolute top-full left-0 w-full bg-slate-950 shadow-lg md:hidden z-40 transition-all"
+          className="absolute top-full left-0 w-full bg-slate-950 shadow-lg lg:hidden z-40 transition-all"
           aria-label={t("nav.mobileMenu")}
         >
           <div className="flex flex-col gap-2 px-6 py-4">
