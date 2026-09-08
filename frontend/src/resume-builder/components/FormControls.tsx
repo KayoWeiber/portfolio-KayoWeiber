@@ -1,7 +1,7 @@
 import type { InputHTMLAttributes, TextareaHTMLAttributes } from "react";
 
 const inputClass =
-  "w-full rounded-lg border border-slate-700 bg-slate-950/70 px-3.5 py-3 text-sm text-white outline-none transition placeholder:text-slate-500 focus:border-sky-400 focus:ring-2 focus:ring-sky-400/20";
+  "min-w-0 w-full rounded-lg border border-slate-700 bg-slate-950/70 px-3.5 py-3 text-sm text-white outline-none transition placeholder:text-slate-500 focus:border-sky-400 focus:ring-2 focus:ring-sky-400/20";
 
 interface FieldProps {
   label: string;
@@ -11,7 +11,7 @@ interface FieldProps {
 }
 
 export const Field = ({ label, hint, error, children }: FieldProps) => (
-  <label className="block">
+  <label className="block min-w-0">
     <span className="mb-2 block text-sm font-semibold text-slate-200">{label}</span>
     {children}
     {error ? (

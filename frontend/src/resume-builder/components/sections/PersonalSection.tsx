@@ -61,7 +61,7 @@ export const PersonalSection = ({ data, setData }: ResumeSectionProps) => {
       </div>
 
       <div className="mt-7">
-        <div className="mb-3 flex items-center justify-between gap-3">
+        <div className="mb-3 flex flex-wrap items-center justify-between gap-3">
           <h3 className="font-bold text-white">{t("resumeBuilder.personal.otherLinks")}</h3>
           <button type="button" onClick={() => updatePersonal("links", [...data.personal.links, createLink()])} className="inline-flex items-center gap-2 text-sm font-semibold text-sky-300 hover:text-sky-200">
             <FaPlus aria-hidden="true" /> {t("resumeBuilder.actions.addLink")}
@@ -69,10 +69,10 @@ export const PersonalSection = ({ data, setData }: ResumeSectionProps) => {
         </div>
         <div className="space-y-3">
           {data.personal.links.map((link) => (
-            <div key={link.id} className="grid grid-cols-[1fr_1.6fr_auto] gap-2">
+            <div key={link.id} className="grid min-w-0 grid-cols-[minmax(0,1fr)_auto] gap-2 sm:grid-cols-[minmax(0,1fr)_minmax(0,1.6fr)_auto]">
               <TextInput value={link.label} onChange={(event) => updatePersonal("links", data.personal.links.map((item) => item.id === link.id ? { ...item, label: event.target.value } : item))} placeholder={t("resumeBuilder.placeholders.linkLabel")} />
-              <TextInput type="url" value={link.url} onChange={(event) => updatePersonal("links", data.personal.links.map((item) => item.id === link.id ? { ...item, url: event.target.value } : item))} placeholder="https://" />
-              <button type="button" onClick={() => updatePersonal("links", data.personal.links.filter((item) => item.id !== link.id))} className="rounded-lg px-3 text-slate-400 hover:bg-red-400/10 hover:text-red-300" aria-label={t("resumeBuilder.actions.remove")}><FaTrash /></button>
+              <TextInput type="url" value={link.url} onChange={(event) => updatePersonal("links", data.personal.links.map((item) => item.id === link.id ? { ...item, url: event.target.value } : item))} placeholder="https://" className="col-span-2 row-start-2 sm:col-span-1 sm:row-start-auto" />
+              <button type="button" onClick={() => updatePersonal("links", data.personal.links.filter((item) => item.id !== link.id))} className="row-start-1 min-h-11 rounded-lg px-3 text-slate-400 hover:bg-red-400/10 hover:text-red-300 sm:row-start-auto" aria-label={t("resumeBuilder.actions.remove")}><FaTrash /></button>
             </div>
           ))}
         </div>

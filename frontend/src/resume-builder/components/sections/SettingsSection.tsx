@@ -33,7 +33,7 @@ export const SettingsSection = ({ data, setData }: ResumeSectionProps) => {
         <div>
           <h3 className="font-bold text-white">{t("resumeBuilder.settings.photo")}</h3>
           <label className="mt-4 flex items-center gap-3 text-sm text-slate-300"><input type="checkbox" checked={data.settings.includePhoto} onChange={(event) => updateSettings({ includePhoto: event.target.checked })} className="h-4 w-4 accent-sky-400" />{t("resumeBuilder.settings.includePhoto")}</label>
-          <div className="mt-4 flex gap-2">
+          <div className="mt-4 flex flex-wrap gap-2">
             {(["small", "medium", "large"] as PhotoSize[]).map((size) => <button key={size} type="button" onClick={() => updateSettings({ photoSize: size })} className={`rounded-lg border px-3 py-2 text-xs font-semibold transition ${data.settings.photoSize === size ? "border-sky-300 bg-sky-400/15 text-sky-100" : "border-slate-700 text-slate-400 hover:text-white"}`}>{t(`resumeBuilder.photoSizes.${size}`)}</button>)}
           </div>
         </div>
