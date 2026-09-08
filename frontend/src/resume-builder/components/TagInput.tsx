@@ -22,7 +22,7 @@ export const TagInput = ({ values, onChange, placeholder }: TagInputProps) => {
 
   return (
     <div>
-      <div className="flex gap-2">
+      <div className="flex min-w-0 gap-2">
         <TextInput
           value={value}
           onChange={(event) => setValue(event.target.value)}
@@ -46,8 +46,8 @@ export const TagInput = ({ values, onChange, placeholder }: TagInputProps) => {
       {values.length > 0 && (
         <div className="mt-3 flex flex-wrap gap-2">
           {values.map((item) => (
-            <span key={item} className="inline-flex items-center gap-2 rounded-full border border-sky-400/25 bg-sky-400/10 px-3 py-1.5 text-xs font-semibold text-sky-100">
-              {item}
+            <span key={item} className="inline-flex max-w-full min-w-0 items-center gap-2 rounded-full border border-sky-400/25 bg-sky-400/10 px-3 py-1.5 text-xs font-semibold text-sky-100">
+              <span className="min-w-0 break-all">{item}</span>
               <button
                 type="button"
                 onClick={() => onChange(values.filter((valueItem) => valueItem !== item))}

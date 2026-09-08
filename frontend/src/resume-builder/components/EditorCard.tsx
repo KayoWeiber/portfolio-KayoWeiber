@@ -14,10 +14,10 @@ export const EditorCard = ({ title, index, total, onMove, onRemove, children }: 
   const { t } = useTranslation();
 
   return (
-    <article className="rounded-xl border border-slate-700/80 bg-slate-900/55 p-5 shadow-lg shadow-slate-950/20">
-      <div className="mb-5 flex items-center justify-between gap-3 border-b border-slate-800 pb-4">
-        <h3 className="font-bold text-sky-100">{title}</h3>
-        <div className="flex items-center gap-1">
+    <article className="min-w-0 rounded-xl border border-slate-700/80 bg-slate-900/55 p-3 shadow-lg shadow-slate-950/20 sm:p-5">
+      <div className="mb-5 flex min-w-0 items-start justify-between gap-2 border-b border-slate-800 pb-4 sm:items-center sm:gap-3">
+        <h3 className="min-w-0 break-words pt-2 font-bold text-sky-100 sm:pt-0">{title}</h3>
+        <div className="flex shrink-0 items-center gap-1">
           <button
             type="button"
             onClick={() => onMove(-1)}
