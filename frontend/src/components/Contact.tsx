@@ -13,6 +13,38 @@ import { contactInfo } from "../data/contactLinks";
 
 const CONTACT_API_URL = import.meta.env.VITE_CONTACT_API_URL;
 
+type ContactPayload = {
+  nome: string;
+  email: string;
+  mensagem: string;
+};
+
+async function enviarContato({ nome, email, mensagem }: ContactPayload) {
+  if (!CONTACT_API_URL) {
+    throw new Error("A URL da API de contato não foi configurada.");
+  }
+
+  const response = await fetch(CONTACT_API_URL, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      user_name: nome,
+      user_email: email,
+      message: mensagem,
+    }),
+  });
+
+  const data = await response.json();
+
+  if (!response.ok) {
+    throw new Error(data.error || "Não foi possível enviar a mensagem.");
+  }
+
+  return data;
+}
+
 const Contact: React.FC = () => {
   const form = useRef<HTMLFormElement>(null);
   const { t } = useTranslation();
@@ -23,31 +55,14 @@ const Contact: React.FC = () => {
     if (!form.current) return;
 
     const formData = new FormData(form.current);
-    const data = Object.fromEntries(formData.entries());
+    const nome = String(formData.get("user_name") ?? "");
+    const email = String(formData.get("user_email") ?? "");
+    const mensagem = String(formData.get("message") ?? "");
 
     setStatus("sending");
 
-    if (!CONTACT_API_URL) {
-      setStatus("error");
-      return;
-    }
-
-    const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), 120000);
-
     try {
-      const response = await fetch(CONTACT_API_URL, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-        signal: controller.signal,
-      });
-
-      clearTimeout(timeoutId);
-
-      if (!response.ok) throw new Error("Erro ao enviar");
+      await enviarContato({ nome, email, mensagem });
 
       setStatus("success");
       form.current.reset();
@@ -164,6 +179,7 @@ const Contact: React.FC = () => {
                   placeholder={t("contact.namePlaceholder")}
                   autoComplete="name"
                   required
+                  minLength={2}
                   className="w-full rounded-md border border-sky-500/20 bg-slate-900/90 px-4 py-3 text-white placeholder:text-slate-400 outline-none transition focus:border-sky-300 focus:ring-2 focus:ring-sky-300/30"
                 />
               </div>
@@ -193,6 +209,7 @@ const Contact: React.FC = () => {
                 name="message"
                 placeholder={t("contact.messagePlaceholder")}
                 required
+                minLength={10}
                 className="h-40 w-full resize-none rounded-md border border-sky-500/20 bg-slate-900/90 px-4 py-3 text-white placeholder:text-slate-400 outline-none transition focus:border-sky-300 focus:ring-2 focus:ring-sky-300/30"
               />
             </div>
