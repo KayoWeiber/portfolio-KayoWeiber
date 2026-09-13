@@ -19,6 +19,11 @@ type ContactPayload = {
   mensagem: string;
 };
 
+type ContactResponse = {
+  error?: string;
+  message?: string;
+};
+
 async function enviarContato({ nome, email, mensagem }: ContactPayload) {
   if (!CONTACT_API_URL) {
     throw new Error("A URL da API de contato não foi configurada.");
@@ -36,9 +41,26 @@ async function enviarContato({ nome, email, mensagem }: ContactPayload) {
     }),
   });
 
-  const data = await response.json();
+  const responseText = await response.text();
+  let data: ContactResponse = {};
+
+  if (responseText) {
+    try {
+      data = JSON.parse(responseText) as ContactResponse;
+    } catch {
+      data = { error: responseText };
+    }
+  }
 
   if (!response.ok) {
+    // console.error("Contact API error response:", {
+    //   url: CONTACT_API_URL,
+    //   status: response.status,
+    //   statusText: response.statusText,
+    //   requestId: response.headers.get("x-request-id"),
+    //   response: data,
+    // });
+
     throw new Error(data.error || "Não foi possível enviar a mensagem.");
   }
 
