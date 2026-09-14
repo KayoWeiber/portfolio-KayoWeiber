@@ -36,11 +36,20 @@ jobs:
         working-directory: frontend
         run: npm ci
 
+      - name: Validar configuracao da API de contato
+        env:
+          CONTACT_API_URL: ${{ secrets.VITE_CONTACT_API_URL || vars.VITE_CONTACT_API_URL }}
+        run: |
+          if [ -z "$CONTACT_API_URL" ]; then
+            echo "::error::Configure VITE_CONTACT_API_URL em Actions secrets ou Actions variables."
+            exit 1
+          fi
+
       - name: Gerar build
         working-directory: frontend
         run: npm run build
         env:
-          VITE_CONTACT_API_URL: ${{ vars.VITE_CONTACT_API_URL }}
+          VITE_CONTACT_API_URL: ${{ secrets.VITE_CONTACT_API_URL || vars.VITE_CONTACT_API_URL }}
 
       - name: Enviar build para o GitHub Pages
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
